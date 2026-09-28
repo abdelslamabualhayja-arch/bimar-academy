@@ -668,17 +668,24 @@ html[dir="rtl"] h3 {
 
 @media (min-width: 851px) {
 
+  /* Desktop navbar = three independent zones */
   .bimar-navbar {
-    height: 76px !important;
     position: sticky !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    height: 76px !important;
+    padding: 0 5% !important;
+    direction: ltr !important;
   }
 
-  /* Center navigation independently of the side groups */
+  /* Center zone */
   .bimar-nav-links {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    position: static !important;
+    transform: none !important;
 
     display: flex !important;
     flex-direction: row !important;
@@ -687,83 +694,85 @@ html[dir="rtl"] h3 {
     justify-content: center !important;
 
     width: max-content !important;
-    max-width: none !important;
     height: 40px !important;
+    max-width: none !important;
 
     margin: 0 !important;
     padding: 0 !important;
     gap: 30px !important;
-
     white-space: nowrap !important;
+
+    direction: ltr !important;
   }
 
   .bimar-nav-links .bimar-nav-link {
-    display: flex !important;
+    display: inline-flex !important;
     flex: 0 0 auto !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    height: 40px !important;
     align-items: center !important;
     justify-content: center !important;
-    width: auto !important;
-    min-width: max-content !important;
     white-space: nowrap !important;
+    direction: rtl !important;
   }
 
-  /* LTR: logo left, actions right */
-  html[dir="ltr"] .bimar-brand {
-    position: absolute !important;
-    top: 50% !important;
-    left: 5% !important;
-    right: auto !important;
-    transform: translateY(-50%) !important;
+  /* Brand zone */
+  .bimar-brand {
+    grid-row: 1 !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: max-content !important;
+    max-width: 100% !important;
   }
 
-  html[dir="ltr"] .bimar-nav-actions {
-    position: absolute !important;
-    top: 50% !important;
-    right: 5% !important;
-    left: auto !important;
-    transform: translateY(-50%) !important;
+  /* Actions zone */
+  .bimar-nav-actions {
+    grid-row: 1 !important;
+    position: static !important;
+    transform: none !important;
 
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
+    gap: 10px !important;
+
     width: max-content !important;
     margin: 0 !important;
-    gap: 10px !important;
-    white-space: nowrap !important;
-  }
-
-  /* RTL: logo right, actions left */
-  html[dir="rtl"] .bimar-brand {
-    position: absolute !important;
-    top: 50% !important;
-    right: 5% !important;
-    left: auto !important;
-    transform: translateY(-50%) !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    position: absolute !important;
-    top: 50% !important;
-    left: 5% !important;
-    right: auto !important;
-    transform: translateY(-50%) !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    width: max-content !important;
-    margin: 0 !important;
-    gap: 10px !important;
     white-space: nowrap !important;
   }
 
   .bimar-login,
   .bimar-start {
     display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     flex: 0 0 auto !important;
     white-space: nowrap !important;
+  }
+
+  /* English: logo left, actions right */
+  html[dir="ltr"] .bimar-brand {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-actions {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    direction: ltr !important;
+  }
+
+  /* Arabic: logo right, actions left */
+  html[dir="rtl"] .bimar-brand {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    direction: rtl !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    direction: rtl !important;
   }
 }
 
