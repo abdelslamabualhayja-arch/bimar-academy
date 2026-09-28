@@ -668,18 +668,23 @@ html[dir="rtl"] h3 {
 
 @media (min-width: 851px) {
 
-  /* Desktop navbar = three independent zones */
+  /* =======================================================
+     DESKTOP NAVBAR — isolated LTR / RTL zones
+     ======================================================= */
+
   .bimar-navbar {
     position: sticky !important;
+    top: 0 !important;
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr) !important;
     align-items: center !important;
     height: 76px !important;
     padding: 0 5% !important;
     direction: ltr !important;
+    unicode-bidi: isolate !important;
   }
 
-  /* Center zone */
+  /* Zone 1 — centered navigation */
   .bimar-nav-links {
     grid-column: 2 !important;
     grid-row: 1 !important;
@@ -694,15 +699,15 @@ html[dir="rtl"] h3 {
     justify-content: center !important;
 
     width: max-content !important;
-    height: 40px !important;
     max-width: none !important;
-
+    height: 40px !important;
     margin: 0 !important;
     padding: 0 !important;
     gap: 30px !important;
-    white-space: nowrap !important;
 
+    white-space: nowrap !important;
     direction: ltr !important;
+    unicode-bidi: isolate !important;
   }
 
   .bimar-nav-links .bimar-nav-link {
@@ -711,23 +716,31 @@ html[dir="rtl"] h3 {
     width: max-content !important;
     min-width: max-content !important;
     height: 40px !important;
+
     align-items: center !important;
     justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
     white-space: nowrap !important;
+
+    /* Keep each label's own writing direction isolated. */
     direction: rtl !important;
+    unicode-bidi: isolate !important;
   }
 
-  /* Brand zone */
+  /* Zone 2 — logo */
   .bimar-brand {
     grid-row: 1 !important;
     position: static !important;
     transform: none !important;
-    margin: 0 !important;
     width: max-content !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    unicode-bidi: isolate !important;
   }
 
-  /* Actions zone */
+  /* Zone 3 — language + auth actions */
   .bimar-nav-actions {
     grid-row: 1 !important;
     position: static !important;
@@ -736,11 +749,22 @@ html[dir="rtl"] h3 {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 10px !important;
+    justify-content: flex-end !important;
 
     width: max-content !important;
     margin: 0 !important;
+    gap: 10px !important;
     white-space: nowrap !important;
+
+    /* Actions always keep their visual order: EN AR | Login | Sign up */
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+  }
+
+  .bimar-language {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    flex: 0 0 auto !important;
   }
 
   .bimar-login,
@@ -748,21 +772,22 @@ html[dir="rtl"] h3 {
     display: inline-flex !important;
     flex: 0 0 auto !important;
     white-space: nowrap !important;
+    unicode-bidi: isolate !important;
   }
 
-  /* English: logo left, actions right */
+  /* English: logo left / navigation center / actions right */
   html[dir="ltr"] .bimar-brand {
     grid-column: 1 !important;
     justify-self: start !important;
+    direction: ltr !important;
   }
 
   html[dir="ltr"] .bimar-nav-actions {
     grid-column: 3 !important;
     justify-self: end !important;
-    direction: ltr !important;
   }
 
-  /* Arabic: logo right, actions left */
+  /* Arabic: actions left / navigation center / logo right */
   html[dir="rtl"] .bimar-brand {
     grid-column: 3 !important;
     justify-self: end !important;
@@ -772,7 +797,6 @@ html[dir="rtl"] h3 {
   html[dir="rtl"] .bimar-nav-actions {
     grid-column: 1 !important;
     justify-self: start !important;
-    direction: rtl !important;
   }
 }
 
