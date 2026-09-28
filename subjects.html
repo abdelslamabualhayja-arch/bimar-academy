@@ -6,7 +6,13 @@
 
   <title>Bimar Academy — Subjects</title>
 
-  <style>
+  <style>/* Page-specific Subjects layout only.
+   Global typography, colors, buttons, cards and responsive rules
+   come from assets/css/bimar.css. */
+.subjects-page {
+  min-height: 60vh;
+}
+
     :root {
       --primary: #155eef;
       --primary-dark: #0b4acb;
@@ -28,7 +34,7 @@
     }
 
     body {
-      font-family: Inter, Arial, sans-serif;
+      
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -376,7 +382,7 @@
     /* RTL */
 
     html[dir="rtl"] body {
-      font-family: Tahoma, Arial, sans-serif;
+      
     }
 
     html[dir="rtl"] .subject-arrow {
