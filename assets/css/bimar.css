@@ -2002,7 +2002,8 @@ html[data-theme="dark"] .bimar-navbar {
 }
 
 
-/* Final desktop navbar layout: three independent zones, no overlap. */
+
+/* Final shared desktop navbar: three clean zones, Arabic mirrors English. */
 @media (min-width: 851px) {
   .bimar-navbar {
     display: grid !important;
@@ -2012,38 +2013,37 @@ html[data-theme="dark"] .bimar-navbar {
   }
 
   .bimar-brand,
-  html[dir="ltr"] .bimar-brand,
-  html[dir="rtl"] .bimar-brand {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    grid-column: 1 !important;
-    justify-self: start !important;
-  }
-
   .bimar-nav-links,
-  html[dir="ltr"] .bimar-nav-links,
-  html[dir="rtl"] .bimar-nav-links {
+  .bimar-nav-actions {
     position: static !important;
     left: auto !important;
     right: auto !important;
     transform: none !important;
-    grid-column: 2 !important;
-    justify-self: center !important;
     margin: 0 !important;
-    gap: 18px !important;
-    min-width: 0 !important;
   }
 
-  .bimar-nav-actions,
-  html[dir="ltr"] .bimar-nav-actions,
-  html[dir="rtl"] .bimar-nav-actions {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
+  .bimar-brand {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  .bimar-nav-links {
+    grid-column: 2 !important;
+    justify-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    min-width: max-content !important;
+    white-space: nowrap !important;
+  }
+
+  .bimar-nav-actions {
     grid-column: 3 !important;
     justify-self: end !important;
-    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    white-space: nowrap !important;
   }
 
   html[dir="rtl"] .bimar-brand {
@@ -2058,14 +2058,19 @@ html[data-theme="dark"] .bimar-navbar {
   html[dir="rtl"] .bimar-nav-actions {
     grid-column: 1 !important;
     justify-self: start !important;
+  }
+
+  .bimar-nav-link {
+    white-space: nowrap !important;
+    flex: 0 0 auto !important;
   }
 }
 
 @media (min-width: 851px) and (max-width: 1200px) {
   .bimar-navbar {
-    column-gap: 14px !important;
     padding-left: 24px !important;
     padding-right: 24px !important;
+    column-gap: 14px !important;
   }
 
   .bimar-nav-links {
@@ -2076,15 +2081,5 @@ html[data-theme="dark"] .bimar-navbar {
     padding-left: 7px !important;
     padding-right: 7px !important;
     font-size: 13px !important;
-  }
-
-  .bimar-brand-name {
-    font-size: 21px !important;
-  }
-
-  .bimar-logo-mark {
-    width: 48px !important;
-    height: 48px !important;
-    flex-basis: 48px !important;
   }
 }
