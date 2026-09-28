@@ -2003,7 +2003,12 @@ html[data-theme="dark"] .bimar-navbar {
 
 
 
-/* Final shared desktop navbar: three clean zones, Arabic mirrors English. */
+
+/* =========================================================
+   SHARED NAVBAR — DESKTOP
+   Brand and account actions stay at the edges.
+   Navigation stays exactly centered.
+   ========================================================= */
 @media (min-width: 851px) {
   .bimar-navbar {
     display: grid !important;
@@ -2016,34 +2021,36 @@ html[data-theme="dark"] .bimar-navbar {
   .bimar-nav-links,
   .bimar-nav-actions {
     position: static !important;
-    left: auto !important;
-    right: auto !important;
+    inset: auto !important;
     transform: none !important;
     margin: 0 !important;
   }
 
-  .bimar-brand {
+  /* English: brand left / actions right */
+  html[dir="ltr"] .bimar-brand {
     grid-column: 1 !important;
     justify-self: start !important;
   }
 
-  .bimar-nav-links {
+  html[dir="ltr"] .bimar-nav-links {
     grid-column: 2 !important;
     justify-self: center !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 18px !important;
-    min-width: max-content !important;
-    white-space: nowrap !important;
   }
 
-  .bimar-nav-actions {
+  html[dir="ltr"] .bimar-nav-actions {
     grid-column: 3 !important;
     justify-self: end !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    white-space: nowrap !important;
+  }
+
+  /* Arabic: actions left / brand right */
+  html[dir="rtl"] .bimar-nav-actions {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-links {
+    grid-column: 2 !important;
+    justify-self: center !important;
   }
 
   html[dir="rtl"] .bimar-brand {
@@ -2051,25 +2058,37 @@ html[data-theme="dark"] .bimar-navbar {
     justify-self: end !important;
   }
 
-  html[dir="rtl"] .bimar-nav-links {
-    grid-column: 2 !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    grid-column: 1 !important;
-    justify-self: start !important;
+  .bimar-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    min-width: max-content !important;
+    white-space: nowrap !important;
   }
 
   .bimar-nav-link {
-    white-space: nowrap !important;
     flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  .bimar-nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .bimar-login,
+  .bimar-start {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
   }
 }
 
 @media (min-width: 851px) and (max-width: 1200px) {
   .bimar-navbar {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-inline: 24px !important;
     column-gap: 14px !important;
   }
 
@@ -2078,8 +2097,7 @@ html[data-theme="dark"] .bimar-navbar {
   }
 
   .bimar-nav-link {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+    padding-inline: 7px !important;
     font-size: 13px !important;
   }
 }
