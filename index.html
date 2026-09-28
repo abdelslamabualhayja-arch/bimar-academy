@@ -3446,7 +3446,48 @@ html[dir="ltr"] .bimar-nav-actions {
   }
 
 }
-    
+  /* =========================================
+   BIMAR — RTL / LTR NAVBAR BALANCE
+   ========================================= */
+
+@media (min-width: 851px) {
+
+  /* English — logo left, actions right */
+  html[dir="ltr"] .bimar-brand {
+    position: absolute !important;
+    left: 5% !important;
+    right: auto !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-actions {
+    position: absolute !important;
+    right: 5% !important;
+    left: auto !important;
+  }
+
+
+  /* Arabic — logo right, actions left */
+  html[dir="rtl"] .bimar-brand {
+    position: absolute !important;
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    position: absolute !important;
+    left: 5% !important;
+    right: auto !important;
+  }
+
+
+  /* Navigation stays perfectly centered */
+  .bimar-nav-links {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+
+}  
 </style>
 </head>
 
