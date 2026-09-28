@@ -3027,6 +3027,321 @@ body {
   }
 
 }
+    /* =========================================
+   BIMAR BRAND — PREMIUM IDENTITY EFFECT
+   ========================================= */
+
+.bimar-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  isolation: isolate;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Soft ambient glow behind the whole brand */
+.bimar-brand::before {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 55px;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.20),
+    rgba(6, 182, 212, 0.08),
+    transparent 72%
+  );
+  filter: blur(14px);
+  opacity: 0.65;
+  z-index: -1;
+  animation: bimarBrandGlow 4s ease-in-out infinite;
+}
+
+.bimar-brand:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+
+/* =========================================
+   LOGO MARK
+   ========================================= */
+
+.bimar-logo-mark {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgba(255,255,255,0.95),
+      rgba(239,246,255,0.95) 42%,
+      rgba(219,234,254,0.90)
+    );
+
+  border: 1px solid rgba(37, 99, 235, 0.20);
+
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.16),
+    0 0 0 1px rgba(255,255,255,0.75) inset,
+    0 0 28px rgba(37, 99, 235, 0.10);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.4s ease;
+}
+
+/* Outer rotating light */
+.bimar-logo-mark::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(37, 99, 235, 0.00) 80deg,
+    rgba(37, 99, 235, 0.35) 125deg,
+    rgba(6, 182, 212, 0.20) 160deg,
+    transparent 220deg
+  );
+
+  animation: bimarLogoSpin 5s linear infinite;
+}
+
+/* Inner glass layer */
+.bimar-logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 13px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.72),
+    rgba(239,246,255,0.30)
+  );
+  pointer-events: none;
+}
+
+/* Keep SVG above effects */
+.bimar-logo-mark svg {
+  position: relative;
+  z-index: 2;
+  width: 31px;
+  height: 31px;
+  filter:
+    drop-shadow(0 3px 7px rgba(37, 99, 235, 0.20));
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.bimar-brand:hover .bimar-logo-mark {
+  transform:
+    translateY(-2px)
+    rotate(-2deg)
+    scale(1.05);
+
+  box-shadow:
+    0 12px 32px rgba(37, 99, 235, 0.22),
+    0 0 35px rgba(6, 182, 212, 0.14),
+    0 0 0 1px rgba(255,255,255,0.85) inset;
+}
+
+.bimar-brand:hover .bimar-logo-mark svg {
+  transform: scale(1.07);
+  filter:
+    drop-shadow(0 4px 10px rgba(37, 99, 235, 0.30));
+}
+
+
+/* =========================================
+   BIMAR WORDMARK
+   ========================================= */
+
+.bimar-brand-name {
+  position: relative;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1;
+
+  letter-spacing: 1.1px;
+
+  background: linear-gradient(
+    100deg,
+    #07111F 0%,
+    #0F2747 45%,
+    #2563EB 78%,
+    #06B6D4 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 4px 18px rgba(37, 99, 235, 0.08);
+
+  transition:
+    letter-spacing 0.35s ease,
+    filter 0.35s ease;
+}
+
+.bimar-brand:hover .bimar-brand-name {
+  letter-spacing: 1.35px;
+  filter: brightness(1.08);
+}
+
+
+/* =========================================
+   ACADEMY SUBTITLE
+   ========================================= */
+
+.bimar-brand-sub {
+  margin-top: 4px;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 750;
+
+  letter-spacing: 3.6px;
+  line-height: 1;
+
+  color: #64748B;
+
+  opacity: 0.9;
+
+  transition:
+    color 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+.bimar-brand:hover .bimar-brand-sub {
+  color: #2563EB;
+  letter-spacing: 4px;
+}
+
+
+/* =========================================
+   ECG ANIMATION
+   ========================================= */
+
+.logo-ecg {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: bimarECG 2.8s ease-in-out infinite;
+}
+
+
+/* =========================================
+   BRAND ANIMATIONS
+   ========================================= */
+
+@keyframes bimarLogoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bimarECG {
+  0%,
+  12% {
+    stroke-dashoffset: 120;
+    opacity: 0.45;
+  }
+
+  42%,
+  68% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  88%,
+  100% {
+    stroke-dashoffset: -120;
+    opacity: 0.45;
+  }
+}
+
+@keyframes bimarBrandGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
+
+/* =========================================
+   MOBILE BRAND
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .bimar-logo-mark {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .bimar-logo-mark svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .bimar-brand-name {
+    font-size: 21px;
+  }
+
+  .bimar-brand-sub {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+}
+
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .bimar-logo-mark::before,
+  .logo-ecg,
+  .bimar-brand::before {
+    animation: none;
+  }
+}
 </style>
 </head>
 
