@@ -194,10 +194,7 @@ function initBimarMobileMenu() {
 
 function initBimarTheme() {
   const savedTheme = localStorage.getItem("bimarTheme");
-  const preferredDark = window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const theme = savedTheme || (preferredDark ? "dark" : "light");
+  const theme = savedTheme === "dark" ? "dark" : "light";
   document.documentElement.dataset.theme = theme;
 
   document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
