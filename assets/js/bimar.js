@@ -15,6 +15,11 @@ function setBimarLanguage(language) {
     if (value !== null) element.textContent = value;
   });
 
+  document.querySelectorAll("[data-aria-en][data-aria-ar]").forEach(function (element) {
+    const value = element.getAttribute(isArabic ? "data-aria-ar" : "data-aria-en");
+    if (value) element.setAttribute("aria-label", value);
+  });
+
   document.querySelectorAll("[data-dir-en][data-dir-ar]").forEach(function (element) {
     const direction = element.getAttribute(isArabic ? "data-dir-ar" : "data-dir-en");
     if (direction) element.dir = direction;
