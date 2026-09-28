@@ -67,10 +67,41 @@ function initBimarMobileMenu() {
   });
 }
 
+
+function initBimarFooter() {
+  if (document.querySelector(".bimar-footer")) return;
+
+  const footer = document.createElement("footer");
+  footer.className = "bimar-footer";
+  footer.innerHTML = `
+    <div class="bimar-footer-inner">
+      <div>
+        <div class="bimar-footer-brand">BIMAR ACADEMY</div>
+        <div class="bimar-body-sm bimar-muted"
+             data-en="Medical education, built for medical students."
+             data-ar="تعليم طبي صُمم لطلاب الطب.">
+          Medical education, built for medical students.
+        </div>
+      </div>
+
+      <nav class="bimar-footer-links" aria-label="Footer navigation">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="subjects.html" data-en="Subjects" data-ar="المواد">Subjects</a>
+        <a href="questions.html" data-en="Question Bank" data-ar="بنك الأسئلة">Question Bank</a>
+        <a href="clinical.html" data-en="Clinical" data-ar="السريري">Clinical</a>
+        <a href="osce.html" data-en="OSCE" data-ar="الأوسكي">OSCE</a>
+      </nav>
+    </div>
+  `;
+
+  document.body.appendChild(footer);
+}
+
 function initBimar() {
   loadBimarLanguage();
   initBimarNavbarScroll();
   initBimarMobileMenu();
+  initBimarFooter();
 }
 
 if (document.readyState === "loading") {
