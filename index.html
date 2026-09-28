@@ -2688,6 +2688,345 @@ footer {
   }
 
 }
+    /* =========================================================
+   BIMAR — NEXT LEVEL VISUAL OVERRIDE
+   ========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(37, 99, 235, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(6, 182, 212, 0.055),
+      transparent 28%
+    ),
+    #F8FAFC;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  max-width: 1280px;
+  padding: 120px 32px 105px;
+  gap: 90px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -160px;
+  left: -220px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.13),
+      transparent 68%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  bottom: -180px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.10),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* ================= HERO TITLE ================= */
+
+.hero h1 {
+  max-width: 760px;
+
+  font-size: clamp(48px, 5.2vw, 72px);
+
+  line-height: 1.02;
+
+  letter-spacing: -3px;
+
+  font-weight: 800;
+
+  color: #07111F;
+
+  margin-bottom: 26px;
+}
+
+.hero h1 span {
+  color: #07111F;
+}
+
+.hero h1 span:nth-of-type(2) {
+  color: #2563EB;
+}
+
+.hero h1 span:nth-of-type(3) {
+  color: #07111F;
+}
+
+
+/* ================= HERO DESCRIPTION ================= */
+
+.hero-description {
+  max-width: 650px;
+
+  font-size: 18px;
+
+  line-height: 1.85;
+
+  color: #64748B;
+
+  margin-bottom: 36px;
+}
+
+
+/* ================= EYEBROW ================= */
+
+.eyebrow {
+  padding: 8px 15px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(239, 246, 255, 0.9);
+
+  border:
+    1px solid rgba(37, 99, 235, 0.13);
+
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.08);
+
+  color: #2563EB;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.eyebrow:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(37, 99, 235, 0.13);
+}
+
+
+/* ================= HERO BUTTONS ================= */
+
+.primary-button {
+  min-height: 52px;
+
+  padding: 0 25px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563EB,
+      #1D4ED8
+    );
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 35px rgba(37, 99, 235, 0.30);
+}
+
+.secondary-button {
+  min-height: 52px;
+
+  padding: 0 25px;
+
+  border-radius: 13px;
+
+  border:
+    1px solid rgba(15, 23, 42, 0.10);
+
+  background:
+    rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.secondary-button:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(37, 99, 235, 0.22);
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-preview {
+  border-radius: 26px;
+
+  padding: 21px;
+
+  background:
+    rgba(255,255,255,0.92);
+
+  border:
+    1px solid rgba(15, 23, 42, 0.07);
+
+  box-shadow:
+    0 35px 90px rgba(15, 23, 42, 0.11),
+    0 10px 35px rgba(37, 99, 235, 0.045);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.dashboard-preview:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 42px 100px rgba(15, 23, 42, 0.14),
+    0 15px 40px rgba(37, 99, 235, 0.07);
+}
+
+
+/* ================= TOOL CARDS ================= */
+
+.tool-card {
+  border-radius: 20px;
+
+  border:
+    1px solid rgba(15, 23, 42, 0.07);
+
+  background:
+    rgba(255,255,255,0.88);
+
+  box-shadow:
+    0 5px 20px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(37, 99, 235, 0.20);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.10),
+    0 5px 20px rgba(37, 99, 235, 0.05);
+}
+
+
+/* ================= SUBJECT CARDS ================= */
+
+.subject {
+  border-radius: 19px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.subject:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(37, 99, 235, 0.20);
+
+  box-shadow:
+    0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+  .hero {
+    padding:
+      80px 25px
+      70px;
+
+    gap: 55px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 9vw, 60px);
+
+    letter-spacing: -2px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding:
+      65px 20px
+      60px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.7px;
+  }
+
+}
 </style>
 </head>
 
