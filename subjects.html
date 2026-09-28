@@ -1,1 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Bimar Academy — Subjects</title>
+
+  <style>
+    :root {
+      --primary: #155eef;
+      --primary-dark: #0b4acb;
+      --navy: #101828;
+      --text: #344054;
+      --muted: #667085;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --border: #e4e7ec;
+      --soft-blue: #eef4ff;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.07);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      height: 76px;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-switch {
+      display: flex;
+      background: #f2f4f7;
+      border-radius: 10px;
+      padding: 3px;
+    }
+
+    .language-switch button {
+      border: none;
+      background: transparent;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .language-switch button.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .login {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 10px 14px;
+    }
+
+    .signup {
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .signup:hover {
+      background: var(--primary-dark);
+    }
+
+    /* PAGE HEADER */
+
+    .page-header {
+      padding: 70px 0 45px;
+      background:
+        radial-gradient(circle at top right, rgba(21,94,239,0.10), transparent 35%),
+        linear-gradient(to bottom, #ffffff, #f8fafc);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+    }
+
+    .header-text {
+      max-width: 700px;
+    }
+
+    .header-text h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 18px;
+      letter-spacing: -1.5px;
+    }
+
+    .header-text p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .subject-count {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .subject-count strong {
+      display: block;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .subject-count span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SEARCH */
+
+    .search-section {
+      margin-top: -10px;
+      margin-bottom: 40px;
+    }
+
+    .search-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .search-icon {
+      padding: 0 15px;
+      font-size: 18px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      padding: 14px 5px;
+      color: var(--text);
+    }
+
+    /* SUBJECT GRID */
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      color: var(--navy);
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+
+    .subject-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 205px;
+      transition: 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subject-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: var(--soft-blue);
+      border-radius: 50%;
+      right: -35px;
+      bottom: -35px;
+      transition: 0.25s;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-5px);
+      border-color: #bfd0ff;
+      box-shadow: var(--shadow);
+    }
+
+    .subject-card:hover::after {
+      transform: scale(1.4);
+    }
+
+    .subject-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--soft-blue);
+      border-radius: 14px;
+      font-size: 24px;
+      margin-bottom: 17px;
+    }
+
+    .subject-card h3 {
+      color: var(--navy);
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .subject-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 220px;
+    }
+
+    .subject-arrow {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: var(--primary);
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #101828;
+      color: white;
+      padding: 45px 0;
+    }
+
+    .footer-content {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .footer-logo span {
+      color: #84adff;
+    }
+
+    .footer-text {
+      color: #98a2b3;
+      font-size: 13px;
+      max-width: 400px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      color: #d0d5dd;
+      font-size: 13px;
+    }
+
+    /* RTL */
+
+    html[dir="rtl"] body {
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    html[dir="rtl"] .subject-arrow {
+      right: auto;
+      left: 20px;
+    }
+
+    html[dir="rtl"] .subject-card::after {
+      right: auto;
+      left: -35px;
+    }
+
+    html[dir="rtl"] .search-icon {
+      padding-left: 8px;
+      padding-right: 15px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .subjects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .subjects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .login {
+        display: none;
+      }
+
+      .signup {
+        padding: 9px 12px;
+      }
+
+      .header-text h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        Bimar<span>Academy</span>
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">
+          Home
+        </a>
+
+        <a href="subjects.html"
+           class="active"
+           data-en="Subjects"
+           data-ar="المواد">
+          Subjects
+        </a>
+
+        <a href="questions.html"
+           data-en="Question Bank"
+           data-ar="بنك الأسئلة">
+          Question Bank
+        </a>
+
+        <a href="clinical.html"
+           data-en="Clinical"
+           data-ar="الحالات السريرية">
+          Clinical
+        </a>
+
+        <a href="osce.html"
+           data-en="OSCE"
+           data-ar="OSCE">
+          OSCE
+        </a>
+
+      </div>
+
+      <div class="nav-actions">
+
+        <div class="language-switch">
+          <button id="enBtn" onclick="setLanguage('en')">
+            EN
+          </button>
+
+          <button id="arBtn" onclick="setLanguage('ar')">
+            AR
+          </button>
+        </div>
+
+        <a href="login.html"
+           class="login"
+           data-en="Log in"
+           data-ar="تسجيل الدخول">
+          Log in
+        </a>
+
+        <a href="login.html"
+           class="signup"
+           data-en="Get Started"
+           data-ar="ابدأ الآن">
+          Get Started
+        </a>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+
+  <header class="page-header">
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html"
+           data-en="Home"
+           data-ar="الرئيسية">
+          Home
+        </a>
+
+        <span> / </span>
+
+        <span data-en="Subjects"
+              data-ar="المواد">
+          Subjects
+        </span>
+      </div>
+
+      <div class="header-content">
+
+        <div class="header-text">
+
+          <h1
+            data-en="Explore Medical Subjects"
+            data-ar="استكشف المواد الطبية">
+            Explore Medical Subjects
+          </h1>
+
+          <p
+            data-en="Study medicine by subject with structured learning, practice questions, clinical cases, flashcards and OSCE preparation."
+            data-ar="ادرس الطب حسب المادة من خلال التعلم المنظم، وبنك الأسئلة، والحالات السريرية، والـFlashcards، والتحضير للـOSCE.">
+            Study medicine by subject with structured learning,
+            practice questions, clinical cases, flashcards and OSCE preparation.
+          </p>
+
+        </div>
+
+        <div class="subject-count">
+
+          <strong>16</strong>
+
+          <span
+            data-en="Medical Subjects"
+            data-ar="مادة طبية">
+            Medical Subjects
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- SEARCH -->
+
+  <main class="container">
+
+    <div class="search-section">
+
+      <div class="search-box">
+
+        <div class="search-icon">
+          🔎
+        </div>
+
+        <input
+          type="text"
+          id="subjectSearch"
+          placeholder="Search subjects..."
+          data-placeholder-en="Search subjects..."
+          data-placeholder-ar="ابحث عن مادة..."
+          oninput="searchSubjects()">
+
+      </div>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="section-title">
+
+      <h2
+        data-en="All Subjects"
+        data-ar="جميع المواد">
+        All Subjects
+      </h2>
+
+      <p
+        data-en="Choose a subject to begin your study journey."
+        data-ar="اختر مادة لبدء رحلتك الدراسية.">
+        Choose a subject to begin your study journey.
+      </p>
+
+    </div>
+
+
+    <div class="subjects-grid" id="subjectsGrid">
+
+      <!-- CARDIOLOGY -->
+
+      <a href="#" class="subject-card" data-subject="cardiology أمراض القلب">
+
+        <div class="subject-icon">🫀</div>
+
+        <h3
+          data-en="Cardiology"
+          data-ar="أمراض القلب">
+          Cardiology
+        </h3>
+
+        <p
+          data-en="Heart diseases, ECG, arrhythmias, heart failure and cardiovascular medicine."
+          data-ar="أمراض القلب، ECG، اضطرابات النظم، فشل القلب وطب القلب.">
+          Heart diseases, ECG, arrhythmias, heart failure and cardiovascular medicine.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- RESPIRATORY -->
+
+      <a href="#" class="subject-card" data-subject="respiratory pulmonology الجهاز التنفسي">
+
+        <div class="subject-icon">🫁</div>
+
+        <h3
+          data-en="Respiratory"
+          data-ar="الجهاز التنفسي">
+          Respiratory
+        </h3>
+
+        <p
+          data-en="Asthma, COPD, pneumonia, respiratory failure and pulmonary diseases."
+          data-ar="الربو، COPD، الالتهاب الرئوي، الفشل التنفسي وأمراض الرئة.">
+          Asthma, COPD, pneumonia, respiratory failure and pulmonary diseases.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- NEUROLOGY -->
+
+      <a href="#" class="subject-card" data-subject="neurology neuro الجهاز العصبي">
+
+        <div class="subject-icon">🧠</div>
+
+        <h3
+          data-en="Neurology"
+          data-ar="الجهاز العصبي">
+          Neurology
+        </h3>
+
+        <p
+          data-en="Stroke, seizures, headaches, neuropathies and neurological disorders."
+          data-ar="السكتة الدماغية، الاختلاجات، الصداع، الاعتلالات العصبية وأمراض الجهاز العصبي.">
+          Stroke, seizures, headaches, neuropathies and neurological disorders.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- GASTRO -->
+
+      <a href="#" class="subject-card" data-subject="gastroenterology gastrointestinal الجهاز الهضمي">
+
+        <div class="subject-icon">🩻</div>
+
+        <h3
+          data-en="Gastroenterology"
+          data-ar="الجهاز الهضمي">
+          Gastroenterology
+        </h3>
+
+        <p
+          data-en="GI diseases, liver, pancreas, inflammatory bowel disease and nutrition."
+          data-ar="أمراض الجهاز الهضمي والكبد والبنكرياس وأمراض الأمعاء والتغذية.">
+          GI diseases, liver, pancreas, inflammatory bowel disease and nutrition.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- ENDOCRINOLOGY -->
+
+      <a href="#" class="subject-card" data-subject="endocrinology diabetes الغدد الصماء">
+
+        <div class="subject-icon">🧪</div>
+
+        <h3
+          data-en="Endocrinology"
+          data-ar="الغدد الصماء">
+          Endocrinology
+        </h3>
+
+        <p
+          data-en="Diabetes, thyroid disorders, adrenal disease and endocrine physiology."
+          data-ar="السكري، أمراض الغدة الدرقية والكظرية وأمراض الغدد الصماء.">
+          Diabetes, thyroid disorders, adrenal disease and endocrine physiology.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- HEMATOLOGY -->
+
+      <a href="#" class="subject-card" data-subject="hematology blood الدم hematology">
+
+        <div class="subject-icon">🩸</div>
+
+        <h3
+          data-en="Hematology"
+          data-ar="أمراض الدم">
+          Hematology
+        </h3>
+
+        <p
+          data-en="Anemia, leukemia, lymphoma, coagulation disorders and transfusion medicine."
+          data-ar="فقر الدم، اللوكيميا، اللمفوما، اضطرابات التخثر ونقل الدم.">
+          Anemia, leukemia, lymphoma, coagulation disorders and transfusion medicine.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- INFECTIOUS -->
+
+      <a href="#" class="subject-card" data-subject="infectious disease infection العدوى">
+
+        <div class="subject-icon">🦠</div>
+
+        <h3
+          data-en="Infectious Diseases"
+          data-ar="الأمراض المعدية">
+          Infectious Diseases
+        </h3>
+
+        <p
+          data-en="Bacterial, viral, fungal and parasitic infections with clinical management."
+          data-ar="العدوى البكتيرية والفيروسية والفطرية والطفيلية مع التدبير السريري.">
+          Bacterial, viral, fungal and parasitic infections with clinical management.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- MUSCULOSKELETAL -->
+
+      <a href="#" class="subject-card" data-subject="musculoskeletal orthopedics العظام العضلات">
+
+        <div class="subject-icon">🦴</div>
+
+        <h3
+          data-en="Musculoskeletal"
+          data-ar="الجهاز العضلي الهيكلي">
+          Musculoskeletal
+        </h3>
+
+        <p
+          data-en="Fractures, arthritis, bone diseases, joints and musculoskeletal examination."
+          data-ar="الكسور، التهاب المفاصل، أمراض العظام والمفاصل والفحص العضلي الهيكلي.">
+          Fractures, arthritis, bone diseases, joints and musculoskeletal examination.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- DERMATOLOGY -->
+
+      <a href="#" class="subject-card" data-subject="dermatology skin الجلد">
+
+        <div class="subject-icon">🧴</div>
+
+        <h3
+          data-en="Dermatology"
+          data-ar="الأمراض الجلدية">
+          Dermatology
+        </h3>
+
+        <p
+          data-en="Common skin diseases, rashes, infections and dermatological diagnosis."
+          data-ar="أمراض الجلد الشائعة والطفوح والالتهابات والتشخيص الجلدي.">
+          Common skin diseases, rashes, infections and dermatological diagnosis.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- PEDIATRICS -->
+
+      <a href="#" class="subject-card" data-subject="pediatrics children الأطفال">
+
+        <div class="subject-icon">👶</div>
+
+        <h3
+          data-en="Pediatrics"
+          data-ar="طب الأطفال">
+          Pediatrics
+        </h3>
+
+        <p
+          data-en="Child health, common pediatric diseases, growth and development."
+          data-ar="صحة الطفل، أمراض الأطفال الشائعة، النمو والتطور.">
+          Child health, common pediatric diseases, growth and development.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- OB GYN -->
+
+      <a href="#" class="subject-card" data-subject="obstetrics gynecology النساء الولادة">
+
+        <div class="subject-icon">🤰</div>
+
+        <h3
+          data-en="Obstetrics & Gynecology"
+          data-ar="النسائية والتوليد">
+          Obstetrics & Gynecology
+        </h3>
+
+        <p
+          data-en="Pregnancy, labor, gynecological diseases and women's health."
+          data-ar="الحمل والولادة وأمراض النساء وصحة المرأة.">
+          Pregnancy, labor, gynecological diseases and women's health.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- SURGERY -->
+
+      <a href="#" class="subject-card" data-subject="surgery الجراحة">
+
+        <div class="subject-icon">🔪</div>
+
+        <h3
+          data-en="Surgery"
+          data-ar="الجراحة">
+          Surgery
+        </h3>
+
+        <p
+          data-en="General surgery, surgical emergencies, trauma and perioperative care."
+          data-ar="الجراحة العامة والطوارئ الجراحية والإصابات والرعاية المحيطة بالعملية.">
+          General surgery, surgical emergencies, trauma and perioperative care.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- UROLOGY -->
+
+      <a href="#" class="subject-card" data-subject="urology urinary المسالك البولية">
+
+        <div class="subject-icon">🚻</div>
+
+        <h3
+          data-en="Urology"
+          data-ar="المسالك البولية">
+          Urology
+        </h3>
+
+        <p
+          data-en="Urinary tract diseases, renal stones, prostate disorders and urological emergencies."
+          data-ar="أمراض الجهاز البولي وحصوات الكلى وأمراض البروستاتا والطوارئ البولية.">
+          Urinary tract diseases, renal stones, prostate disorders and urological emergencies.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- OPHTHALMOLOGY -->
+
+      <a href="#" class="subject-card" data-subject="ophthalmology eye العيون">
+
+        <div class="subject-icon">👁️</div>
+
+        <h3
+          data-en="Ophthalmology"
+          data-ar="طب العيون">
+          Ophthalmology
+        </h3>
+
+        <p
+          data-en="Eye diseases, vision problems, emergencies and ophthalmic examination."
+          data-ar="أمراض العين ومشاكل الرؤية والطوارئ وفحص العين.">
+          Eye diseases, vision problems, emergencies and ophthalmic examination.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- ENT -->
+
+      <a href="#" class="subject-card" data-subject="ent ear nose throat الأنف الأذن الحنجرة">
+
+        <div class="subject-icon">👂</div>
+
+        <h3
+          data-en="ENT"
+          data-ar="الأنف والأذن والحنجرة">
+          ENT
+        </h3>
+
+        <p
+          data-en="Ear, nose and throat diseases, examination and common clinical presentations."
+          data-ar="أمراض الأنف والأذن والحنجرة والفحص السريري والحالات الشائعة.">
+          Ear, nose and throat diseases, examination and common clinical presentations.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+
+      <!-- PSYCHIATRY -->
+
+      <a href="#" class="subject-card" data-subject="psychiatry mental الصحة النفسية">
+
+        <div class="subject-icon">🧩</div>
+
+        <h3
+          data-en="Psychiatry"
+          data-ar="الطب النفسي">
+          Psychiatry
+        </h3>
+
+        <p
+          data-en="Common psychiatric disorders, assessment, diagnosis and management."
+          data-ar="الاضطرابات النفسية الشائعة والتقييم والتشخيص والتدبير.">
+          Common psychiatric disorders, assessment, diagnosis and management.
+        </p>
+
+        <div class="subject-arrow">→</div>
+
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <div class="footer-logo">
+          Bimar<span>Academy</span>
+        </div>
+
+        <div class="footer-text"
+             data-en="A modern medical learning platform built for medical students."
+             data-ar="منصة تعليمية طبية حديثة مصممة لطلاب الطب.">
+          A modern medical learning platform built for medical students.
+        </div>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html"
+           data-en="Home"
+           data-ar="الرئيسية">
+          Home
+        </a>
+
+        <a href="subjects.html"
+           data-en="Subjects"
+           data-ar="المواد">
+          Subjects
+        </a>
+
+        <a href="questions.html"
+           data-en="Questions"
+           data-ar="الأسئلة">
+          Questions
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* LANGUAGE */
+
+    function setLanguage(language) {
+
+      document.documentElement.lang = language;
+
+      document.documentElement.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-en]").forEach(function(element) {
+
+        element.textContent =
+          element.getAttribute("data-" + language);
+
+      });
+
+      document.querySelectorAll("[data-placeholder-en]").forEach(function(element) {
+
+        element.placeholder =
+          element.getAttribute("data-placeholder-" + language);
+
+      });
+
+      document.getElementById("enBtn")
+        .classList.remove("active");
+
+      document.getElementById("arBtn")
+        .classList.remove("active");
+
+      document.getElementById(language + "Btn")
+        .classList.add("active");
+
+      localStorage.setItem(
+        "bimarLanguage",
+        language
+      );
+
+    }
+
+
+    /* SEARCH */
+
+    function searchSubjects() {
+
+      const input =
+        document.getElementById("subjectSearch");
+
+      const query =
+        input.value.toLowerCase().trim();
+
+      const cards =
+        document.querySelectorAll(".subject-card");
+
+      cards.forEach(function(card) {
+
+        const subject =
+          card.getAttribute("data-subject").toLowerCase();
+
+        if (subject.includes(query)) {
+
+          card.style.display = "";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+
+    /* LOAD SAVED LANGUAGE */
+
+    const savedLanguage =
+      localStorage.getItem("bimarLanguage") || "en";
+
+    setLanguage(savedLanguage);
+
+  </script>
+
+</body>
+</html>
