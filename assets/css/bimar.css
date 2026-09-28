@@ -2000,3 +2000,110 @@ html[data-theme="dark"] .bimar-navbar {
   background: linear-gradient(90deg, var(--primary), var(--cyan));
   transition: width var(--transition-slow);
 }
+
+
+/* Shared Navbar Search */
+.bimar-search-trigger {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:38px;
+  padding:0 12px;
+  border:1px solid var(--border);
+  border-radius:var(--radius-full);
+  background:rgba(255,255,255,.78);
+  color:var(--text-soft);
+  cursor:pointer;
+  font:inherit;
+  transition:all var(--transition-base);
+}
+.bimar-search-trigger:hover {
+  border-color:rgba(37,99,235,.25);
+  color:var(--primary);
+  background:var(--primary-soft);
+}
+.bimar-search-trigger span:first-child {
+  font-size:18px;
+  line-height:1;
+}
+.bimar-search-trigger-label { font-size:13px; font-weight:600; }
+
+.bimar-search-overlay {
+  position:fixed;
+  inset:0;
+  z-index:10050;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding:110px 24px 24px;
+  background:rgba(7,17,31,.38);
+  backdrop-filter:blur(8px);
+}
+.bimar-search-overlay.is-open { display:flex; }
+.bimar-search-panel {
+  width:min(680px,100%);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+.bimar-search-panel-head {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px;
+  border-bottom:1px solid var(--border);
+}
+.bimar-global-search-input {
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font:inherit;
+  font-size:16px;
+}
+.bimar-global-search-close {
+  border:0;
+  background:var(--surface-soft);
+  color:var(--muted);
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+.bimar-search-results {
+  max-height:420px;
+  overflow:auto;
+  padding:10px;
+}
+.bimar-search-empty {
+  padding:28px 18px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+.bimar-search-result {
+  display:block;
+  padding:13px 14px;
+  border-radius:var(--radius-md);
+  color:var(--text);
+  text-decoration:none;
+  transition:background var(--transition-fast);
+}
+.bimar-search-result:hover { background:var(--surface-soft); }
+.bimar-search-result-title { font-weight:700; }
+.bimar-search-result-meta { margin-top:3px; color:var(--muted); font-size:12px; }
+
+html[dir="rtl"] .bimar-search-trigger { flex-direction:row-reverse; }
+html[data-theme="dark"] .bimar-search-trigger { background:rgba(15,27,45,.82); }
+
+@media (max-width:850px) {
+  .bimar-search-trigger-label { display:none; }
+  .bimar-search-trigger { width:40px; padding:0; }
+  .bimar-search-overlay { padding:90px 16px 16px; }
+}
