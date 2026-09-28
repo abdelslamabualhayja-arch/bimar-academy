@@ -57,26 +57,63 @@
       backdrop-filter: blur(10px);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--navy);
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
 
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: var(--primary);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 21px;
-    }
+.logo-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+}
+
+.logo-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.logo-icon rect {
+  fill: var(--primary);
+}
+
+.logo-icon path {
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.logo-icon .pulse {
+  stroke: #B9D0FF;
+  stroke-width: 2;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text strong {
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+  color: var(--navy);
+}
+
+.logo-text small {
+  margin-top: 4px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
 
     .nav-links {
       display: flex;
@@ -541,10 +578,28 @@
 
 <header class="navbar">
 
-  <a href="index.html" class="logo">
-    <div class="logo-icon">🩺</div>
-    Bimar Academy
-  </a>
+<a href="index.html" class="logo">
+
+  <div class="logo-icon">
+
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <rect x="3" y="3" width="42" height="42" rx="13"></rect>
+
+      <path d="M24 12V36"></path>
+      <path d="M12 24H36"></path>
+
+      <path class="pulse"
+            d="M9 29H16L19 22L23 31L27 17L31 26H39"></path>
+    </svg>
+
+  </div>
+
+  <div class="logo-text">
+    <strong>BIMAR</strong>
+    <small>ACADEMY</small>
+  </div>
+
+</a>
 
   <nav class="nav-links">
 
