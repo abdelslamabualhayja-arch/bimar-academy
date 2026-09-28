@@ -465,6 +465,104 @@ function initBimarFooter() {
   document.body.appendChild(footer);
 }
 
+
+function initBimarGlobalSearch() {
+  const triggers = document.querySelectorAll("[data-bimar-search-trigger]");
+  if (!triggers.length) return;
+
+  let overlay = document.querySelector(".bimar-search-overlay");
+
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "bimar-search-overlay";
+    overlay.innerHTML = `
+      <div class="bimar-search-panel" role="dialog" aria-modal="true" aria-label="Search">
+        <div class="bimar-search-panel-head">
+          <span aria-hidden="true">⌕</span>
+          <input class="bimar-global-search-input" type="search"
+            autocomplete="off" placeholder="Search Bimar..." aria-label="Search Bimar">
+          <button class="bimar-global-search-close" type="button" aria-label="Close search">×</button>
+        </div>
+        <div class="bimar-search-results"></div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+
+  const input = overlay.querySelector(".bimar-global-search-input");
+  const results = overlay.querySelector(".bimar-search-results");
+  const close = overlay.querySelector(".bimar-global-search-close");
+
+  function openSearch() {
+    overlay.classList.add("is-open");
+    input.focus();
+    renderResults();
+  }
+
+  function closeSearch() {
+    overlay.classList.remove("is-open");
+    input.value = "";
+  }
+
+  function renderResults() {
+    const query = bimarNormalizeSearchText(input.value);
+    const terms = query.split(/\\s+/).filter(Boolean);
+    const candidates = document.querySelectorAll("[data-search-text]");
+    const matches = Array.from(candidates).filter(function (item) {
+      const text = bimarNormalizeSearchText(
+        item.getAttribute("data-search-text") || item.textContent
+      );
+      return !terms.length || terms.every(function (term) {
+        return text.includes(term);
+      });
+    });
+
+    results.innerHTML = "";
+
+    if (!query) {
+      results.innerHTML = '<div class="bimar-search-empty">Search lessons, questions, clinical cases, and OSCE content.</div>';
+      return;
+    }
+
+    if (!matches.length) {
+      results.innerHTML = '<div class="bimar-search-empty">No results found.</div>';
+      return;
+    }
+
+    matches.slice(0, 12).forEach(function (item) {
+      const url = item.getAttribute("data-search-url");
+      const title = item.getAttribute("data-search-title") || item.textContent.trim().slice(0, 100);
+      const meta = item.getAttribute("data-search-type") || "Bimar";
+
+      const result = document.createElement(url ? "a" : "div");
+      result.className = "bimar-search-result";
+      if (url) result.href = url;
+      result.innerHTML =
+        '<div class="bimar-search-result-title"></div>' +
+        '<div class="bimar-search-result-meta"></div>';
+      result.querySelector(".bimar-search-result-title").textContent = title;
+      result.querySelector(".bimar-search-result-meta").textContent = meta;
+      results.appendChild(result);
+    });
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener("click", openSearch);
+  });
+  input.addEventListener("input", renderResults);
+  close.addEventListener("click", closeSearch);
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) closeSearch();
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeSearch();
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      openSearch();
+    }
+  });
+}
+
 function initBimar() {
   initBimarFooter();
   loadBimarLanguage();
@@ -475,6 +573,7 @@ function initBimar() {
   initBimarTabs();
   initBimarDropdowns();
   initBimarSearch();
+  initBimarGlobalSearch();
   initBimarProgress();
 }
 
