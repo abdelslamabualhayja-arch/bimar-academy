@@ -1994,66 +1994,7 @@ button:focus-visible {
 /* =========================================================
    ARABIC TYPOGRAPHY — SOFT PREMIUM
    ========================================================= */
-/* =========================================================
-   ARABIC — SOFT COLOR & VISUAL STYLE
-   ========================================================= */
 
-html[dir="rtl"] .eyebrow {
-  color: #2563EB;
-  background: linear-gradient(
-    135deg,
-    #EFF6FF,
-    #F0FDFA
-  );
-  border: 1px solid rgba(37, 99, 235, 0.12);
-  box-shadow:
-    0 8px 25px rgba(37, 99, 235, 0.08);
-}
-
-html[dir="rtl"] .hero h1 {
-  background: linear-gradient(
-    135deg,
-    #0F172A 0%,
-    #2563EB 48%,
-    #0F766E 100%
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-html[dir="rtl"] .section-header h2 {
-  color: #0F172A;
-}
-
-html[dir="rtl"] .section-header p {
-  color: #64748B;
-}
-
-html[dir="rtl"] .tool-card h3,
-html[dir="rtl"] .subject h3 {
-  color: #0F172A;
-}
-
-html[dir="rtl"] .tool-card p,
-html[dir="rtl"] .subject p {
-  color: #64748B;
-}
-
-html[dir="rtl"] .primary-button,
-html[dir="rtl"] .bimar-start {
-  box-shadow:
-    0 10px 28px rgba(37, 99, 235, 0.20);
-}
-
-html[dir="rtl"] .tool-card:hover,
-html[dir="rtl"] .subject:hover {
-  border-color: rgba(37, 99, 235, 0.18);
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(37, 99, 235, 0.04);
-}
     /* =========================================================
    ARABIC — SOFT COLOR & VISUAL STYLE
    ========================================================= */
@@ -2204,6 +2145,526 @@ html[dir="rtl"] footer {
 
   line-height: 1.9;
 } 
+    /* =========================================================
+   BIMAR — FINAL VISUAL BALANCE
+   NAVBAR + HERO + CARDS + SPACING
+   ========================================================= */
+
+
+/* =========================================================
+   NAVBAR — MORE PREMIUM
+   ========================================================= */
+
+.bimar-navbar {
+  height: 76px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.94),
+      rgba(255,255,255,0.86)
+    );
+
+  border-bottom:
+    1px solid rgba(15, 23, 42, 0.055);
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.025);
+}
+
+.bimar-navbar.scrolled {
+  height: 70px;
+
+  background: rgba(255,255,255,0.96);
+
+  box-shadow:
+    0 10px 35px rgba(15, 23, 42, 0.07);
+}
+
+
+/* Logo */
+
+.bimar-logo-mark {
+  filter:
+    drop-shadow(
+      0 5px 12px rgba(37, 99, 235, 0.08)
+    );
+}
+
+.bimar-brand-name {
+  letter-spacing: 1px;
+}
+
+
+/* Navigation */
+
+.bimar-nav-links {
+  gap: 2px;
+}
+
+.bimar-nav-link {
+  padding: 0 14px;
+
+  border-radius: 10px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bimar-nav-link:hover {
+  background:
+    rgba(37, 99, 235, 0.045);
+
+  transform: translateY(-1px);
+}
+
+.bimar-nav-link::after {
+  left: 14px;
+  right: 14px;
+}
+
+
+/* Actions */
+
+.bimar-nav-actions {
+  gap: 14px;
+}
+
+.bimar-language {
+  background:
+    rgba(248, 250, 252, 0.75);
+
+  border-color:
+    rgba(15, 23, 42, 0.07);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+
+/* =========================================================
+   RTL NAVBAR
+   ========================================================= */
+
+html[dir="rtl"] .bimar-nav-link {
+  font-weight: 500;
+}
+
+html[dir="rtl"] .bimar-nav-link.active {
+  font-weight: 600;
+  color: #2563EB;
+}
+
+html[dir="rtl"] .bimar-brand-name {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+
+  color: #0F172A;
+}
+
+html[dir="rtl"] .bimar-nav-actions {
+  gap: 13px;
+}
+
+html[dir="rtl"] .bimar-start {
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   HERO — SPACING
+   ========================================================= */
+
+.hero {
+  max-width: 1240px;
+
+  padding:
+    105px 30px
+    90px;
+
+  gap: 80px;
+}
+
+
+/* Hero text */
+
+.hero h1 {
+  max-width: 700px;
+
+  margin-bottom: 24px;
+}
+
+.hero-description {
+  max-width: 610px;
+
+  font-size: 17px;
+
+  line-height: 1.85;
+
+  margin-bottom: 34px;
+}
+
+
+/* RTL hero */
+
+html[dir="rtl"] .hero {
+  text-align: right;
+}
+
+html[dir="rtl"] .hero h1 {
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.4;
+
+  letter-spacing: -1.5px;
+
+  margin-bottom: 22px;
+}
+
+html[dir="rtl"] .hero-description {
+  font-size: 17px;
+
+  line-height: 2;
+
+  max-width: 650px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+  gap: 12px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 50px;
+
+  padding:
+    0 22px;
+
+  border-radius: 12px;
+}
+
+.primary-button {
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.20);
+}
+
+.secondary-button {
+  border-color:
+    rgba(15, 23, 42, 0.09);
+
+  background:
+    rgba(255,255,255,0.85);
+}
+
+
+/* =========================================================
+   DASHBOARD PREVIEW
+   ========================================================= */
+
+.dashboard-preview {
+  border-radius: 24px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.085),
+    0 8px 25px rgba(37, 99, 235, 0.035);
+}
+
+.preview-title {
+  font-size: 15px;
+}
+
+.progress-card {
+  padding: 20px;
+
+  border-radius: 17px;
+}
+
+.preview-grid {
+  gap: 13px;
+}
+
+.mini-card {
+  padding: 17px;
+
+  border-radius: 15px;
+}
+
+
+/* =========================================================
+   SECTIONS — BETTER RHYTHM
+   ========================================================= */
+
+.section {
+  max-width: 1240px;
+
+  padding:
+    88px 30px;
+}
+
+.section-header {
+  margin-bottom: 38px;
+}
+
+.section-header h2 {
+  font-size: 31px;
+
+  letter-spacing: -0.7px;
+
+  line-height: 1.35;
+}
+
+.section-header p {
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TOOL CARDS
+   ========================================================= */
+
+.tools-grid {
+  gap: 20px;
+}
+
+.tool-card {
+  min-height: 210px;
+
+  padding: 26px;
+
+  border-radius: 19px;
+}
+
+.tool-icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 14px;
+
+  margin-bottom: 18px;
+}
+
+.tool-card h3 {
+  font-size: 18px;
+
+  margin-bottom: 8px;
+}
+
+.tool-card p {
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   RTL TOOL CARDS
+   ========================================================= */
+
+html[dir="rtl"] .tool-card {
+  text-align: right;
+}
+
+html[dir="rtl"] .tool-card h3 {
+  font-size: 18px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.3px;
+}
+
+html[dir="rtl"] .tool-card p {
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   SUBJECTS
+   ========================================================= */
+
+.subjects-section {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #FAFBFD
+    );
+}
+
+.subjects-grid {
+  gap: 20px;
+}
+
+.subject {
+  min-height: 100px;
+
+  padding: 21px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(248, 250, 252, 0.78);
+}
+
+.subject-icon {
+  flex-shrink: 0;
+
+  width: 54px;
+  height: 54px;
+
+  border-radius: 14px;
+}
+
+
+/* RTL subjects */
+
+html[dir="rtl"] .subject {
+  text-align: right;
+}
+
+html[dir="rtl"] .subject h3 {
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+html[dir="rtl"] .subject p {
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+  max-width: 1180px;
+
+  margin:
+    85px auto;
+
+  padding:
+    75px 30px;
+
+  border-radius: 28px;
+}
+
+.cta h2 {
+  font-size: 36px;
+
+  line-height: 1.4;
+}
+
+html[dir="rtl"] .cta h2 {
+  font-size: 34px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.8px;
+}
+
+html[dir="rtl"] .cta p {
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding:
+    42px 6%;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   MOBILE BALANCE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .hero {
+    padding:
+      75px 25px
+      65px;
+
+    gap: 50px;
+  }
+
+  .section {
+    padding:
+      70px 25px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding:
+      60px 20px
+      55px;
+  }
+
+  html[dir="rtl"] .hero h1 {
+    font-size: 42px;
+
+    line-height: 1.45;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .section {
+    padding:
+      60px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 27px;
+  }
+
+  .tool-card {
+    min-height: auto;
+
+    padding: 23px;
+  }
+
+  .subject {
+    padding: 19px;
+  }
+
+  .cta {
+    margin:
+      55px 20px;
+
+    padding:
+      60px 22px;
+
+    border-radius: 23px;
+  }
+
+  html[dir="rtl"] .cta h2 {
+    font-size: 29px;
+  }
+
+}
 </style>
 </head>
 
