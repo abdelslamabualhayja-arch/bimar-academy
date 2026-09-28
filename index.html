@@ -3342,35 +3342,55 @@ body {
     animation: none;
   }
 }
-    /* =========================================
-   BIMAR — CENTERED NAVBAR
+/* =========================================
+   BIMAR — CENTERED NAVBAR + RTL FIX
    ========================================= */
 
-.bimar-navbar {
-  justify-content: center !important;
-}
+@media (min-width: 851px) {
 
-.bimar-brand {
-  position: absolute !important;
-  left: 5% !important;
-  right: auto !important;
-}
+  .bimar-navbar {
+    justify-content: center !important;
+  }
 
-.bimar-nav-links {
-  position: static !important;
-  transform: none !important;
+  .bimar-brand {
+    position: absolute !important;
+    left: 5% !important;
+    right: auto !important;
+  }
 
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  .bimar-nav-links {
+    position: static !important;
+    transform: none !important;
 
-  margin: 0 auto !important;
-}
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 
-.bimar-nav-actions {
-  position: absolute !important;
-  right: 5% !important;
-  left: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .bimar-nav-actions {
+    position: absolute !important;
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  /* Arabic navbar direction */
+  html[dir="rtl"] .bimar-navbar {
+    direction: rtl !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-links {
+    direction: rtl !important;
+  }
+
+  html[dir="ltr"] .bimar-navbar {
+    direction: ltr !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-links {
+    direction: ltr !important;
+  }
 }
     
 </style>
