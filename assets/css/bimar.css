@@ -684,13 +684,21 @@ html[dir="rtl"] h3 {
     right: auto !important;
     bottom: auto !important;
     transform: translate(-50%, -50%) !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 30px !important;
     width: max-content !important;
+    max-width: none !important;
     height: 40px !important;
     margin: 0 !important;
     padding: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .bimar-nav-links .bimar-nav-link {
+    flex: 0 0 auto !important;
   }
 
   .bimar-nav-link {
