@@ -115,6 +115,46 @@
   color: var(--muted);
 }
 
+    .logo-icon .pulse {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  animation: ecgPulse 2s ease-in-out infinite;
+}
+
+@keyframes ecgPulse {
+  0% {
+    stroke-dashoffset: 90;
+    opacity: 0.5;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  75% {
+    stroke-dashoffset: -15;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: -90;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-icon .pulse {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
     .nav-links {
       display: flex;
       align-items: center;
