@@ -2142,3 +2142,30 @@ html[dir="rtl"] .bimar-search-trigger:hover {
     left: 76px;
   }
 }
+
+
+/* Search belongs to the account-actions group and pushes it naturally. */
+.bimar-nav-actions {
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+.bimar-search-trigger {
+  position:static !important;
+  transform:none !important;
+  flex:0 0 auto;
+}
+.bimar-search-trigger:hover,
+html[dir="ltr"] .bimar-search-trigger:hover,
+html[dir="rtl"] .bimar-search-trigger:hover {
+  transform:none;
+}
+
+@media (max-width:850px) {
+  .bimar-search-trigger {
+    position:static !important;
+    transform:none !important;
+    right:auto !important;
+    left:auto !important;
+  }
+}
