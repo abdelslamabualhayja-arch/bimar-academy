@@ -2202,3 +2202,91 @@ html[dir="rtl"] .bimar-search-trigger:hover {
     font-size: 13px !important;
   }
 }
+
+
+/* Final desktop navbar layout: three independent zones, no overlap. */
+@media (min-width: 851px) {
+  .bimar-navbar {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    column-gap: 24px !important;
+  }
+
+  .bimar-brand,
+  html[dir="ltr"] .bimar-brand,
+  html[dir="rtl"] .bimar-brand {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+
+  .bimar-nav-links,
+  html[dir="ltr"] .bimar-nav-links,
+  html[dir="rtl"] .bimar-nav-links {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    gap: 18px !important;
+    min-width: 0 !important;
+  }
+
+  .bimar-nav-actions,
+  html[dir="ltr"] .bimar-nav-actions,
+  html[dir="rtl"] .bimar-nav-actions {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    margin: 0 !important;
+  }
+
+  html[dir="rtl"] .bimar-brand {
+    grid-column: 3 !important;
+    justify-self: end !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-links {
+    grid-column: 2 !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    grid-column: 1 !important;
+    justify-self: start !important;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1200px) {
+  .bimar-navbar {
+    column-gap: 14px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .bimar-nav-links {
+    gap: 10px !important;
+  }
+
+  .bimar-nav-link {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    font-size: 13px !important;
+  }
+
+  .bimar-brand-name {
+    font-size: 21px !important;
+  }
+
+  .bimar-logo-mark {
+    width: 48px !important;
+    height: 48px !important;
+    flex-basis: 48px !important;
+  }
+}
