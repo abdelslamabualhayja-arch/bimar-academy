@@ -3342,10 +3342,42 @@ body {
     animation: none;
   }
 }
+    
 /* =========================================
-   BIMAR — CENTERED NAVBAR + RTL FIX
+   BIMAR — FINAL NAVBAR RTL/LTR FIX
    ========================================= */
 
+.bimar-navbar {
+  direction: ltr !important;
+}
+
+/* Arabic */
+html[dir="rtl"] .bimar-navbar {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .bimar-nav-links {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .bimar-nav-actions {
+  direction: rtl !important;
+}
+
+/* English */
+html[dir="ltr"] .bimar-navbar {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .bimar-nav-links {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .bimar-nav-actions {
+  direction: ltr !important;
+}
+
+/* Keep desktop navbar centered */
 @media (min-width: 851px) {
 
   .bimar-navbar {
@@ -3361,11 +3393,6 @@ body {
   .bimar-nav-links {
     position: static !important;
     transform: none !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
     margin: 0 auto !important;
   }
 
@@ -3375,22 +3402,15 @@ body {
     left: auto !important;
   }
 
-  /* Arabic navbar direction */
-  html[dir="rtl"] .bimar-navbar {
-    direction: rtl !important;
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+
+  .bimar-navbar {
+    direction: inherit !important;
   }
 
-  html[dir="rtl"] .bimar-nav-links {
-    direction: rtl !important;
-  }
-
-  html[dir="ltr"] .bimar-navbar {
-    direction: ltr !important;
-  }
-
-  html[dir="ltr"] .bimar-nav-links {
-    direction: ltr !important;
-  }
 }
     
 </style>
