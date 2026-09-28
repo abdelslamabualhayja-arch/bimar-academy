@@ -2004,6 +2004,9 @@ html[data-theme="dark"] .bimar-navbar {
 
 /* Shared Navbar Search */
 .bimar-search-trigger {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -2106,4 +2109,36 @@ html[data-theme="dark"] .bimar-search-trigger { background:rgba(15,27,45,.82); }
   .bimar-search-trigger-label { display:none; }
   .bimar-search-trigger { width:40px; padding:0; }
   .bimar-search-overlay { padding:90px 16px 16px; }
+}
+
+
+/* Search sits beside the brand without affecting centered navigation. */
+html[dir="ltr"] .bimar-search-trigger {
+  left: calc(5% + 155px);
+  right: auto;
+}
+html[dir="rtl"] .bimar-search-trigger {
+  right: calc(5% + 155px);
+  left: auto;
+}
+html[dir="ltr"] .bimar-search-trigger:hover {
+  transform: translateY(-50%);
+}
+html[dir="rtl"] .bimar-search-trigger:hover {
+  transform: translateY(-50%);
+}
+
+@media (max-width:850px) {
+  .bimar-search-trigger {
+    position: absolute !important;
+    transform: translateY(-50%);
+  }
+  html[dir="ltr"] .bimar-search-trigger {
+    left: auto;
+    right: 76px;
+  }
+  html[dir="rtl"] .bimar-search-trigger {
+    right: auto;
+    left: 76px;
+  }
 }
