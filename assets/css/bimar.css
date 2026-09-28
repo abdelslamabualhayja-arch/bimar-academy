@@ -1406,3 +1406,158 @@ html[dir="rtl"] .bimar-h2 {
   letter-spacing: 0;
   line-height: 1.35;
 }
+
+
+/* =========================================================
+   📐 LAYOUT + 🌐 BILINGUAL / RTL SYSTEM
+   ========================================================= */
+
+.bimar-container,
+.bimar-container-sm,
+.bimar-container-md,
+.bimar-container-xl {
+  margin-inline: auto;
+}
+
+.bimar-container {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-lg));
+  max-width: var(--container-lg);
+}
+
+.bimar-container-sm {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-sm));
+  max-width: var(--container-sm);
+}
+
+.bimar-container-md {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-md));
+  max-width: var(--container-md);
+}
+
+.bimar-container-xl {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-xl));
+  max-width: var(--container-xl);
+}
+
+.bimar-section {
+  padding-block: var(--space-16);
+}
+
+.bimar-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.bimar-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.bimar-icon-directional {
+  transition: transform var(--transition-base);
+}
+
+html[dir="rtl"] .bimar-icon-directional {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .bimar-arrow,
+html[dir="rtl"] [data-directional="true"] {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .bimar-btn,
+html[dir="rtl"] .bimar-input,
+html[dir="rtl"] .bimar-select,
+html[dir="rtl"] .bimar-textarea {
+  direction: rtl;
+}
+
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="url"],
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="number"] {
+  direction: ltr;
+  text-align: right;
+}
+
+html[dir="rtl"] table {
+  direction: rtl;
+}
+
+.bimar-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bimar-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.bimar-table th,
+.bimar-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: middle;
+}
+
+.bimar-table th {
+  color: var(--navy);
+  background: var(--surface-soft);
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+}
+
+.bimar-table td {
+  color: var(--text-soft);
+  font-size: var(--text-body-sm);
+}
+
+.bimar-table tr:last-child td {
+  border-bottom: 0;
+}
+
+html[dir="rtl"] .bimar-table th,
+html[dir="rtl"] .bimar-table td {
+  text-align: right;
+}
+
+html[dir="rtl"] .bimar-form,
+html[dir="rtl"] .bimar-card,
+html[dir="rtl"] .bimar-surface {
+  text-align: start;
+}
+
+html[dir="ltr"] .bimar-form,
+html[dir="ltr"] .bimar-card,
+html[dir="ltr"] .bimar-surface {
+  text-align: start;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  .bimar-section {
+    padding-block: var(--space-12);
+  }
+
+  .bimar-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bimar-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
