@@ -1,47 +1,55 @@
 /* =========================================================
    BIMAR ACADEMY — SHARED DESIGN SYSTEM
-   Shared across all pages
    ========================================================= */
 
+
 /* =========================================================
-   1. DESIGN TOKENS
+   GLOBAL VARIABLES
    ========================================================= */
 
 :root {
-  --bimar-blue: #2563EB;
-  --bimar-blue-dark: #1D4ED8;
-  --bimar-cyan: #06B6D4;
+  --primary: #2563EB;
+  --primary-dark: #1E40AF;
+  --primary-soft: #EFF6FF;
 
-  --bimar-navy: #07111F;
-  --bimar-text: #1E293B;
-  --bimar-muted: #64748B;
+  --navy: #07111F;
+  --text: #1E293B;
+  --muted: #64748B;
 
-  --bimar-bg: #F8FAFC;
-  --bimar-white: #FFFFFF;
+  --bg: #F8FAFC;
+  --card: #FFFFFF;
 
-  --bimar-border: rgba(148, 163, 184, 0.22);
-  --bimar-border-soft: rgba(15, 23, 42, 0.06);
+  --border: rgba(148, 163, 184, 0.22);
+  --border-soft: rgba(15, 23, 42, 0.05);
 
-  --bimar-shadow-sm:
+  --glow: rgba(37, 99, 235, 0.16);
+
+  --cyan: #06B6D4;
+  --cyan-soft: rgba(6, 182, 212, 0.12);
+
+  --shadow-sm:
     0 4px 16px rgba(15, 23, 42, 0.05);
 
-  --bimar-shadow-md:
+  --shadow-md:
     0 12px 35px rgba(15, 23, 42, 0.08);
 
-  --bimar-shadow-lg:
+  --shadow-lg:
     0 24px 70px rgba(15, 23, 42, 0.12);
+
+  --bimar-blue: #2563eb;
+  --bimar-blue-dark: #173b8f;
+  --bimar-blue-light: #60a5fa;
+  --bimar-navy: #0f172a;
+  --bimar-text: #334155;
+  --bimar-muted: #64748b;
+  --bimar-border: rgba(15, 23, 42, 0.08);
+  --bimar-white: #ffffff;
 }
 
 
 /* =========================================================
-   2. GLOBAL BASICS
+   GLOBAL
    ========================================================= */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 html,
 body {
@@ -50,23 +58,12 @@ body {
   overflow-x: hidden;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-/* =========================================================
-   3. TYPOGRAPHY
-   ========================================================= */
-
-html,
 body {
   font-family:
     Inter,
@@ -75,21 +72,35 @@ body {
     Arial,
     Helvetica,
     sans-serif;
-}
 
-html[dir="rtl"] body {
-  font-family:
-    "IBM Plex Sans Arabic",
-    Inter,
-    "Segoe UI",
-    Arial,
-    Helvetica,
-    sans-serif;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(37, 99, 235, 0.035),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(6, 182, 212, 0.025),
+      transparent 25%
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  line-height: 1.6;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 
 /* =========================================================
-   4. NAVBAR
+   BIMAR NAVBAR
    ========================================================= */
 
 .bimar-navbar {
@@ -102,7 +113,6 @@ html[dir="rtl"] body {
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
   padding: 0 5%;
 
@@ -110,99 +120,69 @@ html[dir="rtl"] body {
     linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.96),
-      rgba(248, 250, 252, 0.90)
+      rgba(255, 255, 255, 0.88)
     );
 
   border-bottom: 1px solid var(--bimar-border);
-
-  box-shadow:
-    0 8px 30px rgba(15, 23, 42, 0.05);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
   transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    height 0.3s ease;
+    height 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .bimar-navbar.scrolled {
-  height: 72px;
+  height: 70px;
 
-  background:
-    rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.96);
 
   box-shadow:
-    0 10px 35px rgba(15, 23, 42, 0.08);
+    0 8px 30px rgba(15, 23, 42, 0.08);
 }
 
 
 /* =========================================================
-   5. BRAND / LOGO
+   BRAND
    ========================================================= */
 
 .bimar-brand {
-  position: absolute;
+  position: relative;
 
   display: inline-flex;
   align-items: center;
 
-  gap: 11px;
+  gap: 13px;
 
-  color: inherit;
   text-decoration: none;
 
   isolation: isolate;
 
   transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
+    transform 0.25s ease;
 }
 
 .bimar-brand::before {
   content: "";
 
   position: absolute;
-
-  width: 70px;
-  height: 70px;
-
-  left: -7px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border-radius: 50%;
+  inset: -14px;
 
   background:
     radial-gradient(
       circle,
-      rgba(37, 99, 235, 0.12),
-      transparent 70%
+      rgba(37, 99, 235, 0.14),
+      transparent 68%
     );
 
-  filter: blur(10px);
-
-  opacity: 0;
+  filter: blur(12px);
 
   z-index: -1;
 
-  transition: opacity 0.3s ease;
+  animation: bimarBrandGlow 4s ease-in-out infinite;
 }
-
-.bimar-brand:hover {
-  transform: translateY(-1px);
-}
-
-.bimar-brand:hover::before {
-  opacity: 1;
-}
-
-
-/* =========================================================
-   6. LOGO MARK
-   ========================================================= */
 
 .bimar-logo-mark {
   position: relative;
@@ -216,175 +196,110 @@ html[dir="rtl"] body {
   align-items: center;
   justify-content: center;
 
-  border-radius: 16px;
+  border-radius: 15px;
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.98),
-      rgba(239, 246, 255, 0.92)
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255,255,255,0.95),
+      rgba(239,246,255,0.96) 45%,
+      rgba(219,234,254,0.98)
     );
 
-  border: 1px solid rgba(37, 99, 235, 0.16);
+  border: 1px solid rgba(37, 99, 235, 0.15);
 
   box-shadow:
-    0 10px 28px rgba(37, 99, 235, 0.13),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 8px 24px rgba(37, 99, 235, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 
   overflow: hidden;
 
+  filter:
+    drop-shadow(0 5px 12px rgba(37, 99, 235, 0.12));
+
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+    box-shadow 0.3s ease;
 }
 
 .bimar-logo-mark::before {
   content: "";
 
   position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
+  inset: -50%;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(37, 99, 235, 0.08),
-      transparent 45%,
-      rgba(6, 182, 212, 0.08)
+    conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(37, 99, 235, 0.18),
+      transparent 30%
     );
 
-  pointer-events: none;
+  animation: bimarLogoSpin 7s linear infinite;
 }
 
 .bimar-logo-mark::after {
   content: "";
 
   position: absolute;
+  inset: 2px;
 
-  width: 100%;
-  height: 100%;
-
-  top: -100%;
-  left: -100%;
+  border-radius: 13px;
 
   background:
     linear-gradient(
-      120deg,
-      transparent 35%,
-      rgba(255, 255, 255, 0.75) 50%,
-      transparent 65%
+      145deg,
+      rgba(255,255,255,0.72),
+      rgba(255,255,255,0.08)
     );
-
-  transform: rotate(12deg);
-
-  transition: none;
-
-  pointer-events: none;
-}
-
-.bimar-brand:hover .bimar-logo-mark {
-  transform: translateY(-2px) scale(1.025);
-
-  border-color:
-    rgba(37, 99, 235, 0.28);
-
-  box-shadow:
-    0 14px 34px rgba(37, 99, 235, 0.18),
-    0 0 0 5px rgba(37, 99, 235, 0.04);
-}
-
-.bimar-brand:hover .bimar-logo-mark::after {
-  animation: bimarLogoShine 0.8s ease;
 }
 
 .bimar-logo-mark svg {
-  width: 38px;
-  height: 38px;
-
   position: relative;
   z-index: 2;
 
-  overflow: visible;
+  width: 31px;
+  height: 31px;
+
+  transition:
+    transform 0.3s ease;
 }
 
+.bimar-brand:hover .bimar-logo-mark {
+  transform: translateY(-2px) rotate(-1deg);
 
-/* =========================================================
-   7. LOGO ECG ANIMATION
-   ========================================================= */
-
-.logo-ecg {
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-
-  animation:
-    bimarECG 2.8s ease-in-out infinite;
+  box-shadow:
+    0 14px 32px rgba(37, 99, 235, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
-@keyframes bimarECG {
-  0% {
-    stroke-dashoffset: 120;
-  }
-
-  35% {
-    stroke-dashoffset: 0;
-  }
-
-  65% {
-    stroke-dashoffset: 0;
-  }
-
-  100% {
-    stroke-dashoffset: -120;
-  }
-}
-
-@keyframes bimarLogoShine {
-  0% {
-    top: -100%;
-    left: -100%;
-  }
-
-  100% {
-    top: 100%;
-    left: 100%;
-  }
-}
-
-
-/* =========================================================
-   8. BRAND TEXT
-   ========================================================= */
-
-.bimar-brand-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  line-height: 1;
+.bimar-brand:hover .bimar-logo-mark svg {
+  transform: scale(1.06);
 }
 
 .bimar-brand-name {
-  display: block;
+  font-family: Inter, sans-serif;
 
-  font-size: 21px;
-  font-weight: 800;
+  font-size: 24px;
 
-  letter-spacing: 1px;
+  font-weight: 850;
+
+  letter-spacing: 1.1px;
+
+  line-height: 1;
 
   background:
     linear-gradient(
-      90deg,
-      #0F172A,
-      #2563EB,
-      #06B6D4
+      135deg,
+      #07111F,
+      #2563EB
     );
 
   -webkit-background-clip: text;
   background-clip: text;
 
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .bimar-brand-sub {
@@ -392,17 +307,28 @@ html[dir="rtl"] body {
 
   margin-top: 4px;
 
-  font-size: 9px;
-  font-weight: 700;
+  font-family: Inter, sans-serif;
 
-  letter-spacing: 3px;
+  font-size: 8px;
 
-  color: var(--bimar-muted);
+  font-weight: 750;
+
+  letter-spacing: 3.6px;
+
+  color: #64748B;
+}
+
+.logo-ecg {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+
+  animation:
+    bimarECG 2.4s ease-in-out infinite;
 }
 
 
 /* =========================================================
-   9. NAVIGATION LINKS
+   NAVIGATION LINKS
    ========================================================= */
 
 .bimar-nav-links {
@@ -412,9 +338,9 @@ html[dir="rtl"] body {
 
   gap: 30px;
 
-  margin: 0 auto;
+  height: 100%;
 
-  direction: ltr;
+  margin: 0 auto;
 }
 
 .bimar-nav-link {
@@ -426,36 +352,23 @@ html[dir="rtl"] body {
 
   height: 40px;
 
-  padding: 0 5px;
+  padding: 0 13px;
 
-  color: #475569;
+  border-radius: 10px;
+
+  color: var(--bimar-text);
+
+  text-decoration: none;
 
   font-size: 14px;
   font-weight: 600;
 
   white-space: nowrap;
 
-  text-decoration: none;
-
-  border-radius: 10px;
-
   transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.bimar-nav-link:hover {
-  color: var(--bimar-blue);
-
-  background:
-    rgba(37, 99, 235, 0.055);
-
-  transform: translateY(-1px);
-}
-
-.bimar-nav-link.active {
-  color: var(--bimar-blue);
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .bimar-nav-link::after {
@@ -463,10 +376,9 @@ html[dir="rtl"] body {
 
   position: absolute;
 
-  left: 0;
-  right: 0;
-
-  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
 
   height: 2px;
 
@@ -476,10 +388,11 @@ html[dir="rtl"] body {
     linear-gradient(
       90deg,
       var(--bimar-blue),
-      var(--bimar-cyan)
+      var(--bimar-blue-light)
     );
 
-  transform: scaleX(0);
+  transform:
+    scaleX(0);
 
   transform-origin: center;
 
@@ -487,19 +400,30 @@ html[dir="rtl"] body {
     transform 0.25s ease;
 }
 
+.bimar-nav-link:hover {
+  color: var(--bimar-blue);
+
+  background:
+    rgba(37, 99, 235, 0.05);
+
+  transform: translateY(-1px);
+}
+
 .bimar-nav-link:hover::after,
 .bimar-nav-link.active::after {
   transform: scaleX(1);
 }
 
+.bimar-nav-link.active {
+  color: var(--bimar-blue);
+}
+
 
 /* =========================================================
-   10. NAVIGATION ACTIONS
+   NAV ACTIONS
    ========================================================= */
 
 .bimar-nav-actions {
-  position: absolute;
-
   display: flex;
   align-items: center;
 
@@ -510,79 +434,60 @@ html[dir="rtl"] body {
 
 
 /* =========================================================
-   11. LANGUAGE SWITCH
+   LANGUAGE SWITCHER
    ========================================================= */
 
 .bimar-language {
-  display: inline-flex;
+  display: flex;
   align-items: center;
 
-  height: 38px;
+  padding: 3px;
 
-  padding: 0 8px;
+  gap: 2px;
 
-  gap: 6px;
+  border-radius: 999px;
 
-  border-radius: 10px;
+  background: rgba(248, 250, 252, 0.9);
 
   border: 1px solid var(--bimar-border);
 
-  background:
-    rgba(255, 255, 255, 0.75);
-
   box-shadow:
-    0 3px 12px rgba(15, 23, 42, 0.035);
+    0 3px 10px rgba(15, 23, 42, 0.04);
 }
 
 .bimar-language button {
-  width: 30px;
-  height: 28px;
-
-  padding: 0;
-
   border: 0;
-  border-radius: 7px;
-
   background: transparent;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
 
   color: var(--bimar-muted);
 
-  font-size: 11px;
+  font: inherit;
+  font-size: 12px;
   font-weight: 700;
 
   cursor: pointer;
 
   transition:
-    color 0.2s ease,
     background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.bimar-language button:hover {
-  color: var(--bimar-blue);
-
-  background:
-    rgba(37, 99, 235, 0.06);
+    color 0.2s ease;
 }
 
 .bimar-language button.active {
+  background: var(--bimar-white);
+
   color: var(--bimar-blue);
 
-  background:
-    rgba(37, 99, 235, 0.10);
-}
-
-.bimar-language > span {
-  width: 1px;
-  height: 14px;
-
-  background:
-    rgba(148, 163, 184, 0.35);
+  box-shadow:
+    0 2px 7px rgba(15, 23, 42, 0.08);
 }
 
 
 /* =========================================================
-   12. LOGIN BUTTON
+   LOGIN
    ========================================================= */
 
 .bimar-login {
@@ -594,35 +499,31 @@ html[dir="rtl"] body {
 
   padding: 0 15px;
 
-  color: #334155;
+  color: var(--bimar-navy);
 
-  font-size: 13px;
+  text-decoration: none;
+
+  font-size: 14px;
   font-weight: 600;
 
   white-space: nowrap;
 
-  text-decoration: none;
-
   border-radius: 10px;
 
   transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .bimar-login:hover {
+  background: rgba(37, 99, 235, 0.05);
+
   color: var(--bimar-blue);
-
-  background:
-    rgba(37, 99, 235, 0.06);
-
-  transform: translateY(-1px);
 }
 
 
 /* =========================================================
-   13. GET STARTED BUTTON
+   START BUTTON
    ========================================================= */
 
 .bimar-start {
@@ -634,35 +535,34 @@ html[dir="rtl"] body {
 
   height: 42px;
 
-  padding: 0 18px;
+  padding: 0 19px;
 
   border-radius: 11px;
-
-  color: #FFFFFF;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  white-space: nowrap;
-
-  text-decoration: none;
 
   background:
     linear-gradient(
       135deg,
       #2563EB,
-      #1D4ED8 55%,
-      #06B6D4
+      #1D4ED8
     );
 
-  box-shadow:
-    0 8px 20px rgba(37, 99, 235, 0.20);
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
 
   overflow: hidden;
 
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.22);
+
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .bimar-start::before {
@@ -680,22 +580,21 @@ html[dir="rtl"] body {
     linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.28),
+      rgba(255,255,255,0.3),
       transparent
     );
 
   transform: skewX(-20deg);
 
-  transition: left 0.6s ease;
+  transition:
+    left 0.5s ease;
 }
 
 .bimar-start:hover {
-  color: #FFFFFF;
-
   transform: translateY(-2px);
 
   box-shadow:
-    0 12px 28px rgba(37, 99, 235, 0.27);
+    0 12px 28px rgba(37, 99, 235, 0.28);
 }
 
 .bimar-start:hover::before {
@@ -704,516 +603,127 @@ html[dir="rtl"] body {
 
 
 /* =========================================================
-   14. MOBILE MENU BUTTON
+   MOBILE MENU
    ========================================================= */
 
 .bimar-menu-btn {
   display: none;
 
-  width: 44px;
-  height: 44px;
-
-  padding: 0;
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  gap: 5px;
+  width: 42px;
+  height: 42px;
 
   border: 1px solid var(--bimar-border);
 
-  border-radius: 11px;
+  border-radius: 10px;
 
-  background:
-    rgba(255, 255, 255, 0.9);
+  background: white;
 
   cursor: pointer;
 
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
 }
 
 .bimar-menu-btn span {
-  display: block;
-
   width: 19px;
   height: 2px;
 
   border-radius: 999px;
 
-  background: #334155;
+  background: var(--bimar-navy);
 
   transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.bimar-menu-btn:hover {
-  background:
-    rgba(37, 99, 235, 0.06);
-
-  border-color:
-    rgba(37, 99, 235, 0.20);
-}
-
-.bimar-menu-btn.open span:nth-child(1) {
-  transform:
-    translateY(7px)
-    rotate(45deg);
-}
-
-.bimar-menu-btn.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.bimar-menu-btn.open span:nth-child(3) {
-  transform:
-    translateY(-7px)
-    rotate(-45deg);
+    transform 0.2s ease;
 }
 
 
 /* =========================================================
-   15. RTL / LTR
+   RTL / LTR
    ========================================================= */
 
 .bimar-navbar {
-  direction: ltr;
-}
-
-html[dir="ltr"] .bimar-navbar {
-  direction: ltr;
+  direction: ltr !important;
 }
 
 html[dir="rtl"] .bimar-navbar {
-  direction: rtl;
-}
-
-html[dir="ltr"] .bimar-nav-links {
-  direction: ltr;
+  direction: rtl !important;
 }
 
 html[dir="rtl"] .bimar-nav-links {
-  direction: rtl;
-}
-
-html[dir="ltr"] .bimar-nav-actions {
-  direction: ltr;
+  direction: rtl !important;
 }
 
 html[dir="rtl"] .bimar-nav-actions {
-  direction: rtl;
+  direction: rtl !important;
+}
+
+html[dir="ltr"] .bimar-navbar {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .bimar-nav-links {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .bimar-nav-actions {
+  direction: ltr !important;
 }
 
 
-/* English:
-   Logo left — actions right
-*/
+/* =========================================================
+   ARABIC TYPOGRAPHY
+   ========================================================= */
 
-@media (min-width: 851px) {
-
-  html[dir="ltr"] .bimar-brand {
-    left: 5%;
-    right: auto;
-  }
-
-  html[dir="ltr"] .bimar-nav-actions {
-    right: 5%;
-    left: auto;
-  }
-
-  /* Arabic:
-     Logo right — actions left
-  */
-
-  html[dir="rtl"] .bimar-brand {
-    right: 5%;
-    left: auto;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    left: 5%;
-    right: auto;
-  }
-}
-
-
-/* Arabic typography */
-
-html[dir="rtl"] .bimar-brand-name {
+html[dir="rtl"] body {
   font-family:
     "IBM Plex Sans Arabic",
     sans-serif;
 
-  font-size: 21px;
-  font-weight: 700;
+  font-weight: 400;
 
-  letter-spacing: -0.4px;
-
-  color: #0F172A;
-
-  background: none;
-
-  -webkit-text-fill-color: initial;
+  letter-spacing: 0;
 }
 
-html[dir="rtl"] .bimar-brand-sub {
-  display: none;
-}
-
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] strong,
 html[dir="rtl"] .bimar-nav-link,
 html[dir="rtl"] .bimar-login,
 html[dir="rtl"] .bimar-start,
-html[dir="rtl"] .bimar-language button {
+html[dir="rtl"] .primary-button,
+html[dir="rtl"] .secondary-button {
   font-family:
     "IBM Plex Sans Arabic",
     sans-serif;
 }
 
+html[dir="rtl"] h1 {
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  line-height: 1.35;
+}
 
-/* =========================================================
-   16. DESKTOP BALANCE
-   ========================================================= */
+html[dir="rtl"] h2 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
 
-@media (min-width: 851px) {
-
-  .bimar-navbar {
-    height: 76px;
-  }
-
-  .bimar-nav-links {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 30px;
-
-    margin: 0 auto;
-  }
-
-  .bimar-nav-link {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    height: 40px;
-
-    white-space: nowrap;
-  }
-
-  .bimar-nav-actions {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    white-space: nowrap;
-  }
-
-  .bimar-login,
-  .bimar-start {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    height: 42px;
-
-    white-space: nowrap;
-  }
+html[dir="rtl"] h3 {
+  font-weight: 600;
+  letter-spacing: -0.2px;
 }
 
 
 /* =========================================================
-   17. TABLET / SMALL DESKTOP
+   FOCUS
    ========================================================= */
 
-@media (max-width: 1050px) and (min-width: 851px) {
-
-  .bimar-nav-links {
-    gap: 18px;
-  }
-
-  .bimar-nav-link {
-    padding: 0 3px;
-
-    font-size: 13px;
-  }
-
-  .bimar-nav-actions {
-    gap: 6px;
-  }
-
-  .bimar-language {
-    display: none;
-  }
-
-  .bimar-login {
-    padding: 0 10px;
-  }
-
-  .bimar-start {
-    padding: 0 13px;
-  }
-
-  .bimar-brand {
-    left: 3% !important;
-    right: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-brand {
-    right: 3% !important;
-    left: auto !important;
-  }
-
-  .bimar-nav-actions {
-    right: 3% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    left: 3% !important;
-    right: auto !important;
-  }
-}
-
-
-/* =========================================================
-   18. MOBILE NAVBAR
-   ========================================================= */
-
-@media (max-width: 850px) {
-
-  .bimar-navbar {
-    height: 70px;
-
-    padding: 0 5%;
-
-    justify-content: space-between;
-
-    direction: ltr !important;
-  }
-
-  .bimar-brand {
-    position: static;
-
-    left: auto !important;
-    right: auto !important;
-
-    gap: 9px;
-  }
-
-  .bimar-logo-mark {
-    width: 46px;
-    height: 46px;
-
-    flex: 0 0 46px;
-
-    border-radius: 13px;
-  }
-
-  .bimar-logo-mark svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .bimar-brand-name {
-    font-size: 18px;
-  }
-
-  .bimar-brand-sub {
-    font-size: 8px;
-    letter-spacing: 2.5px;
-  }
-
-  .bimar-nav-links {
-    position: absolute;
-
-    top: 70px;
-
-    left: 5%;
-    right: 5%;
-
-    display: none;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 4px;
-
-    margin: 0;
-
-    padding: 10px;
-
-    border: 1px solid var(--bimar-border);
-
-    border-radius: 16px;
-
-    background:
-      rgba(255, 255, 255, 0.98);
-
-    box-shadow:
-      0 18px 45px rgba(15, 23, 42, 0.12);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    direction: ltr;
-
-    animation:
-      bimarMobileMenu 0.2s ease;
-  }
-
-  .bimar-nav-links.open {
-    display: flex;
-  }
-
-  .bimar-nav-link {
-    width: 100%;
-
-    height: 44px;
-
-    justify-content: flex-start;
-
-    padding: 0 14px;
-
-    font-size: 14px;
-
-    border-radius: 10px;
-  }
-
-  .bimar-nav-link::after {
-    left: 14px;
-    right: auto;
-
-    width: 3px;
-    height: 20px;
-
-    bottom: 50%;
-
-    transform:
-      translateY(50%)
-      scaleY(0);
-
-    transform-origin: center;
-  }
-
-  .bimar-nav-link:hover::after,
-  .bimar-nav-link.active::after {
-    transform:
-      translateY(50%)
-      scaleY(1);
-  }
-
-  .bimar-nav-actions {
-    display: none;
-  }
-
-  .bimar-menu-btn {
-    display: flex;
-
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Arabic mobile navigation */
-
-  html[dir="rtl"] .bimar-navbar {
-    direction: rtl !important;
-  }
-
-  html[dir="rtl"] .bimar-brand {
-    order: 2;
-  }
-
-  html[dir="rtl"] .bimar-menu-btn {
-    order: 1;
-  }
-
-  html[dir="rtl"] .bimar-nav-links {
-    direction: rtl;
-
-    left: 5%;
-    right: 5%;
-  }
-
-  html[dir="rtl"] .bimar-nav-link {
-    justify-content: flex-end;
-
-    text-align: right;
-  }
-
-  html[dir="rtl"] .bimar-nav-link::after {
-    left: auto;
-    right: 14px;
-  }
-}
-
-@keyframes bimarMobileMenu {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* =========================================================
-   19. VERY SMALL SCREENS
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .bimar-navbar {
-    height: 66px;
-  }
-
-  .bimar-logo-mark {
-    width: 42px;
-    height: 42px;
-
-    flex-basis: 42px;
-  }
-
-  .bimar-logo-mark svg {
-    width: 29px;
-    height: 29px;
-  }
-
-  .bimar-brand-name {
-    font-size: 17px;
-  }
-
-  .bimar-brand-sub {
-    display: none;
-  }
-
-  .bimar-nav-links {
-    top: 66px;
-  }
-}
-
-
-/* =========================================================
-   20. ACCESSIBILITY
-   ========================================================= */
-
-.bimar-nav-link:focus-visible,
-.bimar-login:focus-visible,
-.bimar-start:focus-visible,
-.bimar-language button:focus-visible,
-.bimar-menu-btn:focus-visible,
-.bimar-brand:focus-visible {
+:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.25);
 
   outline-offset: 3px;
@@ -1221,26 +731,273 @@ html[dir="rtl"] .bimar-language button {
 
 
 /* =========================================================
-   21. REDUCED MOTION
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes bimarLogoSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bimarECG {
+  0% {
+    stroke-dashoffset: 90;
+  }
+
+  45% {
+    stroke-dashoffset: 0;
+  }
+
+  75%,
+  100% {
+    stroke-dashoffset: -90;
+  }
+}
+
+@keyframes bimarBrandGlow {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
-  .bimar-navbar,
-  .bimar-brand,
-  .bimar-logo-mark,
-  .bimar-nav-link,
-  .bimar-login,
-  .bimar-start,
-  .bimar-language button,
-  .bimar-menu-btn,
-  .bimar-menu-btn span {
-    transition: none !important;
+
+/* =========================================================
+   DESKTOP NAVBAR BALANCE
+   ========================================================= */
+
+@media (min-width: 851px) {
+
+  .bimar-navbar {
+    height: 76px !important;
   }
 
-  .logo-ecg,
-  .bimar-logo-mark::after,
   .bimar-nav-links {
-    animation: none !important;
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 30px !important;
+
+    margin: 0 auto !important;
+  }
+
+  .bimar-nav-link {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+
+    height: 40px !important;
+  }
+
+  .bimar-nav-actions {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 10px !important;
+
+    white-space: nowrap !important;
+  }
+
+  .bimar-login,
+  .bimar-start {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+
+    height: 42px !important;
+  }
+
+  html[dir="ltr"] .bimar-brand {
+    position: absolute !important;
+
+    left: 5% !important;
+    right: auto !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-actions {
+    position: absolute !important;
+
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-brand {
+    position: absolute !important;
+
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    position: absolute !important;
+
+    left: 5% !important;
+    right: auto !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .bimar-navbar {
+    height: 72px;
+    padding: 0 20px;
+
+    direction: inherit !important;
+  }
+
+  .bimar-brand-name {
+    font-size: 21px;
+  }
+
+  .bimar-logo-mark {
+    width: 48px;
+    height: 48px;
+
+    flex-basis: 48px;
+  }
+
+  .bimar-brand-sub {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .bimar-nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 20px;
+    right: 20px;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 10px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 4px;
+
+    background: rgba(255,255,255,0.97);
+
+    border: 1px solid var(--bimar-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+      0 20px 50px rgba(15, 23, 42, 0.12);
+  }
+
+  .bimar-nav-links.open {
+    display: flex;
+  }
+
+  .bimar-nav-link {
+    height: 46px;
+
+    justify-content: flex-start;
+
+    padding: 0 14px;
+  }
+
+  .bimar-nav-link::after {
+    display: none;
+  }
+
+  .bimar-nav-actions {
+    margin-left: auto;
+  }
+
+  .bimar-login {
+    display: none;
+  }
+
+  .bimar-start {
+    display: none;
+  }
+
+  .bimar-menu-btn {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .bimar-navbar {
+    padding: 0 15px;
+  }
+
+  .bimar-brand {
+    gap: 9px;
+  }
+
+  .bimar-logo-mark {
+    width: 44px;
+    height: 44px;
+
+    flex-basis: 44px;
+
+    border-radius: 12px;
+  }
+
+  .bimar-logo-mark svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .bimar-brand-name {
+    font-size: 19px;
+  }
+
+  .bimar-brand-sub {
+    font-size: 6px;
+    letter-spacing: 2.5px;
+  }
+
+  .bimar-nav-links {
+    left: 15px;
+    right: 15px;
   }
 }
