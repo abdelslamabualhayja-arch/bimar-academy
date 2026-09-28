@@ -1,0 +1,1 @@
+// Bimar Academy — Shared JavaScript
