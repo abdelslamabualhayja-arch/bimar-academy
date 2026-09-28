@@ -1,4324 +1,2207 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Bimar Academy</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="assets/css/bimar.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet">
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="assets/css/bimar.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
-:root {
-  --primary: #2563EB;
-  --primary-dark: #1E40AF;
-  --primary-soft: #EFF6FF;
 
-  --navy: #07111F;
-  --text: #1E293B;
-  --muted: #64748B;
+    /* =========================================================
+       BIMAR ACADEMY — HOMEPAGE
+       Page-specific styles only
+       ========================================================= */
 
-  --bg: #F8FAFC;
-  --card: #FFFFFF;
 
-  --border: rgba(148, 163, 184, 0.22);
-  --border-soft: rgba(15, 23, 42, 0.05);
-
-  --glow: rgba(37, 99, 235, 0.16);
-
-  --cyan: #06B6D4;
-  --cyan-soft: rgba(6, 182, 212, 0.12);
-
-  --shadow-sm:
-    0 4px 16px rgba(15, 23, 42, 0.05);
-
-  --shadow-md:
-    0 12px 35px rgba(15, 23, 42, 0.08);
-
-  --shadow-lg:
-    0 24px 70px rgba(15, 23, 42, 0.12);
-}
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family:
-    Inter,
-    "IBM Plex Sans Arabic",
-    "Segoe UI",
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  background: var(--bg);
-  color: var(--text);
-
-  line-height: 1.6;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-    /* NAVBAR */
-
-    .navbar {
-      height: 76px;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--navy);
-  flex-shrink: 0;
-}
-
-.logo-icon {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-
-.logo-icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.logo-icon rect {
-  fill: var(--primary);
-}
-
-.logo-icon path {
-  fill: none;
-  stroke: white;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.logo-icon .pulse {
-  stroke: #B9D0FF;
-  stroke-width: 2;
-}
-
-.logo-text {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-}
-
-.logo-text strong {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  color: var(--navy);
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.logo-text small {
-  display: none;
-}
-
-/* Arabic logo */
-html[dir="rtl"] .logo-text strong {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0;
-  font-family: "Tahoma", "Arial", sans-serif;
-}
-
-    .logo-icon .pulse {
-  stroke-dasharray: 90;
-  stroke-dashoffset: 90;
-  animation: ecgPulse 2s ease-in-out infinite;
-}
-
-@keyframes ecgPulse {
-  0% {
-    stroke-dashoffset: 90;
-    opacity: 0.5;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  55% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  75% {
-    stroke-dashoffset: -15;
-    opacity: 1;
-  }
-
-  100% {
-    stroke-dashoffset: -90;
-    opacity: 0.5;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo-icon .pulse {
-    animation: none;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #475467;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .login {
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .signup {
-      background: var(--primary);
-      color: white;
-      padding: 11px 18px;
-      border-radius: 9px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    /* LANGUAGE BUTTON */
-
-    .language-switcher {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      background: #F2F4F7;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      padding: 3px;
-    }
-
-    .language-switcher button {
-      border: none;
-      background: transparent;
-      color: #667085;
-      padding: 7px 10px;
-      border-radius: 7px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 12px;
-    }
-
-    .language-switcher button.active {
-      background: white;
-      color: var(--primary);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-
-    /* HERO */
+    /* =========================================================
+       HERO
+       ========================================================= */
 
     .hero {
-      max-width: 1200px;
-      margin: auto;
-      padding: 90px 30px 80px;
+      position: relative;
+
+      max-width: 1240px;
+
+      margin: 0 auto;
+
+      padding:
+        105px 30px
+        90px;
+
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 70px;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 0.9fr);
+
       align-items: center;
+
+      gap: 80px;
     }
+
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      top: -160px;
+      left: -220px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.13),
+          transparent 68%
+        );
+
+      filter: blur(20px);
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      right: -180px;
+      bottom: -180px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(6, 182, 212, 0.10),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    /* =========================================================
+       EYEBROW
+       ========================================================= */
 
     .eyebrow {
       display: inline-flex;
+
       align-items: center;
-      gap: 8px;
-      background: #EFF4FF;
-      color: var(--primary);
-      padding: 7px 13px;
-      border-radius: 30px;
+
+      padding:
+        8px 15px;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(239, 246, 255, 0.95),
+          rgba(248, 250, 252, 0.95)
+        );
+
+      border:
+        1px solid rgba(37, 99, 235, 0.12);
+
+      box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.08);
+
+      color: #2563EB;
+
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 22px;
+
+      font-weight: 600;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
+
+
+    .eyebrow:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.13);
+    }
+
+
+    /* =========================================================
+       HERO TITLE
+       ========================================================= */
 
     .hero h1 {
-      font-size: clamp(42px, 5vw, 66px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      color: var(--navy);
-      margin-bottom: 22px;
+      max-width: 760px;
+
+      margin:
+        24px 0 24px;
+
+      color: #07111F;
+
+      font-size:
+        clamp(48px, 5.2vw, 72px);
+
+      line-height: 1.02;
+
+      letter-spacing: -3px;
+
+      font-weight: 800;
     }
+
 
     .hero h1 span {
-      color: var(--primary);
+      color: #07111F;
+
+      transition:
+        color 0.25s ease;
     }
 
-    .hero-description {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 600px;
-      margin-bottom: 32px;
+
+    .hero h1 span:nth-of-type(2) {
+      color: #2563EB;
     }
+
+
+    .hero h1 span:nth-of-type(3) {
+      color: #07111F;
+    }
+
+
+    /* =========================================================
+       HERO DESCRIPTION
+       ========================================================= */
+
+    .hero-description {
+      max-width: 610px;
+
+      margin:
+        0 0 34px;
+
+      color: #64748B;
+
+      font-size: 17px;
+
+      line-height: 1.85;
+    }
+
+
+    /* =========================================================
+       HERO BUTTONS
+       ========================================================= */
 
     .hero-buttons {
       display: flex;
-      gap: 14px;
+
       flex-wrap: wrap;
-    }
-    
-    .hero-buttons a,
-.tool-card,
-.subject,
-.cta a {
-  text-decoration: none;
-}
 
-    .primary-button {
-      background: var(--primary);
-      color: white;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s;
-    }
-
-    .primary-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .secondary-button {
-      background: white;
-      border: 1px solid var(--border);
-      color: var(--navy);
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    /* DASHBOARD */
-
-    .dashboard-preview {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 25px 70px rgba(16,24,40,0.10);
-    }
-
-    .preview-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px 5px 18px;
-    }
-
-    .preview-title {
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: #E0EAFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .progress-card {
-      background: #F8FAFC;
-      border-radius: 15px;
-      padding: 18px;
-      margin-bottom: 14px;
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-size: 13px;
-    }
-
-    .progress-bar {
-      height: 8px;
-      background: #EAECF0;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 72%;
-      background: var(--primary);
-      border-radius: 20px;
-    }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
-    .mini-card {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 15px;
+
+    .hero-buttons a {
+      text-decoration: none;
     }
 
-    .mini-icon {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
 
-    .mini-card strong {
-      display: block;
-      color: var(--navy);
-      font-size: 14px;
-    }
+    .primary-button,
+    .secondary-button {
+      min-height: 50px;
 
-    .mini-card span {
-      font-size: 12px;
-      color: var(--muted);
-    }
+      padding:
+        0 22px;
 
-    /* SECTIONS */
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 75px 30px;
-    }
-
-    .section-header {
-      margin-bottom: 35px;
-    }
-
-    .section-header h2 {
-      font-size: 32px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .section-header p {
-      color: var(--muted);
-    }
-
-    /* TOOLS */
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .tool-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 24px;
-      transition: 0.25s;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(16,24,40,0.08);
-      border-color: #C7D7FE;
-    }
-
-    .tool-icon {
-      width: 48px;
-      height: 48px;
       border-radius: 12px;
-      background: #EFF4FF;
-      display: flex;
+
+      display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
-      font-size: 24px;
-      margin-bottom: 17px;
+
+      font-size: 14px;
+
+      font-weight: 650;
+
+      text-decoration: none;
     }
 
-    .tool-card h3 {
-      color: var(--navy);
-      font-size: 17px;
-      margin-bottom: 7px;
+
+    .primary-button {
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563EB,
+          #1D4ED8
+        );
+
+      color: #FFFFFF;
+
+      box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.20);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .tool-card p {
-      color: var(--muted);
-      font-size: 13px;
+
+    .primary-button::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -120%;
+
+      width: 75%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.22),
+          transparent
+        );
+
+      transform:
+        skewX(-20deg);
+
+      transition:
+        left 0.55s ease;
     }
 
-    /* SUBJECTS */
 
-    .subjects-section {
-      background: white;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .primary-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 16px 35px rgba(37, 99, 235, 0.30);
     }
 
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+
+    .primary-button:hover::before {
+      left: 140%;
     }
 
-    .subject {
-      background: #F8FAFC;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
+
+    .secondary-button {
+      border:
+        1px solid rgba(15, 23, 42, 0.10);
+
+      background:
+        rgba(255, 255, 255, 0.85);
+
+      color: #1E293B;
+
+      box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.04);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+
+    .secondary-button:hover {
+      transform:
+        translateY(-3px);
+
+      border-color:
+        rgba(37, 99, 235, 0.22);
+
+      background: #FFFFFF;
+
+      box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.08);
+    }
+
+
+    /* =========================================================
+       DASHBOARD PREVIEW
+       ========================================================= */
+
+    .dashboard-preview {
+      position: relative;
+
+      padding: 21px;
+
+      border:
+        1px solid rgba(15, 23, 42, 0.07);
+
+      border-radius: 26px;
+
+      background:
+        rgba(255,255,255,0.92);
+
+      box-shadow:
+        0 35px 90px rgba(15, 23, 42, 0.11),
+        0 10px 35px rgba(37, 99, 235, 0.045);
+
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+
+    .dashboard-preview:hover {
+      transform:
+        translateY(-6px);
+
+      box-shadow:
+        0 42px 100px rgba(15, 23, 42, 0.14),
+        0 15px 40px rgba(37, 99, 235, 0.07);
+    }
+
+
+    .preview-top {
       display: flex;
+
       align-items: center;
-      gap: 16px;
-      transition: 0.2s;
+
+      justify-content: space-between;
+
+      margin-bottom: 18px;
     }
 
-    .subject:hover {
-      border-color: #B2CCFF;
-      background: #F5F8FF;
-    }
 
-    .subject-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 13px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 27px;
-      border: 1px solid var(--border);
-    }
+    .preview-title {
+      color: #0F172A;
 
-    .subject h3 {
-      color: var(--navy);
-      font-size: 16px;
-      margin-bottom: 3px;
-    }
+      font-size: 15px;
 
-    .subject p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* CTA */
-
-    .cta {
-      max-width: 1140px;
-      margin: 70px auto;
-      padding: 65px 30px;
-      border-radius: 25px;
-      background: var(--navy);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      color: #98A2B3;
-      margin-bottom: 28px;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: white;
-      color: var(--navy);
-      padding: 14px 25px;
-      border-radius: 10px;
       font-weight: 700;
     }
 
-    /* FOOTER */
 
-    footer {
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 35px 6%;
-      color: var(--muted);
-      text-align: center;
+    .avatar {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        #EFF6FF;
+
+      font-size: 18px;
+    }
+
+
+    /* =========================================================
+       PROGRESS CARD
+       ========================================================= */
+
+    .progress-card {
+      padding: 20px;
+
+      border:
+        1px solid rgba(15, 23, 42, 0.045);
+
+      border-radius: 17px;
+
+      background:
+        #F8FAFC;
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+
+    .progress-header {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 13px;
+    }
+
+
+    .progress-header strong {
+      color: #0F172A;
+
+      font-size: 14px;
+    }
+
+
+    .progress-header span {
+      color: #2563EB;
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+
+      height: 8px;
+
+      overflow: hidden;
+
+      border-radius: 999px;
+
+      background:
+        #E2E8F0;
+    }
+
+
+    .progress-fill {
+      width: 72%;
+
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2563EB,
+          #3B82F6
+        );
+
+      box-shadow:
+        0 0 12px rgba(37, 99, 235, 0.22);
+    }
+
+
+    /* =========================================================
+       PREVIEW GRID
+       ========================================================= */
+
+    .preview-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 13px;
+
+      margin-top: 13px;
+    }
+
+
+    .mini-card {
+      padding: 17px;
+
+      border:
+        1px solid rgba(15, 23, 42, 0.06);
+
+      border-radius: 15px;
+
+      background:
+        rgba(255,255,255,0.75);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+
+    .mini-card:hover {
+      transform:
+        translateY(-3px);
+
+      border-color:
+        rgba(37, 99, 235, 0.16);
+
+      background:
+        #FFFFFF;
+
+      box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.06);
+    }
+
+
+    .mini-icon {
+      margin-bottom: 9px;
+
+      font-size: 21px;
+    }
+
+
+    .mini-card strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #0F172A;
+
       font-size: 13px;
     }
 
-    footer strong {
-      color: var(--navy);
+
+    .mini-card span {
+      display: block;
+
+      color: #64748B;
+
+      font-size: 11px;
     }
 
-    /* MOBILE */
 
-    @media (max-width: 1000px) {
+    /* =========================================================
+       GENERAL SECTIONS
+       ========================================================= */
 
-      .nav-links {
-        display: none;
-      }
+    .section {
+      max-width: 1240px;
+
+      margin: 0 auto;
+
+      padding:
+        88px 30px;
+    }
+
+
+    .section-header {
+      margin-bottom: 38px;
+    }
+
+
+    .section-header h2 {
+      margin: 0 0 9px;
+
+      color: #0F172A;
+
+      font-size: 31px;
+
+      line-height: 1.35;
+
+      letter-spacing: -0.7px;
+    }
+
+
+    .section-header p {
+      margin: 0;
+
+      color: #64748B;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       TOOLS
+       ========================================================= */
+
+    .tools-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 20px;
+    }
+
+
+    .tool-card {
+      position: relative;
+
+      min-height: 210px;
+
+      padding: 26px;
+
+      overflow: hidden;
+
+      border:
+        1px solid rgba(15, 23, 42, 0.07);
+
+      border-radius: 20px;
+
+      background:
+        rgba(255,255,255,0.88);
+
+      box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.035);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+
+    .tool-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: -80px;
+      right: -80px;
+
+      width: 170px;
+      height: 170px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(37, 99, 235, 0.055);
+
+      filter: blur(25px);
+
+      opacity: 0;
+
+      transition:
+        opacity 0.3s ease;
+
+      pointer-events: none;
+    }
+
+
+    .tool-card:hover {
+      transform:
+        translateY(-7px);
+
+      border-color:
+        rgba(37, 99, 235, 0.20);
+
+      box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.10),
+        0 5px 20px rgba(37, 99, 235, 0.05);
+    }
+
+
+    .tool-card:hover::before {
+      opacity: 1;
+    }
+
+
+    .tool-icon {
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 18px;
+
+      border:
+        1px solid rgba(37, 99, 235, 0.08);
+
+      border-radius: 14px;
+
+      background:
+        #F8FAFC;
+
+      box-shadow:
+        0 5px 14px rgba(37, 99, 235, 0.05);
+
+      font-size: 23px;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .tool-card:hover .tool-icon {
+      transform:
+        scale(1.05);
+
+      box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.09);
+    }
+
+
+    .tool-card h3 {
+      margin:
+        0 0 8px;
+
+      color: #0F172A;
+
+      font-size: 18px;
+
+      line-height: 1.5;
+    }
+
+
+    .tool-card p {
+      margin: 0;
+
+      color: #64748B;
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       SUBJECTS
+       ========================================================= */
+
+    .subjects-section {
+      background:
+        linear-gradient(
+          180deg,
+          #FFFFFF,
+          #FAFBFD
+        );
+    }
+
+
+    .subjects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 20px;
+    }
+
+
+    .subject {
+      min-height: 100px;
+
+      padding: 21px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 16px;
+
+      border:
+        1px solid rgba(15, 23, 42, 0.07);
+
+      border-radius: 19px;
+
+      background:
+        rgba(248, 250, 252, 0.78);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+    }
+
+
+    .subject:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(37, 99, 235, 0.20);
+
+      background:
+        #FFFFFF;
+
+      box-shadow:
+        0 16px 35px rgba(15, 23, 42, 0.08);
+    }
+
+
+    .subject-icon {
+      flex-shrink: 0;
+
+      width: 54px;
+      height: 54px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background:
+        #EFF6FF;
+
+      font-size: 25px;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .subject:hover .subject-icon {
+      transform:
+        scale(1.04);
+
+      box-shadow:
+        0 6px 16px rgba(15, 23, 42, 0.06);
+    }
+
+
+    .subject h3 {
+      margin:
+        0 0 5px;
+
+      color: #0F172A;
+
+      font-size: 17px;
+
+      line-height: 1.4;
+    }
+
+
+    .subject p {
+      margin: 0;
+
+      color: #64748B;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       CTA
+       ========================================================= */
+
+    .cta {
+      position: relative;
+
+      max-width: 1180px;
+
+      margin:
+        85px auto;
+
+      padding:
+        75px 30px;
+
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(37, 99, 235, 0.25),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(96, 165, 250, 0.12),
+          transparent 30%
+        ),
+        #0F172A;
+
+      box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.12);
+    }
+
+
+    .cta::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: -180px;
+      right: -100px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(96, 165, 250, 0.08);
+
+      filter: blur(35px);
+
+      pointer-events: none;
+    }
+
+
+    .cta h2,
+    .cta p,
+    .cta a {
+      position: relative;
+
+      z-index: 1;
+    }
+
+
+    .cta h2 {
+      margin:
+        0 0 14px;
+
+      color: #FFFFFF;
+
+      font-size: 36px;
+
+      line-height: 1.4;
+    }
+
+
+    .cta p {
+      max-width: 650px;
+
+      margin:
+        0 auto 28px;
+
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size: 16px;
+
+      line-height: 1.8;
+    }
+
+
+    .cta a {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding:
+        0 22px;
+
+      border-radius: 11px;
+
+      background:
+        #FFFFFF;
+
+      color: #0F172A;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .cta a:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 10px 25px rgba(255,255,255,0.10);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding:
+        42px 6%;
+
+      color: #64748B;
+
+      line-height: 1.9;
+
+      text-align: center;
+    }
+
+
+    footer strong {
+      color: #0F172A;
+    }
+
+
+    /* =========================================================
+       RTL
+       ========================================================= */
+
+    html[dir="rtl"] .hero {
+      text-align: right;
+    }
+
+
+    html[dir="rtl"] .hero h1 {
+      max-width: 720px;
+
+      font-size:
+        clamp(42px, 5vw, 64px);
+
+      line-height: 1.4;
+
+      letter-spacing: -1.5px;
+    }
+
+
+    html[dir="rtl"] .hero-description {
+      max-width: 650px;
+
+      font-size: 17px;
+
+      line-height: 2;
+    }
+
+
+    html[dir="rtl"] .tool-card,
+    html[dir="rtl"] .subject {
+      text-align: right;
+    }
+
+
+    html[dir="rtl"] .tool-card h3,
+    html[dir="rtl"] .subject h3 {
+      font-family:
+        "IBM Plex Sans Arabic",
+        sans-serif;
+
+      font-weight: 600;
+
+      letter-spacing: -0.3px;
+    }
+
+
+    html[dir="rtl"] .tool-card p,
+    html[dir="rtl"] .subject p {
+      line-height: 1.9;
+    }
+
+
+    html[dir="rtl"] .cta h2 {
+      font-size: 34px;
+
+      font-weight: 700;
+
+      letter-spacing: -0.8px;
+    }
+
+
+    html[dir="rtl"] .cta p {
+      line-height: 1.9;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1050px) {
 
       .hero {
-        grid-template-columns: 1fr;
-        padding-top: 60px;
+        gap: 50px;
       }
 
       .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
       }
 
-      .subjects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
+
+
+    @media (max-width: 850px) {
+
+      .hero {
+        grid-template-columns:
+          1fr;
+
+        padding:
+          80px 25px
+          70px;
+
+        gap: 55px;
+      }
+
+
+      .hero h1 {
+        font-size:
+          clamp(44px, 9vw, 60px);
+
+        letter-spacing: -2px;
+      }
+
+
+      .section {
+        padding:
+          70px 25px;
+      }
+
+
+      .subjects-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+
+      .cta {
+        margin:
+          65px 25px;
+
+        padding:
+          65px 25px;
+      }
+
+    }
+
 
     @media (max-width: 600px) {
 
-      .navbar {
-        padding: 0 15px;
-      }
-
-      .login {
-        display: none;
-      }
-
       .hero {
-        padding: 55px 20px;
+        padding:
+          65px 20px
+          60px;
       }
+
 
       .hero h1 {
         font-size: 43px;
+
+        line-height: 1.08;
+
+        letter-spacing: -1.7px;
       }
+
+
+      html[dir="rtl"] .hero h1 {
+        font-size: 42px;
+
+        line-height: 1.45;
+      }
+
 
       .hero-description {
         font-size: 16px;
       }
 
-      .tools-grid,
-      .subjects-grid {
-        grid-template-columns: 1fr;
+
+      .hero-buttons {
+        flex-direction: column;
       }
+
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+      }
+
+
+      .dashboard-preview {
+        padding: 17px;
+
+        border-radius: 21px;
+      }
+
+
+      .preview-grid {
+        grid-template-columns:
+          1fr;
+      }
+
 
       .section {
-        padding: 55px 20px;
+        padding:
+          60px 20px;
       }
+
+
+      .section-header h2 {
+        font-size: 27px;
+      }
+
+
+      .tools-grid,
+      .subjects-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .tool-card {
+        min-height: auto;
+
+        padding: 23px;
+      }
+
+
+      .subject {
+        padding: 19px;
+      }
+
 
       .cta {
-        margin: 45px 20px;
+        margin:
+          55px 20px;
+
+        padding:
+          60px 22px;
+
+        border-radius: 23px;
       }
 
-      .language-switcher button {
-        padding: 6px 8px;
+
+      .cta h2 {
+        font-size: 30px;
       }
+
+
+      html[dir="rtl"] .cta h2 {
+        font-size: 29px;
+      }
+
     }
-    /* =========================================================
-   BIMAR ACADEMY — PREMIUM NAVBAR
-   ========================================================= */
 
-:root {
-  --bimar-blue: #2563eb;
-  --bimar-blue-dark: #173b8f;
-  --bimar-blue-light: #60a5fa;
-
-  --bimar-navy: #0f172a;
-  --bimar-text: #334155;
-  --bimar-muted: #64748b;
-
-  --bimar-border: rgba(15, 23, 42, 0.08);
-
-  --bimar-white: #ffffff;
-}
-
-
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
-.bimar-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-
-  width: 100%;
-  height: 78px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0 5%;
-
-  background: rgba(255, 255, 255, 0.88);
-
-  border-bottom: 1px solid var(--bimar-border);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    height 0.3s ease;
-}
-
-
-/* subtle shadow when scrolling */
-
-.bimar-navbar.scrolled {
-  background: rgba(255, 255, 255, 0.96);
-
-  box-shadow:
-    0 8px 30px rgba(15, 23, 42, 0.06);
-
-  height: 72px;
-}
-
-
-/* =========================================================
-   BRAND
-   ========================================================= */
-
-.bimar-brand {
-
-  display: flex;
-  align-items: center;
-
-  gap: 11px;
-
-  text-decoration: none;
-
-  flex-shrink: 0;
-
-  color: var(--bimar-navy);
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-
-.bimar-brand:hover {
-  transform: translateY(-1px);
-}
-
-
-/* =========================================================
-   LOGO MARK
-   ========================================================= */
-
-.bimar-logo-mark {
-
-  width: 47px;
-  height: 47px;
-
-  flex-shrink: 0;
-
-  position: relative;
-}
-
-
-.bimar-logo-mark svg {
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  overflow: visible;
-}
-
-
-/* outer ring */
-
-.logo-ring {
-
-  fill: rgba(37, 99, 235, 0.08);
-
-  stroke: var(--bimar-blue);
-
-  stroke-width: 2.5;
-
-  transform-origin: center;
-
-  transition:
-    fill 0.3s ease,
-    stroke 0.3s ease;
-}
-
-
-/* cross */
-
-.logo-cross {
-
-  fill: none;
-
-  stroke: var(--bimar-blue-dark);
-
-  stroke-width: 4;
-
-  stroke-linecap: round;
-
-  transition:
-    stroke 0.3s ease;
-}
-
-
-/* ECG */
-
-.logo-ecg {
-
-  fill: none;
-
-  stroke: var(--bimar-blue);
-
-  stroke-width: 2.8;
-
-  stroke-linecap: round;
-
-  stroke-linejoin: round;
-
-  stroke-dasharray: 95;
-
-  stroke-dashoffset: 95;
-
-  animation:
-    bimarECG 2.2s ease-in-out infinite;
-}
-
-
-/* ECG animation */
-
-@keyframes bimarECG {
-
-  0% {
-    stroke-dashoffset: 95;
-    opacity: 0.35;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  55% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  70% {
-    stroke-dashoffset: -8;
-    opacity: 0.9;
-  }
-
-  100% {
-    stroke-dashoffset: -95;
-    opacity: 0.35;
-  }
-
-}
-
-
-/* hover */
-
-.bimar-brand:hover .logo-ring {
-
-  fill: rgba(37, 99, 235, 0.13);
-
-  transform: scale(1.04);
-}
-
-
-.bimar-brand:hover .logo-cross {
-
-  stroke: var(--bimar-blue);
-}
-
-
-/* =========================================================
-   BRAND TEXT
-   ========================================================= */
-
-.bimar-brand-text {
-
-  display: flex;
-
-  align-items: center;
-
-  line-height: 1;
-}
-
-
-/* English BIMAR */
-
-.bimar-brand-name {
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 23px;
-
-  font-weight: 850;
-
-  letter-spacing: 1.3px;
-
-  color: var(--bimar-navy);
-
-  white-space: nowrap;
-
-  line-height: 1;
-}
-
-
-/* Academy */
-
-.bimar-brand-sub {
-
-  margin-left: 8px;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 2.8px;
-
-  color: var(--bimar-muted);
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   ARABIC LOGO
-   ========================================================= */
-
-html[dir="rtl"] .bimar-brand-name {
-
-  font-family:
-    "IBM Plex Sans Arabic",
-    sans-serif;
-
-  font-size: 22px;
-
-  font-weight: 700;
-
-  letter-spacing: -0.3px;
-
-  line-height: 1.25;
-
-}
-
-
-html[dir="rtl"] .bimar-brand-sub {
-
-  display: none;
-}
-
-
-/* =========================================================
-   NAV LINKS
-   ========================================================= */
-
-.bimar-nav-links {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 6px;
-
-  margin-left: auto;
-
-  margin-right: 34px;
-
-  height: 100%;
-}
-
-
-.bimar-nav-link {
-
-  position: relative;
-
-  display: flex;
-
-  align-items: center;
-
-  height: 100%;
-
-  padding: 0 12px;
-
-  color: var(--bimar-text);
-
-  text-decoration: none;
-
-  font-size: 14px;
-
-  font-weight: 600;
-
-  white-space: nowrap;
-
-  transition:
-    color 0.2s ease;
-}
-
-
-/* underline */
-
-.bimar-nav-link::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: 12px;
-  right: 12px;
-
-  bottom: 0;
-
-  height: 2px;
-
-  border-radius: 10px;
-
-  background: var(--bimar-blue);
-
-  transform:
-    scaleX(0);
-
-  transform-origin: center;
-
-  transition:
-    transform 0.25s ease;
-}
-
-
-.bimar-nav-link:hover {
-
-  color: var(--bimar-blue);
-}
-
-
-.bimar-nav-link:hover::after,
-.bimar-nav-link.active::after {
-
-  transform:
-    scaleX(1);
-}
-
-
-.bimar-nav-link.active {
-
-  color: var(--bimar-blue-dark);
-
-}
-
-
-/* =========================================================
-   ACTIONS
-   ========================================================= */
-
-.bimar-nav-actions {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 18px;
-
-  flex-shrink: 0;
-}
-
-
-/* =========================================================
-   LANGUAGE SWITCHER
-   ========================================================= */
-
-.bimar-language {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  padding: 5px 8px;
-
-  border: 1px solid var(--bimar-border);
-
-  border-radius: 999px;
-
-  background: rgba(248, 250, 252, 0.9);
-}
-
-
-.bimar-language button {
-
-  border: none;
-
-  background: transparent;
-
-  padding: 4px 5px;
-
-  cursor: pointer;
-
-  color: var(--bimar-muted);
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  border-radius: 999px;
-
-  transition:
-    color 0.2s ease,
-    background 0.2s ease;
-}
-
-
-.bimar-language button.active {
-
-  color: var(--bimar-blue);
-
-  background: #ffffff;
-
-  box-shadow:
-    0 2px 7px rgba(15, 23, 42, 0.08);
-}
-
-
-.bimar-language > span {
-
-  width: 1px;
-
-  height: 13px;
-
-  background: #cbd5e1;
-}
-
-
-/* =========================================================
-   LOGIN
-   ========================================================= */
-
-.bimar-login {
-
-  color: var(--bimar-navy);
-
-  text-decoration: none;
-
-  font-size: 14px;
-
-  font-weight: 650;
-
-  white-space: nowrap;
-
-  transition:
-    color 0.2s ease;
-}
-
-
-.bimar-login:hover {
-
-  color: var(--bimar-blue);
-}
-
-
-/* =========================================================
-   GET STARTED
-   ========================================================= */
-
-.bimar-start {
-
-  position: relative;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  height: 42px;
-
-  padding: 0 19px;
-
-  border-radius: 11px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563eb,
-      #1d4ed8
-    );
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 13px;
-
-  font-weight: 750;
-
-  box-shadow:
-    0 7px 18px rgba(37, 99, 235, 0.22);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-
-.bimar-start::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: -120%;
-
-  width: 80%;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.25),
-      transparent
-    );
-
-  transform: skewX(-20deg);
-
-  transition:
-    left 0.55s ease;
-}
-
-
-.bimar-start:hover {
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 25px rgba(37, 99, 235, 0.3);
-}
-
-
-.bimar-start:hover::before {
-
-  left: 140%;
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-   ========================================================= */
-
-.bimar-menu-btn {
-
-  display: none;
-
-  width: 42px;
-  height: 42px;
-
-  border: 1px solid var(--bimar-border);
-
-  border-radius: 10px;
-
-  background: white;
-
-  cursor: pointer;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-
-  gap: 5px;
-}
-
-
-.bimar-menu-btn span {
-
-  width: 19px;
-
-  height: 2px;
-
-  border-radius: 10px;
-
-  background: var(--bimar-navy);
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-
-/* =========================================================
-   RTL
-   ========================================================= */
-
-html[dir="rtl"] .bimar-navbar {
-
-  direction: rtl;
-}
-
-
-html[dir="rtl"] .bimar-nav-links {
-
-  margin-left: 34px;
-
-  margin-right: auto;
-}
-
-
-html[dir="rtl"] .bimar-brand-sub {
-
-  margin-left: 0;
-
-  margin-right: 8px;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-  .bimar-nav-links {
-
-    gap: 0;
-
-    margin-right: 15px;
-  }
-
-  .bimar-nav-link {
-
-    padding: 0 8px;
-
-    font-size: 13px;
-  }
-
-  .bimar-nav-actions {
-
-    gap: 10px;
-  }
-
-  .bimar-login {
-
-    display: none;
-  }
-
-}
-
-
-@media (max-width: 850px) {
-
-  .bimar-navbar {
-
-    height: 70px;
-
-    padding: 0 5%;
-  }
-
-
-  .bimar-logo-mark {
-
-    width: 42px;
-    height: 42px;
-  }
-
-
-  .bimar-brand-name {
-
-    font-size: 20px;
-  }
-
-
-  html[dir="rtl"] .bimar-brand-name {
-
-    font-size: 20px;
-  }
-
-
-  .bimar-nav-links {
-
-    position: absolute;
-
-    top: 70px;
-
-    left: 5%;
-    right: 5%;
-
-    height: auto;
-
-    display: none;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 0;
-
-    margin: 0;
-
-    padding: 10px;
-
-    background: rgba(255,255,255,0.98);
-
-    border: 1px solid var(--bimar-border);
-
-    border-radius: 16px;
-
-    box-shadow:
-      0 20px 50px rgba(15,23,42,0.1);
-  }
-
-
-  .bimar-nav-links.open {
-
-    display: flex;
-  }
-
-
-  .bimar-nav-link {
-
-    height: 48px;
-
-    padding: 0 15px;
-
-    border-radius: 10px;
-  }
-
-
-  .bimar-nav-link::after {
-
-    display: none;
-  }
-
-
-  .bimar-nav-link:hover,
-  .bimar-nav-link.active {
-
-    background: #eff6ff;
-  }
-
-
-  .bimar-nav-actions {
-
-    margin-left: auto;
-  }
-
-
-  html[dir="rtl"] .bimar-nav-actions {
-
-    margin-left: 0;
-
-    margin-right: auto;
-  }
-
-
-  .bimar-language {
-
-    display: none;
-  }
-
-
-  .bimar-start {
-
-    display: none;
-  }
-
-
-  .bimar-menu-btn {
-
-    display: flex;
-
-    margin-left: 10px;
-  }
-
-
-  html[dir="rtl"] .bimar-menu-btn {
-
-    margin-left: 0;
-
-    margin-right: 10px;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  .bimar-navbar {
-
-    padding: 0 4%;
-  }
-
-
-  .bimar-brand-name {
-
-    font-size: 18px;
-  }
-
-
-  html[dir="rtl"] .bimar-brand-name {
-
-    font-size: 18px;
-  }
-
-
-  .bimar-logo-mark {
-
-    width: 39px;
-    height: 39px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .logo-ecg {
-
-    animation: none;
-
-    stroke-dashoffset: 0;
-
-    opacity: 1;
-  }
-
-  .bimar-brand,
-  .bimar-start,
-  .bimar-nav-link,
-  .bimar-language button {
-
-    transition: none;
-  }
-
-}
-/* =========================================================
-   BIMAR ACADEMY — PREMIUM VISUAL POLISH
-   ========================================================= */
-
-/* ---------- Soft page lighting ---------- */
-
-body {
-  background:
-    radial-gradient(
-      circle at 12% 8%,
-      rgba(37, 99, 235, 0.055),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(96, 165, 250, 0.045),
-      transparent 25%
-    ),
-    var(--bg);
-}
-
-
-/* ---------- Hero lighting ---------- */
-
-.hero {
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  left: -180px;
-  top: 40px;
-
-  background: rgba(37, 99, 235, 0.07);
-
-  filter: blur(90px);
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  z-index: -1;
-}
-
-
-/* ---------- Eyebrow ---------- */
-
-.eyebrow {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(239, 246, 255, 0.95),
-      rgba(248, 250, 252, 0.95)
-    );
-
-  border: 1px solid rgba(37, 99, 235, 0.10);
-
-  box-shadow:
-    0 4px 16px rgba(37, 99, 235, 0.06);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.eyebrow:hover {
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 7px 22px rgba(37, 99, 235, 0.10);
-}
-
-
-/* ---------- Hero heading ---------- */
-
-.hero h1 {
-  letter-spacing: -2.5px;
-}
-
-.hero h1 span {
-  transition: color 0.25s ease;
-}
-
-
-/* ---------- Primary button ---------- */
-
-.primary-button {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563EB,
-      #1D4ED8
-    );
-
-  box-shadow:
-    0 8px 22px rgba(37, 99, 235, 0.18);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-.primary-button::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: -120%;
-
-  width: 75%;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.22),
-      transparent
-    );
-
-  transform: skewX(-20deg);
-
-  transition: left 0.55s ease;
-}
-
-.primary-button:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 13px 30px rgba(37, 99, 235, 0.25);
-}
-
-.primary-button:hover::before {
-  left: 140%;
-}
-
-
-/* ---------- Secondary button ---------- */
-
-.secondary-button {
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-.secondary-button:hover {
-  transform: translateY(-2px);
-
-  border-color: rgba(37, 99, 235, 0.25);
-
-  background: #ffffff;
-
-  box-shadow:
-    0 9px 24px rgba(15, 23, 42, 0.07);
-}
-
-
-/* ---------- Dashboard preview ---------- */
-
-.dashboard-preview {
-  position: relative;
-
-  border-color: rgba(15, 23, 42, 0.07);
-
-  box-shadow:
-    0 30px 80px rgba(15, 23, 42, 0.09),
-    0 8px 25px rgba(37, 99, 235, 0.035);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.dashboard-preview:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 35px 90px rgba(15, 23, 42, 0.12),
-    0 12px 32px rgba(37, 99, 235, 0.06);
-}
-
-
-/* ---------- Progress card ---------- */
-
-.progress-card {
-  border: 1px solid rgba(15, 23, 42, 0.045);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.8);
-}
-
-
-/* ---------- Progress bar ---------- */
-
-.progress-fill {
-  background:
-    linear-gradient(
-      90deg,
-      #2563EB,
-      #3B82F6
-    );
-
-  box-shadow:
-    0 0 12px rgba(37, 99, 235, 0.22);
-}
-
-
-/* ---------- Mini cards ---------- */
-
-.mini-card {
-  background: rgba(255,255,255,0.75);
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-.mini-card:hover {
-  transform: translateY(-3px);
-
-  border-color: rgba(37, 99, 235, 0.16);
-
-  background: #ffffff;
-
-  box-shadow:
-    0 10px 25px rgba(15, 23, 42, 0.06);
-}
-
-
-/* ---------- Tool cards ---------- */
-
-.tool-card {
-  position: relative;
-
-  overflow: hidden;
-
-  border-color: rgba(15, 23, 42, 0.07);
-
-  box-shadow:
-    0 2px 8px rgba(15, 23, 42, 0.015);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.tool-card::before {
-  content: "";
-
-  position: absolute;
-
-  top: -80px;
-  right: -80px;
-
-  width: 170px;
-  height: 170px;
-
-  background: rgba(37, 99, 235, 0.055);
-
-  border-radius: 50%;
-
-  filter: blur(25px);
-
-  opacity: 0;
-
-  transition: opacity 0.3s ease;
-
-  pointer-events: none;
-}
-
-.tool-card:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(37, 99, 235, 0.16);
-
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.08),
-    0 4px 15px rgba(37, 99, 235, 0.04);
-}
-
-.tool-card:hover::before {
-  opacity: 1;
-}
-
-
-/* ---------- Tool icons ---------- */
-
-.tool-icon {
-  border: 1px solid rgba(37, 99, 235, 0.08);
-
-  box-shadow:
-    0 5px 14px rgba(37, 99, 235, 0.05);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.tool-card:hover .tool-icon {
-  transform: scale(1.05);
-
-  box-shadow:
-    0 8px 20px rgba(37, 99, 235, 0.09);
-}
-
-
-/* ---------- Subjects ---------- */
-
-.subject {
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.subject:hover {
-  transform: translateY(-3px);
-
-  border-color: rgba(37, 99, 235, 0.16);
-
-  background: #ffffff;
-
-  box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.06);
-}
-
-
-/* ---------- Subject icons ---------- */
-
-.subject-icon {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.subject:hover .subject-icon {
-  transform: scale(1.04);
-
-  box-shadow:
-    0 6px 16px rgba(15, 23, 42, 0.06);
-}
-
-
-/* ---------- CTA ---------- */
-
-.cta {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(37, 99, 235, 0.25),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(96, 165, 250, 0.12),
-      transparent 30%
-    ),
-    #0F172A;
-
-  box-shadow:
-    0 25px 60px rgba(15, 23, 42, 0.12);
-}
-
-.cta::before {
-  content: "";
-
-  position: absolute;
-
-  width: 300px;
-  height: 300px;
-
-  top: -180px;
-  right: -100px;
-
-  border-radius: 50%;
-
-  background: rgba(96, 165, 250, 0.08);
-
-  filter: blur(35px);
-
-  pointer-events: none;
-}
-
-.cta h2,
-.cta p,
-.cta a {
-  position: relative;
-  z-index: 1;
-}
-
-.cta a {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.cta a:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 10px 25px rgba(255,255,255,0.10);
-}
-
-
-/* ---------- Footer ---------- */
-
-footer {
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #FAFBFC
-    );
-}
-
-
-/* ---------- Global focus ---------- */
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.22);
-
-  outline-offset: 3px;
-}
-
-
-/* ---------- Reduced motion ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-
-    transition-duration: 0.01ms !important;
-
-    animation-duration: 0.01ms !important;
-  }
-
-}
-/* =========================================================
-   ARABIC TYPOGRAPHY — SOFT PREMIUM
-   ========================================================= */
 
     /* =========================================================
-   ARABIC — SOFT COLOR & VISUAL STYLE
-   ========================================================= */
+       REDUCED MOTION
+       ========================================================= */
 
-html[dir="rtl"] .eyebrow {
-  color: #2563EB;
-  background: linear-gradient(
-    135deg,
-    #EFF6FF,
-    #F0FDFA
-  );
-  border: 1px solid rgba(37, 99, 235, 0.12);
-  box-shadow:
-    0 8px 25px rgba(37, 99, 235, 0.08);
-}
+    @media (prefers-reduced-motion: reduce) {
 
-html[dir="rtl"] .hero h1 {
-  background: linear-gradient(
-    135deg,
-    #0F172A 0%,
-    #2563EB 48%,
-    #0F766E 100%
-  );
+      .hero *,
+      .tool-card,
+      .subject,
+      .dashboard-preview,
+      .primary-button,
+      .secondary-button,
+      .eyebrow,
+      .cta a {
+        transition: none !important;
+      }
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+    }
 
-html[dir="rtl"] .section-header h2 {
-  color: #0F172A;
-}
+  </style>
 
-html[dir="rtl"] .section-header p {
-  color: #64748B;
-}
-
-html[dir="rtl"] .tool-card h3,
-html[dir="rtl"] .subject h3 {
-  color: #0F172A;
-}
-
-html[dir="rtl"] .tool-card p,
-html[dir="rtl"] .subject p {
-  color: #64748B;
-}
-
-html[dir="rtl"] .primary-button,
-html[dir="rtl"] .bimar-start {
-  box-shadow:
-    0 10px 28px rgba(37, 99, 235, 0.20);
-}
-
-html[dir="rtl"] .tool-card:hover,
-html[dir="rtl"] .subject:hover {
-  border-color: rgba(37, 99, 235, 0.18);
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(37, 99, 235, 0.04);
-}
-    /* =========================================================
-   ARABIC HEADINGS — SOFT HIERARCHY
-   ========================================================= */
-
-html[dir="rtl"] .hero h1,
-html[dir="rtl"] .section-header h2,
-html[dir="rtl"] .cta h2 {
-  text-wrap: balance;
-}
-
-html[dir="rtl"] .hero h1 {
-  max-width: 720px;
-}
-
-html[dir="rtl"] .section-header h2,
-html[dir="rtl"] .cta h2 {
-  line-height: 1.45;
-}
-
-html[dir="rtl"] .tool-card h3,
-html[dir="rtl"] .subject h3 {
-  font-size: 19px;
-  line-height: 1.5;
-}
-    
-html[dir="rtl"] body {
-
-  font-family:
-    "IBM Plex Sans Arabic",
-    sans-serif;
-
-  font-weight: 400;
-
-  letter-spacing: 0;
-}
-
-
-html[dir="rtl"] h1,
-html[dir="rtl"] h2,
-html[dir="rtl"] h3,
-html[dir="rtl"] strong,
-html[dir="rtl"] .bimar-nav-link,
-html[dir="rtl"] .bimar-login,
-html[dir="rtl"] .bimar-start,
-html[dir="rtl"] .primary-button,
-html[dir="rtl"] .secondary-button {
-
-  font-family:
-    "IBM Plex Sans Arabic",
-    sans-serif;
-}
-
-
-html[dir="rtl"] h1 {
-
-  font-weight: 700;
-
-  letter-spacing: -1.2px;
-
-  line-height: 1.35;
-}
-
-
-html[dir="rtl"] h2 {
-
-  font-weight: 700;
-
-  letter-spacing: -0.5px;
-}
-
-
-html[dir="rtl"] h3 {
-
-  font-weight: 600;
-
-  letter-spacing: -0.2px;
-}
-
-
-html[dir="rtl"] .hero-description,
-html[dir="rtl"] .section-header p,
-html[dir="rtl"] .tool-card p,
-html[dir="rtl"] .subject p,
-html[dir="rtl"] .cta p,
-html[dir="rtl"] footer {
-
-  font-weight: 400;
-
-  line-height: 1.9;
-} 
-    /* =========================================================
-   BIMAR — FINAL VISUAL BALANCE
-   NAVBAR + HERO + CARDS + SPACING
-   ========================================================= */
-
-
-/* =========================================================
-   NAVBAR — MORE PREMIUM
-   ========================================================= */
-
-.bimar-navbar {
-  height: 76px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.94),
-      rgba(255,255,255,0.86)
-    );
-
-  border-bottom:
-    1px solid rgba(15, 23, 42, 0.055);
-
-  box-shadow:
-    0 4px 20px rgba(15, 23, 42, 0.025);
-}
-
-.bimar-navbar.scrolled {
-  height: 70px;
-
-  background: rgba(255,255,255,0.96);
-
-  box-shadow:
-    0 10px 35px rgba(15, 23, 42, 0.07);
-}
-
-
-/* Logo */
-
-.bimar-logo-mark {
-  filter:
-    drop-shadow(
-      0 5px 12px rgba(37, 99, 235, 0.08)
-    );
-}
-
-.bimar-brand-name {
-  letter-spacing: 1px;
-}
-
-
-/* Navigation */
-
-.bimar-nav-links {
-  gap: 3px;
-  margin-left: auto;
-  margin-right: 28px;
-}
-
-.bimar-nav-link {
-  padding: 0 13px;
-
-  border-radius: 10px;
-
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.bimar-nav-link:hover {
-  background:
-    rgba(37, 99, 235, 0.045);
-
-  transform: translateY(-1px);
-}
-
-.bimar-nav-link::after {
-  left: 14px;
-  right: 14px;
-}
-
-
-/* Actions */
-
-.bimar-nav-actions {
-  gap: 12px;
-}
-
-.bimar-language {
-  background:
-    rgba(248, 250, 252, 0.75);
-
-  border-color:
-    rgba(15, 23, 42, 0.07);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.8);
-}
-
-
-/* =========================================================
-   RTL NAVBAR
-   ========================================================= */
-
-html[dir="rtl"] .bimar-nav-link {
-  font-weight: 500;
-}
-
-html[dir="rtl"] .bimar-nav-link.active {
-  font-weight: 600;
-  color: #2563EB;
-}
-
-html[dir="rtl"] .bimar-brand-name {
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
-
-  color: #0F172A;
-}
-
-html[dir="rtl"] .bimar-nav-actions {
-  gap: 12px;
-}
-
-html[dir="rtl"] .bimar-start {
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   HERO — SPACING
-   ========================================================= */
-
-.hero {
-  max-width: 1240px;
-
-  padding:
-    105px 30px
-    90px;
-
-  gap: 80px;
-}
-
-
-/* Hero text */
-
-.hero h1 {
-  max-width: 700px;
-
-  margin-bottom: 24px;
-}
-
-.hero-description {
-  max-width: 610px;
-
-  font-size: 17px;
-
-  line-height: 1.85;
-
-  margin-bottom: 34px;
-}
-
-
-/* RTL hero */
-
-html[dir="rtl"] .hero {
-  text-align: right;
-}
-
-html[dir="rtl"] .hero h1 {
-  font-size: clamp(42px, 5vw, 64px);
-
-  line-height: 1.4;
-
-  letter-spacing: -1.5px;
-
-  margin-bottom: 22px;
-}
-
-html[dir="rtl"] .hero-description {
-  font-size: 17px;
-
-  line-height: 2;
-
-  max-width: 650px;
-}
-
-
-/* =========================================================
-   HERO BUTTONS
-   ========================================================= */
-
-.hero-buttons {
-  gap: 12px;
-}
-
-.primary-button,
-.secondary-button {
-  min-height: 50px;
-
-  padding:
-    0 22px;
-
-  border-radius: 12px;
-}
-
-.primary-button {
-  box-shadow:
-    0 10px 25px rgba(37, 99, 235, 0.20);
-}
-
-.secondary-button {
-  border-color:
-    rgba(15, 23, 42, 0.09);
-
-  background:
-    rgba(255,255,255,0.85);
-}
-
-
-/* =========================================================
-   DASHBOARD PREVIEW
-   ========================================================= */
-
-.dashboard-preview {
-  border-radius: 24px;
-
-  padding: 20px;
-
-  box-shadow:
-    0 30px 80px rgba(15, 23, 42, 0.085),
-    0 8px 25px rgba(37, 99, 235, 0.035);
-}
-
-.preview-title {
-  font-size: 15px;
-}
-
-.progress-card {
-  padding: 20px;
-
-  border-radius: 17px;
-}
-
-.preview-grid {
-  gap: 13px;
-}
-
-.mini-card {
-  padding: 17px;
-
-  border-radius: 15px;
-}
-
-
-/* =========================================================
-   SECTIONS — BETTER RHYTHM
-   ========================================================= */
-
-.section {
-  max-width: 1240px;
-
-  padding:
-    88px 30px;
-}
-
-.section-header {
-  margin-bottom: 38px;
-}
-
-.section-header h2 {
-  font-size: 31px;
-
-  letter-spacing: -0.7px;
-
-  line-height: 1.35;
-}
-
-.section-header p {
-  font-size: 15px;
-
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   TOOL CARDS
-   ========================================================= */
-
-.tools-grid {
-  gap: 20px;
-}
-
-.tool-card {
-  min-height: 210px;
-
-  padding: 26px;
-
-  border-radius: 19px;
-}
-
-.tool-icon {
-  width: 50px;
-  height: 50px;
-
-  border-radius: 14px;
-
-  margin-bottom: 18px;
-}
-
-.tool-card h3 {
-  font-size: 18px;
-
-  margin-bottom: 8px;
-}
-
-.tool-card p {
-  font-size: 13px;
-
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   RTL TOOL CARDS
-   ========================================================= */
-
-html[dir="rtl"] .tool-card {
-  text-align: right;
-}
-
-html[dir="rtl"] .tool-card h3 {
-  font-size: 18px;
-
-  font-weight: 600;
-
-  letter-spacing: -0.3px;
-}
-
-html[dir="rtl"] .tool-card p {
-  line-height: 1.9;
-}
-
-
-/* =========================================================
-   SUBJECTS
-   ========================================================= */
-
-.subjects-section {
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #FAFBFD
-    );
-}
-
-.subjects-grid {
-  gap: 20px;
-}
-
-.subject {
-  min-height: 100px;
-
-  padding: 21px;
-
-  border-radius: 18px;
-
-  background:
-    rgba(248, 250, 252, 0.78);
-}
-
-.subject-icon {
-  flex-shrink: 0;
-
-  width: 54px;
-  height: 54px;
-
-  border-radius: 14px;
-}
-
-
-/* RTL subjects */
-
-html[dir="rtl"] .subject {
-  text-align: right;
-}
-
-html[dir="rtl"] .subject h3 {
-  font-size: 18px;
-
-  font-weight: 600;
-}
-
-html[dir="rtl"] .subject p {
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
-.cta {
-  max-width: 1180px;
-
-  margin:
-    85px auto;
-
-  padding:
-    75px 30px;
-
-  border-radius: 28px;
-}
-
-.cta h2 {
-  font-size: 36px;
-
-  line-height: 1.4;
-}
-
-html[dir="rtl"] .cta h2 {
-  font-size: 34px;
-
-  font-weight: 700;
-
-  letter-spacing: -0.8px;
-}
-
-html[dir="rtl"] .cta p {
-  line-height: 1.9;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-  padding:
-    42px 6%;
-
-  line-height: 1.9;
-}
-
-
-/* =========================================================
-   MOBILE BALANCE
-   ========================================================= */
-
-@media (max-width: 850px) {
-
-  .hero {
-    padding:
-      75px 25px
-      65px;
-
-    gap: 50px;
-  }
-
-  .section {
-    padding:
-      70px 25px;
-  }
-
-}
-
-
-@media (max-width: 600px) {
-
-  .hero {
-    padding:
-      60px 20px
-      55px;
-  }
-
-  html[dir="rtl"] .hero h1 {
-    font-size: 42px;
-
-    line-height: 1.45;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
-  .section {
-    padding:
-      60px 20px;
-  }
-
-  .section-header h2 {
-    font-size: 27px;
-  }
-
-  .tool-card {
-    min-height: auto;
-
-    padding: 23px;
-  }
-
-  .subject {
-    padding: 19px;
-  }
-
-  .cta {
-    margin:
-      55px 20px;
-
-    padding:
-      60px 22px;
-
-    border-radius: 23px;
-  }
-
-  html[dir="rtl"] .cta h2 {
-    font-size: 29px;
-  }
-
-}
-    /* =========================================================
-   BIMAR — NEXT LEVEL VISUAL OVERRIDE
-   ========================================================= */
-
-body {
-  background:
-    radial-gradient(
-      circle at 8% 0%,
-      rgba(37, 99, 235, 0.08),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 92% 12%,
-      rgba(6, 182, 212, 0.055),
-      transparent 28%
-    ),
-    #F8FAFC;
-}
-
-
-/* ================= HERO ================= */
-
-.hero {
-  position: relative;
-  max-width: 1280px;
-  padding: 120px 32px 105px;
-  gap: 90px;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  top: -160px;
-  left: -220px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(37, 99, 235, 0.13),
-      transparent 68%
-    );
-
-  filter: blur(20px);
-
-  pointer-events: none;
-  z-index: -1;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  right: -180px;
-  bottom: -180px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(6, 182, 212, 0.10),
-      transparent 70%
-    );
-
-  filter: blur(20px);
-
-  pointer-events: none;
-  z-index: -1;
-}
-
-
-/* ================= HERO TITLE ================= */
-
-.hero h1 {
-  max-width: 760px;
-
-  font-size: clamp(48px, 5.2vw, 72px);
-
-  line-height: 1.02;
-
-  letter-spacing: -3px;
-
-  font-weight: 800;
-
-  color: #07111F;
-
-  margin-bottom: 26px;
-}
-
-.hero h1 span {
-  color: #07111F;
-}
-
-.hero h1 span:nth-of-type(2) {
-  color: #2563EB;
-}
-
-.hero h1 span:nth-of-type(3) {
-  color: #07111F;
-}
-
-
-/* ================= HERO DESCRIPTION ================= */
-
-.hero-description {
-  max-width: 650px;
-
-  font-size: 18px;
-
-  line-height: 1.85;
-
-  color: #64748B;
-
-  margin-bottom: 36px;
-}
-
-
-/* ================= EYEBROW ================= */
-
-.eyebrow {
-  padding: 8px 15px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(239, 246, 255, 0.9);
-
-  border:
-    1px solid rgba(37, 99, 235, 0.13);
-
-  box-shadow:
-    0 8px 25px rgba(37, 99, 235, 0.08);
-
-  color: #2563EB;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.eyebrow:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 12px 30px rgba(37, 99, 235, 0.13);
-}
-
-
-/* ================= HERO BUTTONS ================= */
-
-.primary-button {
-  min-height: 52px;
-
-  padding: 0 25px;
-
-  border-radius: 13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2563EB,
-      #1D4ED8
-    );
-
-  box-shadow:
-    0 12px 28px rgba(37, 99, 235, 0.22);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.primary-button:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 16px 35px rgba(37, 99, 235, 0.30);
-}
-
-.secondary-button {
-  min-height: 52px;
-
-  padding: 0 25px;
-
-  border-radius: 13px;
-
-  border:
-    1px solid rgba(15, 23, 42, 0.10);
-
-  background:
-    rgba(255, 255, 255, 0.85);
-
-  box-shadow:
-    0 5px 18px rgba(15, 23, 42, 0.04);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.secondary-button:hover {
-  transform: translateY(-3px);
-
-  border-color:
-    rgba(37, 99, 235, 0.22);
-
-  box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.08);
-}
-
-
-/* ================= DASHBOARD ================= */
-
-.dashboard-preview {
-  border-radius: 26px;
-
-  padding: 21px;
-
-  background:
-    rgba(255,255,255,0.92);
-
-  border:
-    1px solid rgba(15, 23, 42, 0.07);
-
-  box-shadow:
-    0 35px 90px rgba(15, 23, 42, 0.11),
-    0 10px 35px rgba(37, 99, 235, 0.045);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.dashboard-preview:hover {
-  transform: translateY(-6px);
-
-  box-shadow:
-    0 42px 100px rgba(15, 23, 42, 0.14),
-    0 15px 40px rgba(37, 99, 235, 0.07);
-}
-
-
-/* ================= TOOL CARDS ================= */
-
-.tool-card {
-  border-radius: 20px;
-
-  border:
-    1px solid rgba(15, 23, 42, 0.07);
-
-  background:
-    rgba(255,255,255,0.88);
-
-  box-shadow:
-    0 5px 20px rgba(15, 23, 42, 0.035);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-7px);
-
-  border-color:
-    rgba(37, 99, 235, 0.20);
-
-  box-shadow:
-    0 20px 45px rgba(15, 23, 42, 0.10),
-    0 5px 20px rgba(37, 99, 235, 0.05);
-}
-
-
-/* ================= SUBJECT CARDS ================= */
-
-.subject {
-  border-radius: 19px;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.subject:hover {
-  transform: translateY(-5px);
-
-  border-color:
-    rgba(37, 99, 235, 0.20);
-
-  box-shadow:
-    0 16px 35px rgba(15, 23, 42, 0.08);
-}
-
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 850px) {
-
-  .hero {
-    padding:
-      80px 25px
-      70px;
-
-    gap: 55px;
-  }
-
-  .hero h1 {
-    font-size: clamp(44px, 9vw, 60px);
-
-    letter-spacing: -2px;
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  .hero {
-    padding:
-      65px 20px
-      60px;
-  }
-
-  .hero h1 {
-    font-size: 43px;
-
-    line-height: 1.08;
-
-    letter-spacing: -1.7px;
-  }
-
-}
-    /* =========================================
-   BIMAR BRAND — PREMIUM IDENTITY EFFECT
-   ========================================= */
-
-.bimar-brand {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  text-decoration: none;
-  isolation: isolate;
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
-}
-
-/* Soft ambient glow behind the whole brand */
-.bimar-brand::before {
-  content: "";
-  position: absolute;
-  width: 95px;
-  height: 55px;
-  left: -18px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: radial-gradient(
-    circle,
-    rgba(37, 99, 235, 0.20),
-    rgba(6, 182, 212, 0.08),
-    transparent 72%
-  );
-  filter: blur(14px);
-  opacity: 0.65;
-  z-index: -1;
-  animation: bimarBrandGlow 4s ease-in-out infinite;
-}
-
-.bimar-brand:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-}
-
-
-/* =========================================
-   LOGO MARK
-   ========================================= */
-
-.bimar-logo-mark {
-  position: relative;
-  width: 56px;
-  height: 56px;
-  flex: 0 0 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 15px;
-
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      rgba(255,255,255,0.95),
-      rgba(239,246,255,0.95) 42%,
-      rgba(219,234,254,0.90)
-    );
-
-  border: 1px solid rgba(37, 99, 235, 0.20);
-
-  box-shadow:
-    0 8px 25px rgba(37, 99, 235, 0.16),
-    0 0 0 1px rgba(255,255,255,0.75) inset,
-    0 0 28px rgba(37, 99, 235, 0.10);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.4s cubic-bezier(.2,.8,.2,1),
-    box-shadow 0.4s ease;
-}
-
-/* Outer rotating light */
-.bimar-logo-mark::before {
-  content: "";
-  position: absolute;
-  inset: -30%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(37, 99, 235, 0.00) 80deg,
-    rgba(37, 99, 235, 0.35) 125deg,
-    rgba(6, 182, 212, 0.20) 160deg,
-    transparent 220deg
-  );
-
-  animation: bimarLogoSpin 5s linear infinite;
-}
-
-/* Inner glass layer */
-.bimar-logo-mark::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 13px;
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.72),
-    rgba(239,246,255,0.30)
-  );
-  pointer-events: none;
-}
-
-/* Keep SVG above effects */
-.bimar-logo-mark svg {
-  position: relative;
-  z-index: 2;
-  width: 31px;
-  height: 31px;
-  filter:
-    drop-shadow(0 3px 7px rgba(37, 99, 235, 0.20));
-  transition:
-    transform 0.4s ease,
-    filter 0.4s ease;
-}
-
-.bimar-brand:hover .bimar-logo-mark {
-  transform:
-    translateY(-2px)
-    rotate(-2deg)
-    scale(1.05);
-
-  box-shadow:
-    0 12px 32px rgba(37, 99, 235, 0.22),
-    0 0 35px rgba(6, 182, 212, 0.14),
-    0 0 0 1px rgba(255,255,255,0.85) inset;
-}
-
-.bimar-brand:hover .bimar-logo-mark svg {
-  transform: scale(1.07);
-  filter:
-    drop-shadow(0 4px 10px rgba(37, 99, 235, 0.30));
-}
-
-
-/* =========================================
-   BIMAR WORDMARK
-   ========================================= */
-
-.bimar-brand-name {
-  position: relative;
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 24px;
-  font-weight: 850;
-  line-height: 1;
-
-  letter-spacing: 1.1px;
-
-  background: linear-gradient(
-    100deg,
-    #07111F 0%,
-    #0F2747 45%,
-    #2563EB 78%,
-    #06B6D4 100%
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow:
-    0 4px 18px rgba(37, 99, 235, 0.08);
-
-  transition:
-    letter-spacing 0.35s ease,
-    filter 0.35s ease;
-}
-
-.bimar-brand:hover .bimar-brand-name {
-  letter-spacing: 1.35px;
-  filter: brightness(1.08);
-}
-
-
-/* =========================================
-   ACADEMY SUBTITLE
-   ========================================= */
-
-.bimar-brand-sub {
-  margin-top: 4px;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 8px;
-  font-weight: 750;
-
-  letter-spacing: 3.6px;
-  line-height: 1;
-
-  color: #64748B;
-
-  opacity: 0.9;
-
-  transition:
-    color 0.35s ease,
-    letter-spacing 0.35s ease;
-}
-
-.bimar-brand:hover .bimar-brand-sub {
-  color: #2563EB;
-  letter-spacing: 4px;
-}
-
-
-/* =========================================
-   ECG ANIMATION
-   ========================================= */
-
-.logo-ecg {
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-  animation: bimarECG 2.8s ease-in-out infinite;
-}
-
-
-/* =========================================
-   BRAND ANIMATIONS
-   ========================================= */
-
-@keyframes bimarLogoSpin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bimarECG {
-  0%,
-  12% {
-    stroke-dashoffset: 120;
-    opacity: 0.45;
-  }
-
-  42%,
-  68% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  88%,
-  100% {
-    stroke-dashoffset: -120;
-    opacity: 0.45;
-  }
-}
-
-@keyframes bimarBrandGlow {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: translateY(-50%) scale(0.95);
-  }
-
-  50% {
-    opacity: 0.85;
-    transform: translateY(-50%) scale(1.08);
-  }
-}
-
-
-/* =========================================
-   MOBILE BRAND
-   ========================================= */
-
-@media (max-width: 600px) {
-
-  .bimar-logo-mark {
-    width: 44px;
-    height: 44px;
-    flex-basis: 44px;
-  }
-
-  .bimar-logo-mark svg {
-    width: 38px;
-    height: 38px;
-  }
-
-  .bimar-brand-name {
-    font-size: 21px;
-  }
-
-  .bimar-brand-sub {
-    font-size: 7px;
-    letter-spacing: 3px;
-  }
-}
-
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-
-  .bimar-logo-mark::before,
-  .logo-ecg,
-  .bimar-brand::before {
-    animation: none;
-  }
-}
-    
-/* =========================================
-   BIMAR — FINAL NAVBAR RTL/LTR FIX
-   ========================================= */
-
-.bimar-navbar {
-  direction: ltr !important;
-}
-
-/* Arabic */
-html[dir="rtl"] .bimar-navbar {
-  direction: rtl !important;
-}
-
-html[dir="rtl"] .bimar-nav-links {
-  direction: rtl !important;
-}
-
-html[dir="rtl"] .bimar-nav-actions {
-  direction: rtl !important;
-}
-
-/* English */
-html[dir="ltr"] .bimar-navbar {
-  direction: ltr !important;
-}
-
-html[dir="ltr"] .bimar-nav-links {
-  direction: ltr !important;
-}
-
-html[dir="ltr"] .bimar-nav-actions {
-  direction: ltr !important;
-}
-
-/* Keep desktop navbar centered */
-@media (min-width: 851px) {
-
-  .bimar-navbar {
-    justify-content: center !important;
-  }
-
-  .bimar-brand {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-  }
-
-  .bimar-nav-links {
-    position: static !important;
-    transform: none !important;
-    margin: 0 auto !important;
-  }
-
-  .bimar-nav-actions {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-}
-
-/* Mobile */
-@media (max-width: 850px) {
-
-  .bimar-navbar {
-    direction: inherit !important;
-  }
-
-}
-    /* =========================================
-   BIMAR — FULL CENTERED NAVBAR
-   ========================================= */
-
-@media (min-width: 851px) {
-
-  .bimar-navbar {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 28px !important;
-  }
-
-  .bimar-brand {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    margin: 0 !important;
-  }
-
-  .bimar-nav-links {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-  }
-
-  .bimar-nav-actions {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    margin: 0 !important;
-  }
-
-}
-  /* =========================================
-   BIMAR — RTL / LTR NAVBAR BALANCE
-   ========================================= */
-
-@media (min-width: 851px) {
-
-  /* English — logo left, actions right */
-  html[dir="ltr"] .bimar-brand {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-  }
-
-  html[dir="ltr"] .bimar-nav-actions {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-
-  /* Arabic — logo right, actions left */
-  html[dir="rtl"] .bimar-brand {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-  }
-
-
-  /* Navigation stays perfectly centered */
-  .bimar-nav-links {
-    position: static !important;
-    transform: none !important;
-    margin: 0 auto !important;
-  }
-
-}  
-    /* =========================================
-   BIMAR — PERFECT AR / EN NAVBAR BALANCE
-   ========================================= */
-
-@media (min-width: 851px) {
-
-  /* Same visual spacing in both languages */
-  .bimar-navbar {
-    height: 76px !important;
-  }
-
-  .bimar-nav-links {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 30px !important;
-    margin: 0 auto !important;
-  }
-
-  .bimar-nav-link {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    height: 40px !important;
-  }
-
-  .bimar-nav-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    white-space: nowrap !important;
-  }
-
-  .bimar-login,
-  .bimar-start {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    height: 42px !important;
-  }
-
-
-  /* 🇬🇧 English */
-  html[dir="ltr"] .bimar-brand {
-    left: 5% !important;
-    right: auto !important;
-  }
-
-  html[dir="ltr"] .bimar-nav-actions {
-    right: 5% !important;
-    left: auto !important;
-  }
-
-
-  /* 🇯🇴 Arabic */
-  html[dir="rtl"] .bimar-brand {
-    right: 5% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    left: 5% !important;
-    right: auto !important;
-  }
-
-}
-    
-</style>
 </head>
+
 
 <body>
 
-<header class="bimar-navbar">
+  <!-- =======================================================
+       SHARED NAVBAR
+       ======================================================= -->
 
-  <!-- LOGO -->
-  <a href="index.html" class="bimar-brand">
-
-    <div class="bimar-logo-mark">
-<svg
-  viewBox="0 0 48 48"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <defs>
-    <linearGradient id="bookGradient" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#06B6D4"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Open book -->
-  <path
-    d="M5.5 10.5
-       C11 9 16.5 10 21.5 13
-       V39
-       C16.5 36 11 35 5.5 36.5
-       Z"
-    fill="none"
-    stroke="url(#bookGradient)"
-    stroke-width="2.2"
-    stroke-linejoin="round"
-  />
-
-  <path
-    d="M42.5 10.5
-       C37 9 31.5 10 26.5 13
-       V39
-       C31.5 36 37 35 42.5 36.5
-       Z"
-    fill="none"
-    stroke="url(#bookGradient)"
-    stroke-width="2.2"
-    stroke-linejoin="round"
-  />
-
-  <!-- ECG -->
-  <path
-    class="logo-ecg"
-    d="M8 24
-       H14
-       L17 24
-       L19 18
-       L22 30
-       L25 21
-       L27 24
-       H32
-       L34 24
-       L36 20
-       L38 24
-       H41"
-    fill="none"
-    stroke="#0F4CFF"
-    stroke-width="2.3"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-
-  <!-- Book center -->
-  <path
-    d="M24 13 V39"
-    stroke="#06B6D4"
-    stroke-width="1.4"
-    stroke-linecap="round"
-    opacity="0.75"
-  />
-</svg>
-    </div>
-
-    <div class="bimar-brand-text">
-
-      <span
-        class="bimar-brand-name"
-        data-en="BIMAR"
-        data-ar="منصة بيمار الطبية">
-        BIMAR
-      </span>
-
-      <span
-        class="bimar-brand-sub"
-        data-en="ACADEMY"
-        data-ar="">
-        ACADEMY
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <!-- NAVIGATION -->
-  <nav class="bimar-nav-links">
+  <header class="bimar-navbar">
 
     <a
       href="index.html"
-      class="bimar-nav-link active"
-      data-en="Home"
-      data-ar="الرئيسية">
-      Home
+      class="bimar-brand"
+    >
+
+      <div class="bimar-logo-mark">
+
+        <svg
+          viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+
+          <defs>
+
+            <linearGradient
+              id="bookGradient"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+
+              <stop
+                offset="0%"
+                stop-color="#2563EB"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#06B6D4"
+              />
+
+            </linearGradient>
+
+          </defs>
+
+
+          <path
+            d="M5.5 10.5
+               C11 9 16.5 10 21.5 13
+               V39
+               C16.5 36 11 35 5.5 36.5
+               Z"
+            fill="none"
+            stroke="url(#bookGradient)"
+            stroke-width="2.2"
+            stroke-linejoin="round"
+          />
+
+
+          <path
+            d="M42.5 10.5
+               C37 9 31.5 10 26.5 13
+               V39
+               C31.5 36 37 35 42.5 36.5
+               Z"
+            fill="none"
+            stroke="url(#bookGradient)"
+            stroke-width="2.2"
+            stroke-linejoin="round"
+          />
+
+
+          <path
+            class="logo-ecg"
+            d="M8 24
+               H14
+               L17 24
+               L19 18
+               L22 30
+               L25 21
+               L27 24
+               H32
+               L34 24
+               L36 20
+               L38 24
+               H41"
+            fill="none"
+            stroke="#0F4CFF"
+            stroke-width="2.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+
+          <path
+            d="M24 13 V39"
+            stroke="#06B6D4"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            opacity="0.75"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <div class="bimar-brand-text">
+
+        <span
+          class="bimar-brand-name"
+          data-en="BIMAR"
+          data-ar="منصة بيمار الطبية"
+        >
+          BIMAR
+        </span>
+
+        <span
+          class="bimar-brand-sub"
+          data-en="ACADEMY"
+          data-ar=""
+        >
+          ACADEMY
+        </span>
+
+      </div>
+
     </a>
 
-    <a
-      href="subjects.html"
-      class="bimar-nav-link"
-      data-en="Subjects"
-      data-ar="المواد">
-      Subjects
-    </a>
 
-    <a
-      href="questions.html"
-      class="bimar-nav-link"
-      data-en="Question Bank"
-      data-ar="بنك الأسئلة">
-      Question Bank
-    </a>
+    <nav class="bimar-nav-links">
 
-    <a
-      href="clinical.html"
-      class="bimar-nav-link"
-      data-en="Clinical"
-      data-ar="السريري">
-      Clinical
-    </a>
+      <a
+        href="index.html"
+        class="bimar-nav-link active"
+        data-en="Home"
+        data-ar="الرئيسية"
+      >
+        Home
+      </a>
 
-    <a
-      href="osce.html"
-      class="bimar-nav-link"
-      data-en="OSCE"
-      data-ar="الأوسكي">
-      OSCE
-    </a>
+      <a
+        href="subjects.html"
+        class="bimar-nav-link"
+        data-en="Subjects"
+        data-ar="المواد"
+      >
+        Subjects
+      </a>
 
-  </nav>
+      <a
+        href="questions.html"
+        class="bimar-nav-link"
+        data-en="Question Bank"
+        data-ar="بنك الأسئلة"
+      >
+        Question Bank
+      </a>
+
+      <a
+        href="clinical.html"
+        class="bimar-nav-link"
+        data-en="Clinical"
+        data-ar="السريري"
+      >
+        Clinical
+      </a>
+
+      <a
+        href="osce.html"
+        class="bimar-nav-link"
+        data-en="OSCE"
+        data-ar="الأوسكي"
+      >
+        OSCE
+      </a>
+
+    </nav>
 
 
-  <!-- RIGHT ACTIONS -->
-  <div class="bimar-nav-actions">
+    <div class="bimar-nav-actions">
 
-    <!-- LANGUAGE -->
-    <div class="bimar-language">
+      <div class="bimar-language">
 
-      <button
-        id="bimarEnBtn"
-        class="active"
-        onclick="setBimarLanguage('en')">
-        EN
-      </button>
+        <button
+          id="bimarEnBtn"
+          class="active"
+          onclick="setBimarLanguage('en')"
+        >
+          EN
+        </button>
+
+        <span></span>
+
+        <button
+          id="bimarArBtn"
+          onclick="setBimarLanguage('ar')"
+        >
+          AR
+        </button>
+
+      </div>
+
+
+      <a
+        href="login.html"
+        class="bimar-login"
+        data-en="Log in"
+        data-ar="تسجيل الدخول"
+      >
+        Log in
+      </a>
+
+
+      <a
+        href="login.html"
+        class="bimar-start"
+        data-en="Get Started"
+        data-ar="ابدأ الآن"
+      >
+        Get Started
+      </a>
+
+    </div>
+
+
+    <button
+      class="bimar-menu-btn"
+      id="bimarMenuBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
 
       <span></span>
+      <span></span>
+      <span></span>
 
-      <button
-        id="bimarArBtn"
-        onclick="setBimarLanguage('ar')">
-        AR
-      </button>
+    </button>
 
-    </div>
+  </header>
 
 
-    <!-- LOGIN -->
-    <a
-      href="login.html"
-      class="bimar-login"
-      data-en="Log in"
-      data-ar="تسجيل الدخول">
-      Log in
-    </a>
+  <!-- =======================================================
+       MAIN
+       ======================================================= -->
+
+  <main>
 
 
-    <!-- GET STARTED -->
-    <a
-      href="login.html"
-      class="bimar-start"
-      data-en="Get Started"
-      data-ar="ابدأ الآن">
-      Get Started
-    </a>
+    <!-- HERO -->
 
-  </div>
+    <section class="hero">
 
+      <div>
 
-  <!-- MOBILE BUTTON -->
-  <button
-    class="bimar-menu-btn"
-    id="bimarMenuBtn"
-    aria-label="Open menu">
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </button>
-
-</header>
-
-<main>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div>
-
-      <div class="eyebrow"
-           data-en="✦ Medical Learning Platform"
-           data-ar="✦ منصة تعليمية طبية">
-        ✦ Medical Learning Platform
-      </div>
-
-      <h1>
-        <span data-en="Study medicine." data-ar="ادرس الطب.">
-          Study medicine.
-        </span>
-
-        <br>
-
-        <span data-en="Understand it." data-ar="افهمه.">
-          Understand it.
-        </span>
-
-        <br>
-
-        <span data-en="Master it." data-ar="أتقنه.">
-          Master it.
-        </span>
-      </h1>
-
-      <p class="hero-description"
-         data-en="Bimar Academy brings medical learning, question banks, clinical cases, OSCE preparation and smart study tools together in one powerful platform."
-         data-ar="Bimar Academy تجمع التعلم الطبي، وبنوك الأسئلة، والحالات السريرية، والتحضير للـOSCE وأدوات الدراسة الذكية في منصة واحدة.">
-        Bimar Academy brings medical learning, question banks,
-        clinical cases, OSCE preparation and smart study tools
-        together in one powerful platform.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="subjects.html"
-           class="primary-button"
-           data-en="Start Learning →"
-           data-ar="ابدأ التعلم ←">
-          Start Learning →
-        </a>
-
-        <a href="questions.html"
-           class="secondary-button"
-           data-en="Explore Question Bank"
-           data-ar="استكشف بنك الأسئلة">
-          Explore Question Bank
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- PREVIEW -->
-
-    <div class="dashboard-preview">
-
-      <div class="preview-top">
-
-        <div class="preview-title"
-             data-en="Your Learning"
-             data-ar="رحلتك التعليمية">
-          Your Learning
+        <div
+          class="eyebrow"
+          data-en="✦ Medical Learning Platform"
+          data-ar="✦ منصة تعليمية طبية"
+        >
+          ✦ Medical Learning Platform
         </div>
 
-        <div class="avatar">
-          👨‍⚕️
-        </div>
 
-      </div>
+        <h1>
 
-
-      <div class="progress-card">
-
-        <div class="progress-header">
-
-          <strong>
-            Cardiology
-          </strong>
-
-          <span>
-            72%
+          <span
+            data-en="Study medicine."
+            data-ar="ادرس الطب."
+          >
+            Study medicine.
           </span>
 
-        </div>
+          <br>
 
-        <div class="progress-bar">
-
-          <div class="progress-fill"></div>
-
-        </div>
-
-      </div>
-
-
-      <div class="preview-grid">
-
-        <div class="mini-card">
-
-          <div class="mini-icon">📝</div>
-
-          <strong data-en="Question Bank"
-                  data-ar="بنك الأسئلة">
-            Question Bank
-          </strong>
-
-          <span data-en="Practice questions"
-                data-ar="أسئلة تدريبية">
-            Practice questions
+          <span
+            data-en="Understand it."
+            data-ar="افهمه."
+          >
+            Understand it.
           </span>
 
-        </div>
+          <br>
 
-
-        <div class="mini-card">
-
-          <div class="mini-icon">🧠</div>
-
-          <strong data-en="Flashcards"
-                  data-ar="البطاقات التعليمية">
-            Flashcards
-          </strong>
-
-          <span data-en="Active recall"
-                data-ar="الاسترجاع النشط">
-            Active recall
+          <span
+            data-en="Master it."
+            data-ar="أتقنه."
+          >
+            Master it.
           </span>
 
-        </div>
+        </h1>
 
 
-        <div class="mini-card">
-
-          <div class="mini-icon">🩺</div>
-
-          <strong data-en="Clinical Cases"
-                  data-ar="حالات سريرية">
-            Clinical Cases
-          </strong>
-
-          <span data-en="Clinical reasoning"
-                data-ar="التفكير السريري">
-            Clinical reasoning
-          </span>
-
-        </div>
-
-
-        <div class="mini-card">
-
-          <div class="mini-icon">📋</div>
-
-          <strong>OSCE</strong>
-
-          <span data-en="Clinical skills"
-                data-ar="المهارات السريرية">
-            Clinical skills
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TOOLS -->
-
-  <section class="section">
-
-    <div class="section-header">
-
-      <h2 data-en="Everything you need to study medicine"
-          data-ar="كل ما تحتاجه لدراسة الطب">
-        Everything you need to study medicine
-      </h2>
-
-      <p data-en="One platform. Multiple ways to learn, practice and improve."
-         data-ar="منصة واحدة. طرق متعددة للتعلم والتدرب والتطور.">
-        One platform. Multiple ways to learn, practice and improve.
-      </p>
-
-    </div>
-
-
-    <div class="tools-grid">
-
-      <a href="subjects.html" class="tool-card">
-
-        <div class="tool-icon">📚</div>
-
-        <h3 data-en="Medical Library"
-            data-ar="المكتبة الطبية">
-          Medical Library
-        </h3>
-
-        <p data-en="Explore organized medical topics and learning resources."
-           data-ar="استكشف المواضيع الطبية والمصادر التعليمية المنظمة.">
-          Explore organized medical topics and learning resources.
+        <p
+          class="hero-description"
+          data-en="Bimar Academy brings medical learning, question banks, clinical cases, OSCE preparation and smart study tools together in one powerful platform."
+          data-ar="Bimar Academy تجمع التعلم الطبي، وبنوك الأسئلة، والحالات السريرية، والتحضير للـOSCE وأدوات الدراسة الذكية في منصة واحدة."
+        >
+          Bimar Academy brings medical learning, question banks,
+          clinical cases, OSCE preparation and smart study tools
+          together in one powerful platform.
         </p>
 
-      </a>
+
+        <div class="hero-buttons">
+
+          <a
+            href="subjects.html"
+            class="primary-button"
+            data-en="Start Learning →"
+            data-ar="ابدأ التعلم ←"
+          >
+            Start Learning →
+          </a>
+
+          <a
+            href="questions.html"
+            class="secondary-button"
+            data-en="Explore Question Bank"
+            data-ar="استكشف بنك الأسئلة"
+          >
+            Explore Question Bank
+          </a>
+
+        </div>
+
+      </div>
 
 
-      <a href="questions.html" class="tool-card">
+      <!-- DASHBOARD PREVIEW -->
 
-        <div class="tool-icon">📝</div>
+      <div class="dashboard-preview">
 
-        <h3 data-en="Question Bank"
-            data-ar="بنك الأسئلة">
-          Question Bank
-        </h3>
+        <div class="preview-top">
 
-        <p data-en="Practice MCQs and identify your weak areas."
-           data-ar="تدرب على أسئلة MCQ وحدد نقاط ضعفك.">
-          Practice MCQs and identify your weak areas.
-        </p>
+          <div
+            class="preview-title"
+            data-en="Your Learning"
+            data-ar="رحلتك التعليمية"
+          >
+            Your Learning
+          </div>
 
-      </a>
+          <div class="avatar">
+            👨‍⚕️
+          </div>
 
-
-      <a href="clinical.html" class="tool-card">
-
-        <div class="tool-icon">🩺</div>
-
-        <h3 data-en="Clinical Cases"
-            data-ar="الحالات السريرية">
-          Clinical Cases
-        </h3>
-
-        <p data-en="Practice clinical reasoning through realistic cases."
-           data-ar="تدرب على التفكير السريري من خلال حالات واقعية.">
-          Practice clinical reasoning through realistic cases.
-        </p>
-
-      </a>
+        </div>
 
 
-      <a href="osce.html" class="tool-card">
+        <div class="progress-card">
 
-        <div class="tool-icon">📋</div>
+          <div class="progress-header">
 
-        <h3>OSCE</h3>
+            <strong>
+              Cardiology
+            </strong>
 
-        <p data-en="Prepare for stations, examinations and clinical skills."
-           data-ar="استعد للمحطات والفحوصات والمهارات السريرية.">
-          Prepare for stations, examinations and clinical skills.
-        </p>
+            <span>
+              72%
+            </span>
 
-      </a>
-
-    </div>
-
-  </section>
+          </div>
 
 
-  <!-- SUBJECTS -->
+          <div class="progress-bar">
 
-  <section class="subjects-section">
+            <div class="progress-fill"></div>
 
-    <div class="section">
+          </div>
+
+        </div>
+
+
+        <div class="preview-grid">
+
+          <div class="mini-card">
+
+            <div class="mini-icon">
+              📝
+            </div>
+
+            <strong
+              data-en="Question Bank"
+              data-ar="بنك الأسئلة"
+            >
+              Question Bank
+            </strong>
+
+            <span
+              data-en="Practice questions"
+              data-ar="أسئلة تدريبية"
+            >
+              Practice questions
+            </span>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <div class="mini-icon">
+              🧠
+            </div>
+
+            <strong
+              data-en="Flashcards"
+              data-ar="البطاقات التعليمية"
+            >
+              Flashcards
+            </strong>
+
+            <span
+              data-en="Active recall"
+              data-ar="الاسترجاع النشط"
+            >
+              Active recall
+            </span>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <div class="mini-icon">
+              🩺
+            </div>
+
+            <strong
+              data-en="Clinical Cases"
+              data-ar="حالات سريرية"
+            >
+              Clinical Cases
+            </strong>
+
+            <span
+              data-en="Clinical reasoning"
+              data-ar="التفكير السريري"
+            >
+              Clinical reasoning
+            </span>
+
+          </div>
+
+
+          <div class="mini-card">
+
+            <div class="mini-icon">
+              📋
+            </div>
+
+            <strong>
+              OSCE
+            </strong>
+
+            <span
+              data-en="Clinical skills"
+              data-ar="المهارات السريرية"
+            >
+              Clinical skills
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TOOLS -->
+
+    <section class="section">
 
       <div class="section-header">
 
-        <h2 data-en="Explore Medical Subjects"
-            data-ar="استكشف المواد الطبية">
-          Explore Medical Subjects
+        <h2
+          data-en="Everything you need to study medicine"
+          data-ar="كل ما تحتاجه لدراسة الطب"
+        >
+          Everything you need to study medicine
         </h2>
 
-        <p data-en="Start learning from the system you want."
-           data-ar="ابدأ التعلم من النظام الذي تريده.">
-          Start learning from the system you want.
+        <p
+          data-en="One platform. Multiple ways to learn, practice and improve."
+          data-ar="منصة واحدة. طرق متعددة للتعلم والتدرب والتطور."
+        >
+          One platform. Multiple ways to learn, practice and improve.
         </p>
 
       </div>
 
 
-      <div class="subjects-grid">
+      <div class="tools-grid">
 
+        <a
+          href="subjects.html"
+          class="tool-card"
+        >
 
-        <a href="subjects.html#cardiology" class="subject">
-
-          <div class="subject-icon">❤️</div>
-
-          <div>
-
-            <h3>Cardiology</h3>
-
-            <p data-en="Cardiovascular system"
-               data-ar="الجهاز القلبي الوعائي">
-              Cardiovascular system
-            </p>
-
+          <div class="tool-icon">
+            📚
           </div>
+
+          <h3
+            data-en="Medical Library"
+            data-ar="المكتبة الطبية"
+          >
+            Medical Library
+          </h3>
+
+          <p
+            data-en="Explore organized medical topics and learning resources."
+            data-ar="استكشف المواضيع الطبية والمصادر التعليمية المنظمة."
+          >
+            Explore organized medical topics and learning resources.
+          </p>
 
         </a>
 
 
-        <a href="subjects.html#respiratory" class="subject">
+        <a
+          href="questions.html"
+          class="tool-card"
+        >
 
-          <div class="subject-icon">🫁</div>
-
-          <div>
-
-            <h3>Respiratory</h3>
-
-            <p data-en="Respiratory system"
-               data-ar="الجهاز التنفسي">
-              Respiratory system
-            </p>
-
+          <div class="tool-icon">
+            📝
           </div>
+
+          <h3
+            data-en="Question Bank"
+            data-ar="بنك الأسئلة"
+          >
+            Question Bank
+          </h3>
+
+          <p
+            data-en="Practice MCQs and identify your weak areas."
+            data-ar="تدرب على أسئلة MCQ وحدد نقاط ضعفك."
+          >
+            Practice MCQs and identify your weak areas.
+          </p>
 
         </a>
 
 
-        <a href="subjects.html#neurology" class="subject">
+        <a
+          href="clinical.html"
+          class="tool-card"
+        >
 
-          <div class="subject-icon">🧠</div>
-
-          <div>
-
-            <h3>Neurology</h3>
-
-            <p data-en="Nervous system"
-               data-ar="الجهاز العصبي">
-              Nervous system
-            </p>
-
+          <div class="tool-icon">
+            🩺
           </div>
+
+          <h3
+            data-en="Clinical Cases"
+            data-ar="الحالات السريرية"
+          >
+            Clinical Cases
+          </h3>
+
+          <p
+            data-en="Practice clinical reasoning through realistic cases."
+            data-ar="تدرب على التفكير السريري من خلال حالات واقعية."
+          >
+            Practice clinical reasoning through realistic cases.
+          </p>
 
         </a>
 
 
-        <a href="subjects.html#pharmacology" class="subject">
+        <a
+          href="osce.html"
+          class="tool-card"
+        >
 
-          <div class="subject-icon">💊</div>
-
-          <div>
-
-            <h3>Pharmacology</h3>
-
-            <p data-en="Drugs & therapeutics"
-               data-ar="الأدوية والعلاجات">
-              Drugs & therapeutics
-            </p>
-
+          <div class="tool-icon">
+            📋
           </div>
 
-        </a>
+          <h3>
+            OSCE
+          </h3>
 
-
-        <a href="subjects.html#infectious" class="subject">
-
-          <div class="subject-icon">🦠</div>
-
-          <div>
-
-            <h3>Infectious Diseases</h3>
-
-            <p data-en="Infection & microbiology"
-               data-ar="الأمراض المعدية والأحياء الدقيقة">
-              Infection & microbiology
-            </p>
-
-          </div>
-
-        </a>
-
-
-        <a href="subjects.html#msk" class="subject">
-
-          <div class="subject-icon">🦴</div>
-
-          <div>
-
-            <h3>Musculoskeletal</h3>
-
-            <p data-en="Bones, joints & muscles"
-               data-ar="العظام والمفاصل والعضلات">
-              Bones, joints & muscles
-            </p>
-
-          </div>
+          <p
+            data-en="Prepare for stations, examinations and clinical skills."
+            data-ar="استعد للمحطات والفحوصات والمهارات السريرية."
+          >
+            Prepare for stations, examinations and clinical skills.
+          </p>
 
         </a>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- CTA -->
+    <!-- SUBJECTS -->
 
-  <section>
+    <section class="subjects-section">
 
-    <div class="cta">
+      <div class="section">
 
-      <h2 data-en="Your medical journey starts here."
-          data-ar="رحلتك الطبية تبدأ من هنا.">
-        Your medical journey starts here.
-      </h2>
+        <div class="section-header">
 
-      <p data-en="Learn smarter. Practice better. Become a stronger clinician."
-         data-ar="تعلم بذكاء. تدرب بشكل أفضل. وطوّر مهاراتك السريرية.">
-        Learn smarter. Practice better. Become a stronger clinician.
-      </p>
+          <h2
+            data-en="Explore Medical Subjects"
+            data-ar="استكشف المواد الطبية"
+          >
+            Explore Medical Subjects
+          </h2>
 
-      <a href="subjects.html"
-         data-en="Explore Bimar Academy →"
-         data-ar="استكشف Bimar Academy ←">
-        Explore Bimar Academy →
-      </a>
+          <p
+            data-en="Start learning from the system you want."
+            data-ar="ابدأ التعلم من النظام الذي تريده."
+          >
+            Start learning from the system you want.
+          </p>
 
-    </div>
-
-  </section>
-
-</main>
+        </div>
 
 
-<footer>
-
-  <strong>Bimar Academy</strong>
-
-  <br>
-
-  <span data-en="Medical learning platform for medical students."
-        data-ar="منصة تعليمية لطلاب الطب البشري.">
-    Medical learning platform for medical students.
-  </span>
-
-</footer>
+        <div class="subjects-grid">
 
 
-<script>
+          <a
+            href="subjects.html#cardiology"
+            class="subject"
+          >
 
-function setBimarLanguage(language) {
+            <div class="subject-icon">
+              ❤️
+            </div>
 
-  document.documentElement.lang = language;
+            <div>
 
-  document.documentElement.dir =
-    language === "ar" ? "rtl" : "ltr";
+              <h3>
+                Cardiology
+              </h3>
 
-  document
-    .querySelectorAll("[data-en]")
-    .forEach(function(element) {
+              <p
+                data-en="Cardiovascular system"
+                data-ar="الجهاز القلبي الوعائي"
+              >
+                Cardiovascular system
+              </p>
 
-      const value =
-        element.getAttribute("data-" + language);
+            </div>
 
-      if (value !== null) {
-        element.textContent = value;
-      }
-
-    });
-
-  const enButton =
-    document.getElementById("bimarEnBtn");
-
-  const arButton =
-    document.getElementById("bimarArBtn");
-
-  if (enButton && arButton) {
-
-    enButton.classList.remove("active");
-    arButton.classList.remove("active");
-
-    if (language === "en") {
-      enButton.classList.add("active");
-    } else {
-      arButton.classList.add("active");
-    }
-
-  }
-
-  localStorage.setItem(
-    "bimarLanguage",
-    language
-  );
-}
+          </a>
 
 
-/* Load saved language */
+          <a
+            href="subjects.html#respiratory"
+            class="subject"
+          >
 
-const savedBimarLanguage =
-  localStorage.getItem("bimarLanguage") || "en";
+            <div class="subject-icon">
+              🫁
+            </div>
 
-setBimarLanguage(savedBimarLanguage);
+            <div>
 
+              <h3>
+                Respiratory
+              </h3>
 
-/* Navbar scroll effect */
+              <p
+                data-en="Respiratory system"
+                data-ar="الجهاز التنفسي"
+              >
+                Respiratory system
+              </p>
 
-const bimarNavbar =
-  document.querySelector(".bimar-navbar");
+            </div>
 
-window.addEventListener("scroll", function() {
-
-  if (!bimarNavbar) return;
-
-  if (window.scrollY > 20) {
-    bimarNavbar.classList.add("scrolled");
-  } else {
-    bimarNavbar.classList.remove("scrolled");
-  }
-
-});
+          </a>
 
 
-/* Mobile menu */
+          <a
+            href="subjects.html#neurology"
+            class="subject"
+          >
 
-const bimarMenuBtn =
-  document.getElementById("bimarMenuBtn");
+            <div class="subject-icon">
+              🧠
+            </div>
 
-const bimarNavLinks =
-  document.querySelector(".bimar-nav-links");
+            <div>
 
-if (bimarMenuBtn && bimarNavLinks) {
+              <h3>
+                Neurology
+              </h3>
 
-  bimarMenuBtn.addEventListener(
-    "click",
-    function() {
-      bimarNavLinks.classList.toggle("open");
-    }
-  );
+              <p
+                data-en="Nervous system"
+                data-ar="الجهاز العصبي"
+              >
+                Nervous system
+              </p>
 
-  bimarNavLinks
-    .querySelectorAll("a")
-    .forEach(function(link) {
-      link.addEventListener(
-        "click",
-        function() {
-          bimarNavLinks.classList.remove("open");
-        }
-      );
-    });
+            </div>
 
-}
+          </a>
 
-</script>
-<script src="assets/js/bimar.js"></script>
+
+          <a
+            href="subjects.html#pharmacology"
+            class="subject"
+          >
+
+            <div class="subject-icon">
+              💊
+            </div>
+
+            <div>
+
+              <h3>
+                Pharmacology
+              </h3>
+
+              <p
+                data-en="Drugs & therapeutics"
+                data-ar="الأدوية والعلاجات"
+              >
+                Drugs & therapeutics
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="subjects.html#infectious"
+            class="subject"
+          >
+
+            <div class="subject-icon">
+              🦠
+            </div>
+
+            <div>
+
+              <h3>
+                Infectious Diseases
+              </h3>
+
+              <p
+                data-en="Infection & microbiology"
+                data-ar="الأمراض المعدية والأحياء الدقيقة"
+              >
+                Infection & microbiology
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="subjects.html#msk"
+            class="subject"
+          >
+
+            <div class="subject-icon">
+              🦴
+            </div>
+
+            <div>
+
+              <h3>
+                Musculoskeletal
+              </h3>
+
+              <p
+                data-en="Bones, joints & muscles"
+                data-ar="العظام والمفاصل والعضلات"
+              >
+                Bones, joints & muscles
+              </p>
+
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section>
+
+      <div class="cta">
+
+        <h2
+          data-en="Your medical journey starts here."
+          data-ar="رحلتك الطبية تبدأ من هنا."
+        >
+          Your medical journey starts here.
+        </h2>
+
+        <p
+          data-en="Learn smarter. Practice better. Become a stronger clinician."
+          data-ar="تعلم بذكاء. تدرب بشكل أفضل. وطوّر مهاراتك السريرية."
+        >
+          Learn smarter. Practice better. Become a stronger clinician.
+        </p>
+
+        <a
+          href="subjects.html"
+          data-en="Explore Bimar Academy →"
+          data-ar="استكشف Bimar Academy ←"
+        >
+          Explore Bimar Academy →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <strong>
+      Bimar Academy
+    </strong>
+
+    <br>
+
+    <span
+      data-en="Medical learning platform for medical students."
+      data-ar="منصة تعليمية لطلاب الطب البشري."
+    >
+      Medical learning platform for medical students.
+    </span>
+
+  </footer>
+
+
+  <!-- =======================================================
+       SHARED JAVASCRIPT
+       ======================================================= -->
+
+  <script src="assets/js/bimar.js"></script>
+
 </body>
+
 </html>
