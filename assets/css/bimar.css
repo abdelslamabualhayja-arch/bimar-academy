@@ -843,3 +843,550 @@ html[dir="rtl"] h3 {
     right: 15px;
   }
 }
+
+
+/* =========================================================
+   🔤 TYPOGRAPHY SYSTEM
+   ========================================================= */
+
+:root {
+  --text-display: clamp(2.75rem, 5vw, 4.5rem);
+  --text-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.25rem);
+  --text-h3: 1.25rem;
+  --text-h4: 1.0625rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+.bimar-display {
+  font-size: var(--text-display);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.bimar-h1 {
+  font-size: var(--text-h1);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+.bimar-h2 {
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  font-weight: 750;
+}
+
+.bimar-h3 {
+  font-size: var(--text-h3);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.bimar-h4 {
+  font-size: var(--text-h4);
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.bimar-body-lg {
+  font-size: var(--text-body-lg);
+  line-height: 1.75;
+}
+
+.bimar-body {
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.bimar-body-sm {
+  font-size: var(--text-body-sm);
+  line-height: 1.55;
+}
+
+.bimar-caption {
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.bimar-muted {
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   📦 LAYOUT SYSTEM
+   ========================================================= */
+
+.bimar-container {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-lg));
+  margin-inline: auto;
+}
+
+.bimar-container-sm {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-sm));
+  margin-inline: auto;
+}
+
+.bimar-container-md {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-md));
+  margin-inline: auto;
+}
+
+.bimar-container-xl {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-xl));
+  margin-inline: auto;
+}
+
+.bimar-section {
+  padding-block: var(--space-16);
+}
+
+.bimar-section-header {
+  margin-bottom: var(--space-8);
+}
+
+.bimar-section-header > * {
+  margin-bottom: 0;
+}
+
+.bimar-section-header > * + * {
+  margin-top: var(--space-2);
+}
+
+.bimar-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.bimar-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bimar-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bimar-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   🔘 BUTTON SYSTEM
+   ========================================================= */
+
+.bimar-btn {
+  min-height: 44px;
+  padding: 0 var(--space-5);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+
+  font: inherit;
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-base),
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.bimar-btn:hover {
+  transform: translateY(-2px);
+}
+
+.bimar-btn:active {
+  transform: translateY(0);
+}
+
+.bimar-btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #1D4ED8);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.2);
+}
+
+.bimar-btn-primary:hover {
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.28);
+}
+
+.bimar-btn-secondary {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.bimar-btn-secondary:hover {
+  color: var(--primary);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.bimar-btn-ghost {
+  color: var(--text-soft);
+  background: transparent;
+}
+
+.bimar-btn-ghost:hover {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.bimar-btn-danger {
+  color: #B42318;
+  background: #FEF3F2;
+  border-color: #FECDCA;
+}
+
+.bimar-btn-sm {
+  min-height: 38px;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+}
+
+.bimar-btn-lg {
+  min-height: 50px;
+  padding-inline: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+
+/* =========================================================
+   🃏 CARD SYSTEM
+   ========================================================= */
+
+.bimar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.bimar-card-hover {
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.bimar-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.bimar-card-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+
+.bimar-card-body {
+  padding: var(--space-6);
+}
+
+.bimar-card-footer {
+  padding: var(--space-5) var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.bimar-card-title {
+  margin: 0;
+  font-size: var(--text-h4);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.bimar-card-description {
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   🏷️ BADGES / EYEBROWS
+   ========================================================= */
+
+.bimar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  min-height: 30px;
+  padding: 0 var(--space-3);
+
+  border-radius: var(--radius-full);
+
+  background: var(--primary-soft);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+
+  color: var(--primary);
+  font-size: var(--text-caption);
+  font-weight: 700;
+}
+
+.bimar-badge-cyan {
+  background: var(--cyan-soft);
+  border-color: rgba(6, 182, 212, 0.15);
+  color: #0E7490;
+}
+
+
+/* =========================================================
+   📊 PROGRESS SYSTEM
+   ========================================================= */
+
+.bimar-progress {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: #E2E8F0;
+}
+
+.bimar-progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), #3B82F6);
+  transition: width 0.5s ease;
+}
+
+
+/* =========================================================
+   📝 FORM SYSTEM
+   ========================================================= */
+
+.bimar-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.bimar-label {
+  color: var(--text-soft);
+  font-size: var(--text-body-sm);
+  font-weight: 650;
+}
+
+.bimar-input,
+.bimar-select,
+.bimar-textarea {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 0 var(--space-4);
+
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+  color: var(--text);
+
+  font: inherit;
+  font-size: var(--text-body-sm);
+
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.bimar-textarea {
+  min-height: 120px;
+  padding-block: var(--space-3);
+  resize: vertical;
+}
+
+.bimar-input::placeholder,
+.bimar-textarea::placeholder {
+  color: var(--muted-light);
+}
+
+.bimar-input:focus,
+.bimar-select:focus,
+.bimar-textarea:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   🔎 SEARCH
+   ========================================================= */
+
+.bimar-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  min-height: 52px;
+  padding: 0 var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.bimar-search input {
+  min-width: 0;
+  flex: 1;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--text);
+
+  font: inherit;
+  font-size: var(--text-body-sm);
+}
+
+.bimar-search input::placeholder {
+  color: var(--muted-light);
+}
+
+
+/* =========================================================
+   🦶 SHARED FOOTER
+   ========================================================= */
+
+.bimar-footer {
+  margin-top: var(--space-20);
+  padding-block: var(--space-10);
+
+  border-top: 1px solid var(--border);
+
+  background: var(--surface);
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+}
+
+.bimar-footer-inner {
+  width: min(calc(100% - (var(--page-padding) * 2)), var(--container-lg));
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.bimar-footer-brand {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.bimar-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.bimar-footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.bimar-footer-links a:hover {
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   🧱 DIVIDERS / SURFACES
+   ========================================================= */
+
+.bimar-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+.bimar-surface {
+  background: var(--surface);
+}
+
+.bimar-surface-soft {
+  background: var(--surface-soft);
+}
+
+
+/* =========================================================
+   📐 RESPONSIVE DESIGN TOKENS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .bimar-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bimar-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  .bimar-section {
+    padding-block: var(--space-12);
+  }
+
+  .bimar-grid-2,
+  .bimar-grid-3,
+  .bimar-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bimar-display {
+    letter-spacing: -0.035em;
+  }
+}
+
+html[dir="rtl"] .bimar-display,
+html[dir="rtl"] .bimar-h1,
+html[dir="rtl"] .bimar-h2 {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
