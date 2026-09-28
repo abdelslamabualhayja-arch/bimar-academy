@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,6 @@
       --bg: #F8FAFC;
       --card: #FFFFFF;
       --border: #E4E7EC;
-      --success: #12B76A;
     }
 
     * {
@@ -34,6 +33,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      transition: 0.2s;
     }
 
     a {
@@ -41,17 +41,11 @@
       color: inherit;
     }
 
-    button {
-      font-family: inherit;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
+    /* NAVBAR */
 
     .navbar {
       height: 76px;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.97);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -118,9 +112,36 @@
       font-weight: 700;
     }
 
-    /* =========================
-       HERO
-    ========================= */
+    /* LANGUAGE BUTTON */
+
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      background: #F2F4F7;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 3px;
+    }
+
+    .language-switcher button {
+      border: none;
+      background: transparent;
+      color: #667085;
+      padding: 7px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .language-switcher button.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* HERO */
 
     .hero {
       max-width: 1200px;
@@ -196,17 +217,9 @@
       border-radius: 10px;
       font-size: 15px;
       font-weight: 700;
-      transition: 0.2s;
     }
 
-    .secondary-button:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    /* =========================
-       DASHBOARD PREVIEW
-    ========================= */
+    /* DASHBOARD */
 
     .dashboard-preview {
       background: white;
@@ -294,9 +307,7 @@
       color: var(--muted);
     }
 
-    /* =========================
-       SECTION
-    ========================= */
+    /* SECTIONS */
 
     .section {
       max-width: 1200px;
@@ -318,9 +329,7 @@
       color: var(--muted);
     }
 
-    /* =========================
-       TOOLS
-    ========================= */
+    /* TOOLS */
 
     .tools-grid {
       display: grid;
@@ -365,9 +374,7 @@
       font-size: 13px;
     }
 
-    /* =========================
-       SUBJECTS
-    ========================= */
+    /* SUBJECTS */
 
     .subjects-section {
       background: white;
@@ -420,9 +427,7 @@
       font-size: 12px;
     }
 
-    /* =========================
-       CTA
-    ========================= */
+    /* CTA */
 
     .cta {
       max-width: 1140px;
@@ -453,9 +458,7 @@
       font-weight: 700;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       background: white;
@@ -470,11 +473,10 @@
       color: var(--navy);
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media (max-width: 1000px) {
+
       .nav-links {
         display: none;
       }
@@ -494,8 +496,9 @@
     }
 
     @media (max-width: 600px) {
+
       .navbar {
-        padding: 0 20px;
+        padding: 0 15px;
       }
 
       .login {
@@ -526,489 +529,547 @@
       .cta {
         margin: 45px 20px;
       }
+
+      .language-switcher button {
+        padding: 6px 8px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+<header class="navbar">
 
-  <header class="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-icon">🩺</div>
+    Bimar Academy
+  </a>
 
-    <a href="index.html" class="logo">
-      <div class="logo-icon">🩺</div>
-      Bimar Academy
+  <nav class="nav-links">
+
+    <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+
+    <a href="subjects.html" data-en="Subjects" data-ar="المواد">Subjects</a>
+
+    <a href="questions.html" data-en="Question Bank" data-ar="بنك الأسئلة">Question Bank</a>
+
+    <a href="clinical.html" data-en="Clinical" data-ar="السريري">Clinical</a>
+
+    <a href="osce.html" data-en="OSCE" data-ar="الأوسكي">OSCE</a>
+
+  </nav>
+
+  <div class="nav-actions">
+
+    <!-- LANGUAGE -->
+
+    <div class="language-switcher">
+
+      <button id="enBtn" onclick="setLanguage('en')">
+        EN
+      </button>
+
+      <button id="arBtn" onclick="setLanguage('ar')">
+        AR
+      </button>
+
+    </div>
+
+    <a href="login.html" class="login"
+       data-en="Log in"
+       data-ar="تسجيل الدخول">
+      Log in
     </a>
 
-    <nav class="nav-links">
+    <a href="login.html" class="signup"
+       data-en="Get Started"
+       data-ar="ابدأ الآن">
+      Get Started
+    </a>
 
-      <a href="index.html">Home</a>
+  </div>
 
-      <a href="subjects.html">Subjects</a>
+</header>
 
-      <a href="questions.html">Question Bank</a>
 
-      <a href="clinical.html">Clinical</a>
+<main>
 
-      <a href="osce.html">OSCE</a>
+  <!-- HERO -->
 
-    </nav>
+  <section class="hero">
 
-    <div class="nav-actions">
+    <div>
 
-      <a href="login.html" class="login">
-        Log in
+      <div class="eyebrow"
+           data-en="✦ Medical Learning Platform"
+           data-ar="✦ منصة تعليمية طبية">
+        ✦ Medical Learning Platform
+      </div>
+
+      <h1>
+        <span data-en="Study medicine." data-ar="ادرس الطب.">
+          Study medicine.
+        </span>
+
+        <br>
+
+        <span data-en="Understand it." data-ar="افهمه.">
+          Understand it.
+        </span>
+
+        <br>
+
+        <span data-en="Master it." data-ar="أتقنه.">
+          Master it.
+        </span>
+      </h1>
+
+      <p class="hero-description"
+         data-en="Bimar Academy brings medical learning, question banks, clinical cases, OSCE preparation and smart study tools together in one powerful platform."
+         data-ar="Bimar Academy تجمع التعلم الطبي، وبنوك الأسئلة، والحالات السريرية، والتحضير للـOSCE وأدوات الدراسة الذكية في منصة واحدة.">
+        Bimar Academy brings medical learning, question banks,
+        clinical cases, OSCE preparation and smart study tools
+        together in one powerful platform.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="subjects.html"
+           class="primary-button"
+           data-en="Start Learning →"
+           data-ar="ابدأ التعلم ←">
+          Start Learning →
+        </a>
+
+        <a href="questions.html"
+           class="secondary-button"
+           data-en="Explore Question Bank"
+           data-ar="استكشف بنك الأسئلة">
+          Explore Question Bank
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PREVIEW -->
+
+    <div class="dashboard-preview">
+
+      <div class="preview-top">
+
+        <div class="preview-title"
+             data-en="Your Learning"
+             data-ar="رحلتك التعليمية">
+          Your Learning
+        </div>
+
+        <div class="avatar">
+          👨‍⚕️
+        </div>
+
+      </div>
+
+
+      <div class="progress-card">
+
+        <div class="progress-header">
+
+          <strong>
+            Cardiology
+          </strong>
+
+          <span>
+            72%
+          </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div class="progress-fill"></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="preview-grid">
+
+        <div class="mini-card">
+
+          <div class="mini-icon">📝</div>
+
+          <strong data-en="Question Bank"
+                  data-ar="بنك الأسئلة">
+            Question Bank
+          </strong>
+
+          <span data-en="Practice questions"
+                data-ar="أسئلة تدريبية">
+            Practice questions
+          </span>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <div class="mini-icon">🧠</div>
+
+          <strong data-en="Flashcards"
+                  data-ar="البطاقات التعليمية">
+            Flashcards
+          </strong>
+
+          <span data-en="Active recall"
+                data-ar="الاسترجاع النشط">
+            Active recall
+          </span>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <div class="mini-icon">🩺</div>
+
+          <strong data-en="Clinical Cases"
+                  data-ar="حالات سريرية">
+            Clinical Cases
+          </strong>
+
+          <span data-en="Clinical reasoning"
+                data-ar="التفكير السريري">
+            Clinical reasoning
+          </span>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <div class="mini-icon">📋</div>
+
+          <strong>OSCE</strong>
+
+          <span data-en="Clinical skills"
+                data-ar="المهارات السريرية">
+            Clinical skills
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TOOLS -->
+
+  <section class="section">
+
+    <div class="section-header">
+
+      <h2 data-en="Everything you need to study medicine"
+          data-ar="كل ما تحتاجه لدراسة الطب">
+        Everything you need to study medicine
+      </h2>
+
+      <p data-en="One platform. Multiple ways to learn, practice and improve."
+         data-ar="منصة واحدة. طرق متعددة للتعلم والتدرب والتطور.">
+        One platform. Multiple ways to learn, practice and improve.
+      </p>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+      <a href="subjects.html" class="tool-card">
+
+        <div class="tool-icon">📚</div>
+
+        <h3 data-en="Medical Library"
+            data-ar="المكتبة الطبية">
+          Medical Library
+        </h3>
+
+        <p data-en="Explore organized medical topics and learning resources."
+           data-ar="استكشف المواضيع الطبية والمصادر التعليمية المنظمة.">
+          Explore organized medical topics and learning resources.
+        </p>
+
       </a>
 
-      <a href="login.html" class="signup">
-        Get Started
+
+      <a href="questions.html" class="tool-card">
+
+        <div class="tool-icon">📝</div>
+
+        <h3 data-en="Question Bank"
+            data-ar="بنك الأسئلة">
+          Question Bank
+        </h3>
+
+        <p data-en="Practice MCQs and identify your weak areas."
+           data-ar="تدرب على أسئلة MCQ وحدد نقاط ضعفك.">
+          Practice MCQs and identify your weak areas.
+        </p>
+
+      </a>
+
+
+      <a href="clinical.html" class="tool-card">
+
+        <div class="tool-icon">🩺</div>
+
+        <h3 data-en="Clinical Cases"
+            data-ar="الحالات السريرية">
+          Clinical Cases
+        </h3>
+
+        <p data-en="Practice clinical reasoning through realistic cases."
+           data-ar="تدرب على التفكير السريري من خلال حالات واقعية.">
+          Practice clinical reasoning through realistic cases.
+        </p>
+
+      </a>
+
+
+      <a href="osce.html" class="tool-card">
+
+        <div class="tool-icon">📋</div>
+
+        <h3>OSCE</h3>
+
+        <p data-en="Prepare for stations, examinations and clinical skills."
+           data-ar="استعد للمحطات والفحوصات والمهارات السريرية.">
+          Prepare for stations, examinations and clinical skills.
+        </p>
+
       </a>
 
     </div>
 
-  </header>
+  </section>
 
 
-  <!-- HERO -->
+  <!-- SUBJECTS -->
 
-  <main>
+  <section class="subjects-section">
 
-    <section class="hero">
-
-      <div>
-
-        <div class="eyebrow">
-          ✦ Medical Learning Platform
-        </div>
-
-        <h1>
-          Study medicine.
-          <br>
-          <span>Understand it.</span>
-          <br>
-          Master it.
-        </h1>
-
-        <p class="hero-description">
-          Bimar Academy brings medical learning, question banks,
-          clinical cases, OSCE preparation and smart study tools
-          together in one powerful platform.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a href="subjects.html" class="primary-button">
-            Start Learning →
-          </a>
-
-          <a href="questions.html" class="secondary-button">
-            Explore Question Bank
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- DASHBOARD PREVIEW -->
-
-      <div class="dashboard-preview">
-
-        <div class="preview-top">
-
-          <div class="preview-title">
-            Your Learning
-          </div>
-
-          <div class="avatar">
-            👨‍⚕️
-          </div>
-
-        </div>
-
-
-        <div class="progress-card">
-
-          <div class="progress-header">
-
-            <strong>
-              Cardiology
-            </strong>
-
-            <span>
-              72%
-            </span>
-
-          </div>
-
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-
-        </div>
-
-
-        <div class="preview-grid">
-
-          <div class="mini-card">
-
-            <div class="mini-icon">
-              📝
-            </div>
-
-            <strong>
-              Question Bank
-            </strong>
-
-            <span>
-              Practice questions
-            </span>
-
-          </div>
-
-
-          <div class="mini-card">
-
-            <div class="mini-icon">
-              🧠
-            </div>
-
-            <strong>
-              Flashcards
-            </strong>
-
-            <span>
-              Active recall
-            </span>
-
-          </div>
-
-
-          <div class="mini-card">
-
-            <div class="mini-icon">
-              🩺
-            </div>
-
-            <strong>
-              Clinical Cases
-            </strong>
-
-            <span>
-              Clinical reasoning
-            </span>
-
-          </div>
-
-
-          <div class="mini-card">
-
-            <div class="mini-icon">
-              📋
-            </div>
-
-            <strong>
-              OSCE
-            </strong>
-
-            <span>
-              Clinical skills
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- TOOLS -->
-
-    <section class="section">
+    <div class="section">
 
       <div class="section-header">
 
-        <h2>
-          Everything you need to study medicine
+        <h2 data-en="Explore Medical Subjects"
+            data-ar="استكشف المواد الطبية">
+          Explore Medical Subjects
         </h2>
 
-        <p>
-          One platform. Multiple ways to learn, practice and improve.
+        <p data-en="Start learning from the system you want."
+           data-ar="ابدأ التعلم من النظام الذي تريده.">
+          Start learning from the system you want.
         </p>
 
       </div>
 
 
-      <div class="tools-grid">
+      <div class="subjects-grid">
 
 
-        <a href="subjects.html" class="tool-card">
+        <a href="subjects.html#cardiology" class="subject">
 
-          <div class="tool-icon">
-            📚
+          <div class="subject-icon">❤️</div>
+
+          <div>
+
+            <h3>Cardiology</h3>
+
+            <p data-en="Cardiovascular system"
+               data-ar="الجهاز القلبي الوعائي">
+              Cardiovascular system
+            </p>
+
           </div>
-
-          <h3>
-            Medical Library
-          </h3>
-
-          <p>
-            Explore organized medical topics and learning resources.
-          </p>
 
         </a>
 
 
-        <a href="questions.html" class="tool-card">
+        <a href="subjects.html#respiratory" class="subject">
 
-          <div class="tool-icon">
-            📝
+          <div class="subject-icon">🫁</div>
+
+          <div>
+
+            <h3>Respiratory</h3>
+
+            <p data-en="Respiratory system"
+               data-ar="الجهاز التنفسي">
+              Respiratory system
+            </p>
+
           </div>
-
-          <h3>
-            Question Bank
-          </h3>
-
-          <p>
-            Practice MCQs and identify your weak areas.
-          </p>
 
         </a>
 
 
-        <a href="clinical.html" class="tool-card">
+        <a href="subjects.html#neurology" class="subject">
 
-          <div class="tool-icon">
-            🩺
+          <div class="subject-icon">🧠</div>
+
+          <div>
+
+            <h3>Neurology</h3>
+
+            <p data-en="Nervous system"
+               data-ar="الجهاز العصبي">
+              Nervous system
+            </p>
+
           </div>
-
-          <h3>
-            Clinical Cases
-          </h3>
-
-          <p>
-            Practice clinical reasoning through realistic cases.
-          </p>
 
         </a>
 
 
-        <a href="osce.html" class="tool-card">
+        <a href="subjects.html#pharmacology" class="subject">
 
-          <div class="tool-icon">
-            📋
+          <div class="subject-icon">💊</div>
+
+          <div>
+
+            <h3>Pharmacology</h3>
+
+            <p data-en="Drugs & therapeutics"
+               data-ar="الأدوية والعلاجات">
+              Drugs & therapeutics
+            </p>
+
           </div>
 
-          <h3>
-            OSCE
-          </h3>
+        </a>
 
-          <p>
-            Prepare for stations, examinations and clinical skills.
-          </p>
+
+        <a href="subjects.html#infectious" class="subject">
+
+          <div class="subject-icon">🦠</div>
+
+          <div>
+
+            <h3>Infectious Diseases</h3>
+
+            <p data-en="Infection & microbiology"
+               data-ar="الأمراض المعدية والأحياء الدقيقة">
+              Infection & microbiology
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <a href="subjects.html#msk" class="subject">
+
+          <div class="subject-icon">🦴</div>
+
+          <div>
+
+            <h3>Musculoskeletal</h3>
+
+            <p data-en="Bones, joints & muscles"
+               data-ar="العظام والمفاصل والعضلات">
+              Bones, joints & muscles
+            </p>
+
+          </div>
 
         </a>
 
       </div>
 
-    </section>
+    </div>
 
+  </section>
 
-    <!-- SUBJECTS -->
 
-    <section class="subjects-section">
+  <!-- CTA -->
 
-      <div class="section">
+  <section>
 
-        <div class="section-header">
+    <div class="cta">
 
-          <h2>
-            Explore Medical Subjects
-          </h2>
+      <h2 data-en="Your medical journey starts here."
+          data-ar="رحلتك الطبية تبدأ من هنا.">
+        Your medical journey starts here.
+      </h2>
 
-          <p>
-            Start learning from the system you want.
-          </p>
+      <p data-en="Learn smarter. Practice better. Become a stronger clinician."
+         data-ar="تعلم بذكاء. تدرب بشكل أفضل. وطوّر مهاراتك السريرية.">
+        Learn smarter. Practice better. Become a stronger clinician.
+      </p>
 
-        </div>
+      <a href="subjects.html"
+         data-en="Explore Bimar Academy →"
+         data-ar="استكشف Bimar Academy ←">
+        Explore Bimar Academy →
+      </a>
 
+    </div>
 
-        <div class="subjects-grid">
+  </section>
 
+</main>
 
-          <a href="subjects.html#cardiology" class="subject">
 
-            <div class="subject-icon">
-              ❤️
-            </div>
+<footer>
 
-            <div>
+  <strong>Bimar Academy</strong>
 
-              <h3>
-                Cardiology
-              </h3>
+  <br>
 
-              <p>
-                Cardiovascular system
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a href="subjects.html#respiratory" class="subject">
-
-            <div class="subject-icon">
-              🫁
-            </div>
-
-            <div>
-
-              <h3>
-                Respiratory
-              </h3>
-
-              <p>
-                Respiratory system
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a href="subjects.html#neurology" class="subject">
-
-            <div class="subject-icon">
-              🧠
-            </div>
-
-            <div>
-
-              <h3>
-                Neurology
-              </h3>
-
-              <p>
-                Nervous system
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a href="subjects.html#pharmacology" class="subject">
-
-            <div class="subject-icon">
-              💊
-            </div>
-
-            <div>
-
-              <h3>
-                Pharmacology
-              </h3>
-
-              <p>
-                Drugs & therapeutics
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a href="subjects.html#infectious" class="subject">
-
-            <div class="subject-icon">
-              🦠
-            </div>
-
-            <div>
-
-              <h3>
-                Infectious Diseases
-              </h3>
-
-              <p>
-                Infection & microbiology
-              </p>
-
-            </div>
-
-          </a>
-
-
-          <a href="subjects.html#msk" class="subject">
-
-            <div class="subject-icon">
-              🦴
-            </div>
-
-            <div>
-
-              <h3>
-                Musculoskeletal
-              </h3>
-
-              <p>
-                Bones, joints & muscles
-              </p>
-
-            </div>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CTA -->
-
-    <section>
-
-      <div class="cta">
-
-        <h2>
-          Your medical journey starts here.
-        </h2>
-
-        <p>
-          Learn smarter. Practice better. Become a stronger clinician.
-        </p>
-
-        <a href="subjects.html">
-          Explore Bimar Academy →
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <strong>
-      Bimar Academy
-    </strong>
-
-    <br>
-
+  <span data-en="Medical learning platform for medical students."
+        data-ar="منصة تعليمية لطلاب الطب البشري.">
     Medical learning platform for medical students.
+  </span>
 
-  </footer>
+</footer>
+
+
+<script>
+
+  function setLanguage(language) {
+
+    document.documentElement.lang = language;
+
+    document.documentElement.dir =
+      language === "ar" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-en]").forEach(function(element) {
+
+      element.textContent = element.getAttribute("data-" + language);
+
+    });
+
+    document.getElementById("enBtn").classList.remove("active");
+    document.getElementById("arBtn").classList.remove("active");
+
+    document.getElementById(language + "Btn").classList.add("active");
+
+    localStorage.setItem("bimarLanguage", language);
+  }
+
+
+  const savedLanguage =
+    localStorage.getItem("bimarLanguage") || "en";
+
+  setLanguage(savedLanguage);
+
+</script>
 
 </body>
 </html>
