@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard — Bimar Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <style>
+
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1E40AF;
+      --primary-soft: #EFF6FF;
+
+      --navy: #07111F;
+      --text: #1E293B;
+      --muted: #64748B;
+
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+
+      --border: rgba(148, 163, 184, 0.22);
+
+      --shadow-sm:
+        0 4px 16px rgba(15, 23, 42, 0.05);
+
+      --shadow-md:
+        0 12px 35px rgba(15, 23, 42, 0.08);
+
+      --shadow-lg:
+        0 24px 70px rgba(15, 23, 42, 0.12);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        "IBM Plex Sans Arabic",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(37, 99, 235, 0.07),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(6, 182, 212, 0.06),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+
+    .bimar-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      width: 100%;
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .navbar-inner {
+      width: min(1280px, 92%);
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: relative;
+    }
+
+    .bimar-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-weight: 800;
+
+      transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+    }
+
+    .bimar-brand:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .bimar-logo-mark {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.98),
+          rgba(239,246,255,0.9)
+        );
+
+      border: 1px solid rgba(37, 99, 235, 0.14);
+
+      box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.12);
+    }
+
+    .bimar-logo-mark svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 850;
+      letter-spacing: 0.7px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #07111F,
+          #2563EB
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .brand-sub {
+      margin-top: 5px;
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+      color: #64748B;
+    }
+
+    .bimar-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .bimar-nav-link {
+      position: relative;
+
+      padding: 8px 0;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      color: #475569;
+
+      transition:
+        color 0.2s ease;
+    }
+
+    .bimar-nav-link:hover,
+    .bimar-nav-link.active {
+      color: var(--primary);
+    }
+
+    .bimar-nav-link::after {
+      content: "";
+
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+
+      width: 0;
+      height: 2px;
+
+      border-radius: 999px;
+
+      background: var(--primary);
+
+      transform: translateX(-50%);
+
+      transition: width 0.25s ease;
+    }
+
+    .bimar-nav-link:hover::after,
+    .bimar-nav-link.active::after {
+      width: 100%;
+    }
+
+    .bimar-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bimar-login {
+      padding: 10px 14px;
+
+      font-size: 14px;
+      font-weight: 650;
+
+      color: #475569;
+    }
+
+    .bimar-start {
+      padding: 11px 17px;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563EB,
+          #1D4ED8
+        );
+
+      color: white;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 22px rgba(37, 99, 235, 0.22);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .bimar-start:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.28);
+    }
+
+    /* =========================================
+       DASHBOARD
+       ========================================= */
+
+    .dashboard {
+      width: min(1280px, 92%);
+      margin: 0 auto;
+
+      padding:
+        58px 0
+        80px;
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 35px;
+    }
+
+    .dashboard-eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 7px 12px;
+
+      margin-bottom: 14px;
+
+      border-radius: 999px;
+
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dashboard-header h1 {
+      margin: 0;
+
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.08;
+
+      letter-spacing: -1.8px;
+
+      color: var(--navy);
+    }
+
+    .dashboard-header p {
+      margin: 12px 0 0;
+
+      max-width: 650px;
+
+      color: var(--muted);
+
+      font-size: 16px;
+    }
+
+    .profile-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 10px 14px 10px 10px;
+
+      border-radius: 15px;
+
+      background: white;
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563EB,
+          #06B6D4
+        );
+
+      color: white;
+
+      font-weight: 800;
+    }
+
+    .profile-info strong {
+      display: block;
+
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    .profile-info span {
+      display: block;
+
+      margin-top: 2px;
+
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       STATS
+       ========================================= */
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 18px;
+
+      margin-bottom: 25px;
+    }
+
+    .stat-card {
+      padding: 22px;
+
+      background: rgba(255,255,255,0.92);
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow-sm);
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 15px;
+
+      border-radius: 12px;
+
+      background: var(--primary-soft);
+
+      font-size: 19px;
+    }
+
+    .stat-card strong {
+      display: block;
+
+      font-size: 28px;
+      line-height: 1;
+
+      color: var(--navy);
+    }
+
+    .stat-card span {
+      display: block;
+
+      margin-top: 8px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================================
+       MAIN GRID
+       ========================================= */
+
+    .dashboard-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(300px, 0.9fr);
+
+      gap: 22px;
+    }
+
+    .dashboard-card {
+      background: rgba(255,255,255,0.94);
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      box-shadow: var(--shadow-sm);
+
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 22px 23px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header h2 {
+      margin: 0;
+
+      font-size: 17px;
+
+      color: var(--navy);
+    }
+
+    .card-header a {
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================================
+       CONTINUE LEARNING
+       ========================================= */
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-item {
+      display: grid;
+
+      grid-template-columns: 52px minmax(0, 1fr) auto;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 19px 23px;
+
+      border-bottom: 1px solid var(--border);
+
+      transition:
+        background 0.2s ease;
+    }
+
+    .course-item:last-child {
+      border-bottom: 0;
+    }
+
+    .course-item:hover {
+      background: #F8FAFC;
+    }
+
+    .course-icon {
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #EFF6FF,
+          #ECFEFF
+        );
+
+      font-size: 22px;
+    }
+
+    .course-info strong {
+      display: block;
+
+      font-size: 14px;
+
+      color: var(--navy);
+    }
+
+    .course-info span {
+      display: block;
+
+      margin-top: 4px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    .course-progress {
+      margin-top: 9px;
+
+      width: 100%;
+      height: 5px;
+
+      overflow: hidden;
+
+      border-radius: 999px;
+
+      background: #E2E8F0;
+    }
+
+    .course-progress span {
+      display: block;
+
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2563EB,
+          #06B6D4
+        );
+    }
+
+    .progress-number {
+      font-size: 12px;
+      font-weight: 700;
+
+      color: var(--primary);
+    }
+
+    /* =========================================
+       ACTIVITY
+       ========================================= */
+
+    .activity-list {
+      padding: 7px 0;
+    }
+
+    .activity-item {
+      display: flex;
+      gap: 13px;
+
+      padding: 16px 22px;
+    }
+
+    .activity-dot {
+      width: 9px;
+      height: 9px;
+
+      flex: 0 0 9px;
+
+      margin-top: 7px;
+
+      border-radius: 50%;
+
+      background: var(--primary);
+
+      box-shadow:
+        0 0 0 5px rgba(37, 99, 235, 0.08);
+    }
+
+    .activity-item strong {
+      display: block;
+
+      font-size: 13px;
+
+      color: var(--navy);
+    }
+
+    .activity-item span {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
+
+    @media (max-width: 1050px) {
+
+      .bimar-nav-links {
+        gap: 17px;
+      }
+
+      .stats-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 850px) {
+
+      .bimar-nav-links {
+        display: none;
+      }
+
+      .bimar-navbar {
+        height: 70px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .dashboard {
+        width: min(94%, 700px);
+        padding-top: 40px;
+      }
+
+      .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .bimar-login {
+        display: none;
+      }
+
+      .bimar-start {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 17px;
+      }
+
+      .stat-card strong {
+        font-size: 23px;
+      }
+
+      .course-item {
+        grid-template-columns: 45px minmax(0, 1fr);
+      }
+
+      .progress-number {
+        display: none;
+      }
+
+    }
+
+    /* =========================================
+       ARABIC
+       ========================================= */
+
+    html[dir="rtl"] body {
+      font-family:
+        "IBM Plex Sans Arabic",
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    }
+
+    html[dir="rtl"] .dashboard-header,
+    html[dir="rtl"] .dashboard-card {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .profile-chip {
+      padding:
+        10px 10px 10px 14px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="bimar-navbar">
+
+    <div class="navbar-inner">
+
+      <a href="index.html" class="bimar-brand">
+
+        <div class="bimar-logo-mark">
+
+          <svg
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+
+            <defs>
+              <linearGradient
+                id="bookGradient"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+              >
+                <stop
+                  offset="0%"
+                  stop-color="#2563EB"
+                />
+                <stop
+                  offset="100%"
+                  stop-color="#06B6D4"
+                />
+              </linearGradient>
+            </defs>
+
+            <path
+              d="M5.5 10.5
+                 C11 9 16.5 10 21.5 13
+                 V39
+                 C16.5 36 11 35 5.5 36.5
+                 Z"
+              fill="none"
+              stroke="url(#bookGradient)"
+              stroke-width="2.2"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M42.5 10.5
+                 C37 9 31.5 10 26.5 13
+                 V39
+                 C31.5 36 37 35 42.5 36.5
+                 Z"
+              fill="none"
+              stroke="url(#bookGradient)"
+              stroke-width="2.2"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M8 24
+                 H14
+                 L17 24
+                 L19 18
+                 L22 30
+                 L25 21
+                 L27 24
+                 H32
+                 L34 24
+                 L36 20
+                 L38 24
+                 H41"
+              fill="none"
+              stroke="#0F4CFF"
+              stroke-width="2.3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M24 13 V39"
+              stroke="#06B6D4"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              opacity="0.75"
+            />
+
+          </svg>
+
+        </div>
+
+        <div class="brand-text">
+          <span class="brand-name">Bimar Academy</span>
+          <span class="brand-sub">MEDICAL EDUCATION</span>
+        </div>
+
+      </a>
+
+
+      <nav class="bimar-nav-links">
+
+        <a
+          href="index.html"
+          class="bimar-nav-link"
+          data-en="Home"
+          data-ar="الرئيسية"
+        >
+          Home
+        </a>
+
+        <a
+          href="subjects.html"
+          class="bimar-nav-link"
+          data-en="Subjects"
+          data-ar="المواد"
+        >
+          Subjects
+        </a>
+
+        <a
+          href="questions.html"
+          class="bimar-nav-link"
+          data-en="Question Bank"
+          data-ar="بنك الأسئلة"
+        >
+          Question Bank
+        </a>
+
+        <a
+          href="clinical.html"
+          class="bimar-nav-link"
+          data-en="Clinical"
+          data-ar="السريري"
+        >
+          Clinical
+        </a>
+
+        <a
+          href="osce.html"
+          class="bimar-nav-link"
+          data-en="OSCE"
+          data-ar="OSCE"
+        >
+          OSCE
+        </a>
+
+      </nav>
+
+
+      <div class="bimar-nav-actions">
+
+        <a
+          href="login.html"
+          class="bimar-login"
+          data-en="Log in"
+          data-ar="تسجيل الدخول"
+        >
+          Log in
+        </a>
+
+        <a
+          href="login.html"
+          class="bimar-start"
+          data-en="Get Started"
+          data-ar="ابدأ الآن"
+        >
+          Get Started
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- DASHBOARD -->
+
+  <main class="dashboard">
+
+    <section class="dashboard-header">
+
+      <div>
+
+        <div
+          class="dashboard-eyebrow"
+          data-en="✦ Student Dashboard"
+          data-ar="✦ لوحة الطالب"
+        >
+          ✦ Student Dashboard
+        </div>
+
+        <h1
+          data-en="Welcome back, Student."
+          data-ar="مرحبًا بعودتك، أيها الطالب."
+        >
+          Welcome back, Student.
+        </h1>
+
+        <p
+          data-en="Continue your medical learning journey and keep building your clinical knowledge."
+          data-ar="تابع رحلتك في تعلم الطب واستمر في بناء معرفتك السريرية."
+        >
+          Continue your medical learning journey and keep building your clinical knowledge.
+        </p>
+
+      </div>
+
+
+      <div class="profile-chip">
+
+        <div class="avatar">
+          S
+        </div>
+
+        <div class="profile-info">
+
+          <strong
+            data-en="Student Account"
+            data-ar="حساب الطالب"
+          >
+            Student Account
+          </strong>
+
+          <span
+            data-en="Medical Student"
+            data-ar="طالب طب"
+          >
+            Medical Student
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats-grid">
+
+      <article class="stat-card">
+
+        <div class="stat-icon">📚</div>
+
+        <strong>6</strong>
+
+        <span
+          data-en="Subjects started"
+          data-ar="مواد بدأت بها"
+        >
+          Subjects started
+        </span>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <div class="stat-icon">▶️</div>
+
+        <strong>24</strong>
+
+        <span
+          data-en="Lessons completed"
+          data-ar="دروس مكتملة"
+        >
+          Lessons completed
+        </span>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <div class="stat-icon">❓</div>
+
+        <strong>186</strong>
+
+        <span
+          data-en="Questions answered"
+          data-ar="أسئلة تمت الإجابة عنها"
+        >
+          Questions answered
+        </span>
+
+      </article>
+
+
+      <article class="stat-card">
+
+        <div class="stat-icon">🎯</div>
+
+        <strong>72%</strong>
+
+        <span
+          data-en="Overall progress"
+          data-ar="التقدم العام"
+        >
+          Overall progress
+        </span>
+
+      </article>
+
+    </section>
+
+
+    <!-- MAIN DASHBOARD -->
+
+    <section class="dashboard-grid">
+
+
+      <!-- CONTINUE LEARNING -->
+
+      <article class="dashboard-card">
+
+        <div class="card-header">
+
+          <h2
+            data-en="Continue Learning"
+            data-ar="تابع التعلم"
+          >
+            Continue Learning
+          </h2>
+
+          <a
+            href="subjects.html"
+            data-en="View all"
+            data-ar="عرض الكل"
+          >
+            View all
+          </a>
+
+        </div>
+
+
+        <div class="course-list">
+
+
+          <a
+            href="subjects.html#cardiology"
+            class="course-item"
+          >
+
+            <div class="course-icon">
+              ❤️
+            </div>
+
+            <div class="course-info">
+
+              <strong
+                data-en="Cardiology"
+                data-ar="أمراض القلب"
+              >
+                Cardiology
+              </strong>
+
+              <span
+                data-en="12 lessons • 68% complete"
+                data-ar="12 درسًا • مكتمل بنسبة 68%"
+              >
+                12 lessons • 68% complete
+              </span>
+
+              <div class="course-progress">
+                <span style="width: 68%;"></span>
+              </div>
+
+            </div>
+
+            <div class="progress-number">
+              68%
+            </div>
+
+          </a>
+
+
+          <a
+            href="subjects.html#respiratory"
+            class="course-item"
+          >
+
+            <div class="course-icon">
+              🫁
+            </div>
+
+            <div class="course-info">
+
+              <strong
+                data-en="Respiratory"
+                data-ar="الجهاز التنفسي"
+              >
+                Respiratory
+              </strong>
+
+              <span
+                data-en="9 lessons • 52% complete"
+                data-ar="9 دروس • مكتمل بنسبة 52%"
+              >
+                9 lessons • 52% complete
+              </span>
+
+              <div class="course-progress">
+                <span style="width: 52%;"></span>
+              </div>
+
+            </div>
+
+            <div class="progress-number">
+              52%
+            </div>
+
+          </a>
+
+
+          <a
+            href="subjects.html#neurology"
+            class="course-item"
+          >
+
+            <div class="course-icon">
+              🧠
+            </div>
+
+            <div class="course-info">
+
+              <strong
+                data-en="Neurology"
+                data-ar="الأعصاب"
+              >
+                Neurology
+              </strong>
+
+              <span
+                data-en="15 lessons • 41% complete"
+                data-ar="15 درسًا • مكتمل بنسبة 41%"
+              >
+                15 lessons • 41% complete
+              </span>
+
+              <div class="course-progress">
+                <span style="width: 41%;"></span>
+              </div>
+
+            </div>
+
+            <div class="progress-number">
+              41%
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </article>
+
+
+      <!-- RECENT ACTIVITY -->
+
+      <article class="dashboard-card">
+
+        <div class="card-header">
+
+          <h2
+            data-en="Recent Activity"
+            data-ar="النشاط الأخير"
+          >
+            Recent Activity
+          </h2>
+
+        </div>
+
+
+        <div class="activity-list">
+
+
+          <div class="activity-item">
+
+            <div class="activity-dot"></div>
+
+            <div>
+
+              <strong
+                data-en="Completed Cardiology lesson"
+                data-ar="أكملت درسًا في أمراض القلب"
+              >
+                Completed Cardiology lesson
+              </strong>
+
+              <span
+                data-en="Today"
+                data-ar="اليوم"
+              >
+                Today
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-dot"></div>
+
+            <div>
+
+              <strong
+                data-en="Answered 20 questions"
+                data-ar="أجبت عن 20 سؤالًا"
+              >
+                Answered 20 questions
+              </strong>
+
+              <span
+                data-en="Yesterday"
+                data-ar="أمس"
+              >
+                Yesterday
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-dot"></div>
+
+            <div>
+
+              <strong
+                data-en="Started Respiratory"
+                data-ar="بدأت دراسة الجهاز التنفسي"
+              >
+                Started Respiratory
+              </strong>
+
+              <span
+                data-en="2 days ago"
+                data-ar="منذ يومين"
+              >
+                2 days ago
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-dot"></div>
+
+            <div>
+
+              <strong
+                data-en="Completed an OSCE station"
+                data-ar="أكملت محطة OSCE"
+              >
+                Completed an OSCE station
+              </strong>
+
+              <span
+                data-en="3 days ago"
+                data-ar="منذ 3 أيام"
+              >
+                3 days ago
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    function setBimarLanguage(language) {
+
+      document.documentElement.lang = language;
+
+      document.documentElement.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+      document
+        .querySelectorAll("[data-en]")
+        .forEach(function(element) {
+
+          const value =
+            element.getAttribute("data-" + language);
+
+          if (value !== null) {
+            element.textContent = value;
+          }
+
+        });
+
+      localStorage.setItem(
+        "bimarLanguage",
+        language
+      );
+    }
+
+
+    const savedLanguage =
+      localStorage.getItem("bimarLanguage") || "en";
+
+    setBimarLanguage(savedLanguage);
+
+  </script>
+
+</body>
+</html>
