@@ -672,16 +672,25 @@ html[dir="rtl"] h3 {
     height: 76px !important;
   }
 
+  .bimar-navbar {
+    position: sticky !important;
+  }
+
   .bimar-nav-links {
     display: flex !important;
     position: absolute !important;
+    top: 50% !important;
     left: 50% !important;
     right: auto !important;
-    transform: translateX(-50%) !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 30px !important;
+    width: max-content !important;
+    height: 40px !important;
     margin: 0 !important;
+    padding: 0 !important;
   }
 
   .bimar-nav-link {
