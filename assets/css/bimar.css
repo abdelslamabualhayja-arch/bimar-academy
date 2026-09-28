@@ -670,48 +670,89 @@ html[dir="rtl"] h3 {
 
   .bimar-navbar {
     height: 76px !important;
-  }
-
-  .bimar-navbar {
     position: sticky !important;
   }
 
+  /* Center navigation independently of the side groups */
   .bimar-nav-links {
-    display: flex !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
     transform: translate(-50%, -50%) !important;
+
+    display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 30px !important;
+
     width: max-content !important;
     max-width: none !important;
     height: 40px !important;
+
     margin: 0 !important;
     padding: 0 !important;
+    gap: 30px !important;
+
     white-space: nowrap !important;
   }
 
   .bimar-nav-links .bimar-nav-link {
-    flex: 0 0 auto !important;
-  }
-
-  .bimar-nav-link {
     display: flex !important;
+    flex: 0 0 auto !important;
     align-items: center !important;
     justify-content: center !important;
+    width: auto !important;
+    min-width: max-content !important;
     white-space: nowrap !important;
-    height: 40px !important;
   }
 
-  .bimar-nav-actions {
+  /* LTR: logo left, actions right */
+  html[dir="ltr"] .bimar-brand {
+    position: absolute !important;
+    top: 50% !important;
+    left: 5% !important;
+    right: auto !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-actions {
+    position: absolute !important;
+    top: 50% !important;
+    right: 5% !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
+    width: max-content !important;
+    margin: 0 !important;
+    gap: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* RTL: logo right, actions left */
+  html[dir="rtl"] .bimar-brand {
+    position: absolute !important;
+    top: 50% !important;
+    right: 5% !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    position: absolute !important;
+    top: 50% !important;
+    left: 5% !important;
+    right: auto !important;
+    transform: translateY(-50%) !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: max-content !important;
+    margin: 0 !important;
     gap: 10px !important;
     white-space: nowrap !important;
   }
@@ -721,47 +762,10 @@ html[dir="rtl"] h3 {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex: 0 0 auto !important;
     white-space: nowrap !important;
-    height: 42px !important;
   }
-
-  /* Fixed three-zone desktop layout:
-     LTR → brand left | centered navigation | actions right
-     RTL → actions left | centered navigation | brand right */
-
-  html[dir="ltr"] .bimar-brand {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-  }
-
-  html[dir="ltr"] .bimar-nav-actions {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }
-
-  html[dir="rtl"] .bimar-brand {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }  }
 }
-
 
 /* =========================================================
    📱 MOBILE
