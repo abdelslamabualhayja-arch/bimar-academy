@@ -617,93 +617,1069 @@ html[dir="rtl"] .logo-text strong {
         padding: 6px 8px;
       }
     }
+    /* =========================================================
+   BIMAR ACADEMY — PREMIUM NAVBAR
+   ========================================================= */
+
+:root {
+  --bimar-blue: #2563eb;
+  --bimar-blue-dark: #173b8f;
+  --bimar-blue-light: #60a5fa;
+
+  --bimar-navy: #0f172a;
+  --bimar-text: #334155;
+  --bimar-muted: #64748b;
+
+  --bimar-border: rgba(15, 23, 42, 0.08);
+
+  --bimar-white: #ffffff;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.bimar-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  width: 100%;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 5%;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  border-bottom: 1px solid var(--bimar-border);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    height 0.3s ease;
+}
+
+
+/* subtle shadow when scrolling */
+
+.bimar-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.06);
+
+  height: 72px;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.bimar-brand {
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+
+  color: var(--bimar-navy);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.bimar-brand:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LOGO MARK
+   ========================================================= */
+
+.bimar-logo-mark {
+
+  width: 47px;
+  height: 47px;
+
+  flex-shrink: 0;
+
+  position: relative;
+}
+
+
+.bimar-logo-mark svg {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  overflow: visible;
+}
+
+
+/* outer ring */
+
+.logo-ring {
+
+  fill: rgba(37, 99, 235, 0.08);
+
+  stroke: var(--bimar-blue);
+
+  stroke-width: 2.5;
+
+  transform-origin: center;
+
+  transition:
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+
+/* cross */
+
+.logo-cross {
+
+  fill: none;
+
+  stroke: var(--bimar-blue-dark);
+
+  stroke-width: 4;
+
+  stroke-linecap: round;
+
+  transition:
+    stroke 0.3s ease;
+}
+
+
+/* ECG */
+
+.logo-ecg {
+
+  fill: none;
+
+  stroke: var(--bimar-blue);
+
+  stroke-width: 2.8;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  stroke-dasharray: 95;
+
+  stroke-dashoffset: 95;
+
+  animation:
+    bimarECG 2.2s ease-in-out infinite;
+}
+
+
+/* ECG animation */
+
+@keyframes bimarECG {
+
+  0% {
+    stroke-dashoffset: 95;
+    opacity: 0.35;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  70% {
+    stroke-dashoffset: -8;
+    opacity: 0.9;
+  }
+
+  100% {
+    stroke-dashoffset: -95;
+    opacity: 0.35;
+  }
+
+}
+
+
+/* hover */
+
+.bimar-brand:hover .logo-ring {
+
+  fill: rgba(37, 99, 235, 0.13);
+
+  transform: scale(1.04);
+}
+
+
+.bimar-brand:hover .logo-cross {
+
+  stroke: var(--bimar-blue);
+}
+
+
+/* =========================================================
+   BRAND TEXT
+   ========================================================= */
+
+.bimar-brand-text {
+
+  display: flex;
+
+  align-items: center;
+
+  line-height: 1;
+}
+
+
+/* English BIMAR */
+
+.bimar-brand-name {
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 23px;
+
+  font-weight: 850;
+
+  letter-spacing: 1.3px;
+
+  color: var(--bimar-navy);
+
+  white-space: nowrap;
+
+  line-height: 1;
+}
+
+
+/* Academy */
+
+.bimar-brand-sub {
+
+  margin-left: 8px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.8px;
+
+  color: var(--bimar-muted);
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   ARABIC LOGO
+   ========================================================= */
+
+html[dir="rtl"] .bimar-brand-name {
+
+  font-family:
+    "Noto Sans Arabic",
+    "Tahoma",
+    "Arial",
+    sans-serif;
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  letter-spacing: 0;
+
+  line-height: 1.2;
+
+}
+
+
+html[dir="rtl"] .bimar-brand-sub {
+
+  display: none;
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.bimar-nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-left: auto;
+
+  margin-right: 34px;
+
+  height: 100%;
+}
+
+
+.bimar-nav-link {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 100%;
+
+  padding: 0 12px;
+
+  color: var(--bimar-text);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+/* underline */
+
+.bimar-nav-link::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  bottom: 0;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: var(--bimar-blue);
+
+  transform:
+    scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.bimar-nav-link:hover {
+
+  color: var(--bimar-blue);
+}
+
+
+.bimar-nav-link:hover::after,
+.bimar-nav-link.active::after {
+
+  transform:
+    scaleX(1);
+}
+
+
+.bimar-nav-link.active {
+
+  color: var(--bimar-blue-dark);
+
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.bimar-nav-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCHER
+   ========================================================= */
+
+.bimar-language {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 5px 8px;
+
+  border: 1px solid var(--bimar-border);
+
+  border-radius: 999px;
+
+  background: rgba(248, 250, 252, 0.9);
+}
+
+
+.bimar-language button {
+
+  border: none;
+
+  background: transparent;
+
+  padding: 4px 5px;
+
+  cursor: pointer;
+
+  color: var(--bimar-muted);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  border-radius: 999px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.bimar-language button.active {
+
+  color: var(--bimar-blue);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 7px rgba(15, 23, 42, 0.08);
+}
+
+
+.bimar-language > span {
+
+  width: 1px;
+
+  height: 13px;
+
+  background: #cbd5e1;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.bimar-login {
+
+  color: var(--bimar-navy);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 650;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.bimar-login:hover {
+
+  color: var(--bimar-blue);
+}
+
+
+/* =========================================================
+   GET STARTED
+   ========================================================= */
+
+.bimar-start {
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 42px;
+
+  padding: 0 19px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.22);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.bimar-start::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.25),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.55s ease;
+}
+
+
+.bimar-start:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+
+.bimar-start:hover::before {
+
+  left: 140%;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.bimar-menu-btn {
+
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--bimar-border);
+
+  border-radius: 10px;
+
+  background: white;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.bimar-menu-btn span {
+
+  width: 19px;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: var(--bimar-navy);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+html[dir="rtl"] .bimar-navbar {
+
+  direction: rtl;
+}
+
+
+html[dir="rtl"] .bimar-nav-links {
+
+  margin-left: 34px;
+
+  margin-right: auto;
+}
+
+
+html[dir="rtl"] .bimar-brand-sub {
+
+  margin-left: 0;
+
+  margin-right: 8px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .bimar-nav-links {
+
+    gap: 0;
+
+    margin-right: 15px;
+  }
+
+  .bimar-nav-link {
+
+    padding: 0 8px;
+
+    font-size: 13px;
+  }
+
+  .bimar-nav-actions {
+
+    gap: 10px;
+  }
+
+  .bimar-login {
+
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 850px) {
+
+  .bimar-navbar {
+
+    height: 70px;
+
+    padding: 0 5%;
+  }
+
+
+  .bimar-logo-mark {
+
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .bimar-brand-name {
+
+    font-size: 20px;
+  }
+
+
+  html[dir="rtl"] .bimar-brand-name {
+
+    font-size: 20px;
+  }
+
+
+  .bimar-nav-links {
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 5%;
+    right: 5%;
+
+    height: auto;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    margin: 0;
+
+    padding: 10px;
+
+    background: rgba(255,255,255,0.98);
+
+    border: 1px solid var(--bimar-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+      0 20px 50px rgba(15,23,42,0.1);
+  }
+
+
+  .bimar-nav-links.open {
+
+    display: flex;
+  }
+
+
+  .bimar-nav-link {
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border-radius: 10px;
+  }
+
+
+  .bimar-nav-link::after {
+
+    display: none;
+  }
+
+
+  .bimar-nav-link:hover,
+  .bimar-nav-link.active {
+
+    background: #eff6ff;
+  }
+
+
+  .bimar-nav-actions {
+
+    margin-left: auto;
+  }
+
+
+  html[dir="rtl"] .bimar-nav-actions {
+
+    margin-left: 0;
+
+    margin-right: auto;
+  }
+
+
+  .bimar-language {
+
+    display: none;
+  }
+
+
+  .bimar-start {
+
+    display: none;
+  }
+
+
+  .bimar-menu-btn {
+
+    display: flex;
+
+    margin-left: 10px;
+  }
+
+
+  html[dir="rtl"] .bimar-menu-btn {
+
+    margin-left: 0;
+
+    margin-right: 10px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .bimar-navbar {
+
+    padding: 0 4%;
+  }
+
+
+  .bimar-brand-name {
+
+    font-size: 18px;
+  }
+
+
+  html[dir="rtl"] .bimar-brand-name {
+
+    font-size: 18px;
+  }
+
+
+  .bimar-logo-mark {
+
+    width: 39px;
+    height: 39px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .logo-ecg {
+
+    animation: none;
+
+    stroke-dashoffset: 0;
+
+    opacity: 1;
+  }
+
+  .bimar-brand,
+  .bimar-start,
+  .bimar-nav-link,
+  .bimar-language button {
+
+    transition: none;
+  }
+
+}
   </style>
 </head>
 
 <body>
 
-<header class="navbar">
+<header class="bimar-navbar">
 
-<a href="index.html" class="logo">
+  <!-- LOGO -->
+  <a href="index.html" class="bimar-brand">
 
-  <div class="logo-icon">
+    <div class="bimar-logo-mark">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
 
-    <svg viewBox="0 0 48 48" aria-hidden="true">
-      <rect x="3" y="3" width="42" height="42" rx="13"></rect>
+        <!-- Main shape -->
+        <path
+          class="logo-ring"
+          d="M32 4
+             C16.5 4 4 16.5 4 32
+             C4 47.5 16.5 60 32 60
+             C47.5 60 60 47.5 60 32
+             C60 16.5 47.5 4 32 4Z">
+        </path>
 
-      <path d="M24 12V36"></path>
-      <path d="M12 24H36"></path>
+        <!-- Medical cross -->
+        <path
+          class="logo-cross"
+          d="M32 17V47M17 32H47">
+        </path>
 
-      <path class="pulse"
-            d="M9 29H16L19 22L23 31L27 17L31 26H39"></path>
-    </svg>
+        <!-- ECG -->
+        <path
+          class="logo-ecg"
+          d="M10 35
+             H20
+             L24 28
+             L28 39
+             L33 20
+             L38 35
+             H54">
+        </path>
 
-  </div>
+      </svg>
+    </div>
 
-<div class="logo-text">
+    <div class="bimar-brand-text">
 
-  <strong
-    data-en="BIMAR"
-    data-ar="منصة بيمار الطبية">
-    BIMAR
-  </strong>
+      <span
+        class="bimar-brand-name"
+        data-en="BIMAR"
+        data-ar="منصة بيمار الطبية">
+        BIMAR
+      </span>
 
-  <small
-    data-en="ACADEMY"
-    data-ar="">
-    ACADEMY
-  </small>
+      <span
+        class="bimar-brand-sub"
+        data-en="ACADEMY"
+        data-ar="">
+        ACADEMY
+      </span>
 
-</div>
+    </div>
 
-</a>
+  </a>
 
-  <nav class="nav-links">
 
-    <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <!-- NAVIGATION -->
+  <nav class="bimar-nav-links">
 
-    <a href="subjects.html" data-en="Subjects" data-ar="المواد">Subjects</a>
+    <a
+      href="index.html"
+      class="bimar-nav-link active"
+      data-en="Home"
+      data-ar="الرئيسية">
+      Home
+    </a>
 
-    <a href="questions.html" data-en="Question Bank" data-ar="بنك الأسئلة">Question Bank</a>
+    <a
+      href="subjects.html"
+      class="bimar-nav-link"
+      data-en="Subjects"
+      data-ar="المواد">
+      Subjects
+    </a>
 
-    <a href="clinical.html" data-en="Clinical" data-ar="السريري">Clinical</a>
+    <a
+      href="questions.html"
+      class="bimar-nav-link"
+      data-en="Question Bank"
+      data-ar="بنك الأسئلة">
+      Question Bank
+    </a>
 
-    <a href="osce.html" data-en="OSCE" data-ar="الأوسكي">OSCE</a>
+    <a
+      href="clinical.html"
+      class="bimar-nav-link"
+      data-en="Clinical"
+      data-ar="السريري">
+      Clinical
+    </a>
+
+    <a
+      href="osce.html"
+      class="bimar-nav-link"
+      data-en="OSCE"
+      data-ar="الأوسكي">
+      OSCE
+    </a>
 
   </nav>
 
-  <div class="nav-actions">
+
+  <!-- RIGHT ACTIONS -->
+  <div class="bimar-nav-actions">
 
     <!-- LANGUAGE -->
+    <div class="bimar-language">
 
-    <div class="language-switcher">
-
-      <button id="enBtn" onclick="setLanguage('en')">
+      <button
+        id="bimarEnBtn"
+        class="active"
+        onclick="setBimarLanguage('en')">
         EN
       </button>
 
-      <button id="arBtn" onclick="setLanguage('ar')">
+      <span></span>
+
+      <button
+        id="bimarArBtn"
+        onclick="setBimarLanguage('ar')">
         AR
       </button>
 
     </div>
 
-    <a href="login.html" class="login"
-       data-en="Log in"
-       data-ar="تسجيل الدخول">
+
+    <!-- LOGIN -->
+    <a
+      href="login.html"
+      class="bimar-login"
+      data-en="Log in"
+      data-ar="تسجيل الدخول">
       Log in
     </a>
 
-    <a href="login.html" class="signup"
-       data-en="Get Started"
-       data-ar="ابدأ الآن">
+
+    <!-- GET STARTED -->
+    <a
+      href="login.html"
+      class="bimar-start"
+      data-en="Get Started"
+      data-ar="ابدأ الآن">
       Get Started
     </a>
 
   </div>
 
-</header>
 
+  <!-- MOBILE BUTTON -->
+  <button
+    class="bimar-menu-btn"
+    id="bimarMenuBtn"
+    aria-label="Open menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</header>
 
 <main>
 
@@ -1154,34 +2130,108 @@ html[dir="rtl"] .logo-text strong {
 
 <script>
 
-  function setLanguage(language) {
+function setBimarLanguage(language) {
 
-    document.documentElement.lang = language;
+  document.documentElement.lang = language;
 
-    document.documentElement.dir =
-      language === "ar" ? "rtl" : "ltr";
+  document.documentElement.dir =
+    language === "ar" ? "rtl" : "ltr";
 
-    document.querySelectorAll("[data-en]").forEach(function(element) {
+  document
+    .querySelectorAll("[data-en]")
+    .forEach(function(element) {
 
-      element.textContent = element.getAttribute("data-" + language);
+      const value =
+        element.getAttribute("data-" + language);
+
+      if (value !== null) {
+        element.textContent = value;
+      }
 
     });
 
-    document.getElementById("enBtn").classList.remove("active");
-    document.getElementById("arBtn").classList.remove("active");
+  const enButton =
+    document.getElementById("bimarEnBtn");
 
-    document.getElementById(language + "Btn").classList.add("active");
+  const arButton =
+    document.getElementById("bimarArBtn");
 
-    localStorage.setItem("bimarLanguage", language);
+  if (enButton && arButton) {
+
+    enButton.classList.remove("active");
+    arButton.classList.remove("active");
+
+    if (language === "en") {
+      enButton.classList.add("active");
+    } else {
+      arButton.classList.add("active");
+    }
+
   }
 
+  localStorage.setItem(
+    "bimarLanguage",
+    language
+  );
+}
 
-  const savedLanguage =
-    localStorage.getItem("bimarLanguage") || "en";
 
-  setLanguage(savedLanguage);
+/* Load saved language */
+
+const savedBimarLanguage =
+  localStorage.getItem("bimarLanguage") || "en";
+
+setBimarLanguage(savedBimarLanguage);
+
+
+/* Navbar scroll effect */
+
+const bimarNavbar =
+  document.querySelector(".bimar-navbar");
+
+window.addEventListener("scroll", function() {
+
+  if (!bimarNavbar) return;
+
+  if (window.scrollY > 20) {
+    bimarNavbar.classList.add("scrolled");
+  } else {
+    bimarNavbar.classList.remove("scrolled");
+  }
+
+});
+
+
+/* Mobile menu */
+
+const bimarMenuBtn =
+  document.getElementById("bimarMenuBtn");
+
+const bimarNavLinks =
+  document.querySelector(".bimar-nav-links");
+
+if (bimarMenuBtn && bimarNavLinks) {
+
+  bimarMenuBtn.addEventListener(
+    "click",
+    function() {
+      bimarNavLinks.classList.toggle("open");
+    }
+  );
+
+  bimarNavLinks
+    .querySelectorAll("a")
+    .forEach(function(link) {
+      link.addEventListener(
+        "click",
+        function() {
+          bimarNavLinks.classList.remove("open");
+        }
+      );
+    });
+
+}
 
 </script>
-
 </body>
 </html>
