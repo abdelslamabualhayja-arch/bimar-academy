@@ -1561,3 +1561,289 @@ html[dir="ltr"] .bimar-surface {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   📱 RESPONSIVE EDUCATION CONTENT SYSTEM
+   ========================================================= */
+
+html {
+  overflow-x: hidden;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+.bimar-media {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.bimar-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: #0F172A;
+  overflow: hidden;
+}
+
+.bimar-video iframe,
+.bimar-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.bimar-image {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+.bimar-image-cover {
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+}
+
+.bimar-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.bimar-table-wrap .bimar-table {
+  min-width: 640px;
+}
+
+.bimar-question,
+.bimar-clinical-case,
+.bimar-osce {
+  width: 100%;
+  min-width: 0;
+}
+
+.bimar-question-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.bimar-option {
+  width: 100%;
+  min-height: 52px;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-base),
+    background var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.bimar-option:hover {
+  border-color: rgba(37, 99, 235, 0.28);
+  background: var(--primary-soft);
+}
+
+.bimar-option:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.2);
+  outline-offset: 2px;
+}
+
+.bimar-option input {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.bimar-osce-checklist {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.bimar-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.bimar-check-item input {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.bimar-case-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+  gap: var(--space-6);
+}
+
+.bimar-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .35fr);
+  gap: var(--space-8);
+}
+
+.bimar-content-main,
+.bimar-content-aside {
+  min-width: 0;
+}
+
+.bimar-scroll-x {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bimar-scroll-x > * {
+  min-width: max-content;
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --page-padding: 22px;
+  }
+
+  .bimar-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-content-aside {
+    order: 2;
+  }
+}
+
+@media (max-width: 999px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .bimar-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bimar-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-nav-links {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 849px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  .bimar-grid-3,
+  .bimar-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .bimar-section {
+    padding-block: var(--space-12);
+  }
+
+  .bimar-card-header,
+  .bimar-card-body {
+    padding: var(--space-5);
+  }
+
+  .bimar-card-footer {
+    padding: var(--space-4) var(--space-5);
+  }
+}
+
+@media (max-width: 599px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  .bimar-container,
+  .bimar-container-sm,
+  .bimar-container-md,
+  .bimar-container-xl {
+    width: calc(100% - (var(--page-padding) * 2));
+  }
+
+  .bimar-section {
+    padding-block: var(--space-10);
+  }
+
+  .bimar-btn {
+    min-height: 46px;
+  }
+
+  .bimar-btn-lg {
+    min-height: 48px;
+  }
+
+  .bimar-inline {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bimar-inline .bimar-btn {
+    width: 100%;
+  }
+
+  .bimar-table-wrap .bimar-table {
+    min-width: 560px;
+  }
+
+  .bimar-option,
+  .bimar-check-item {
+    padding: var(--space-4);
+  }
+
+  .bimar-video {
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 399px) {
+  :root {
+    --page-padding: 14px;
+  }
+
+  .bimar-table-wrap .bimar-table {
+    min-width: 520px;
+  }
+
+  .bimar-card-header,
+  .bimar-card-body {
+    padding: var(--space-4);
+  }
+}
