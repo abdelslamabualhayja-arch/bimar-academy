@@ -798,12 +798,17 @@ html[dir="rtl"] h3 {
   .bimar-nav-links {
     display: flex !important;
 
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+
     align-items: center !important;
     justify-content: center !important;
 
     gap: 30px !important;
 
-    margin: 0 auto !important;
+    margin: 0 !important;
   }
 
   .bimar-nav-link {
