@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="48" height="48" rx="12" fill="#FFFFFF"/>
+
+  <!-- Open book -->
+  <path
+    d="M5.5 10.5 C11 9 16.5 10 21.5 13 V39 C16.5 36 11 35 5.5 36.5 Z"
+    fill="none"
+    stroke="url(#g)"
+    stroke-width="2.2"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M42.5 10.5 C37 9 31.5 10 26.5 13 V39 C31.5 36 37 35 42.5 36.5 Z"
+    fill="none"
+    stroke="url(#g)"
+    stroke-width="2.2"
+    stroke-linejoin="round"
+  />
+
+  <!-- ECG -->
+  <path
+    d="M8 24 H14 L17 24 L19 18 L22 30 L25 21 L27 24 H32 L34 24 L36 20 L38 24 H41"
+    fill="none"
+    stroke="#0F4CFF"
+    stroke-width="2.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M24 13 V39"
+    stroke="#06B6D4"
+    stroke-width="1.4"
+    stroke-linecap="round"
+    opacity="0.75"
+  />
+</svg>
