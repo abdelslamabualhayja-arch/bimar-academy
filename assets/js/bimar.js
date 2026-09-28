@@ -5,21 +5,33 @@
 function setBimarLanguage(language) {
   if (language !== "en" && language !== "ar") language = "en";
 
+  const isArabic = language === "ar";
+
   document.documentElement.lang = language;
-  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  document.documentElement.dir = isArabic ? "rtl" : "ltr";
 
   document.querySelectorAll("[data-en]").forEach(function (element) {
     const value = element.getAttribute("data-" + language);
     if (value !== null) element.textContent = value;
   });
 
+  document.querySelectorAll("[data-dir-en][data-dir-ar]").forEach(function (element) {
+    const direction = element.getAttribute(isArabic ? "data-dir-ar" : "data-dir-en");
+    if (direction) element.dir = direction;
+  });
+
+  document.querySelectorAll("[data-directional]").forEach(function (element) {
+    element.setAttribute("aria-hidden", element.getAttribute("aria-hidden") || "true");
+  });
+
   const enButton = document.getElementById("bimarEnBtn");
   const arButton = document.getElementById("bimarArBtn");
 
   if (enButton && arButton) {
-    enButton.classList.remove("active");
-    arButton.classList.remove("active");
-    (language === "en" ? enButton : arButton).classList.add("active");
+    enButton.classList.toggle("active", !isArabic);
+    arButton.classList.toggle("active", isArabic);
+    enButton.setAttribute("aria-pressed", String(!isArabic));
+    arButton.setAttribute("aria-pressed", String(isArabic));
   }
 
   localStorage.setItem("bimarLanguage", language);
