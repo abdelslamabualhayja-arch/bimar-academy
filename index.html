@@ -3353,37 +3353,74 @@ body {
   <a href="index.html" class="bimar-brand">
 
     <div class="bimar-logo-mark">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
+<svg
+  viewBox="0 0 48 48"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id="bookGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
 
-        <!-- Main shape -->
-        <path
-          class="logo-ring"
-          d="M32 4
-             C16.5 4 4 16.5 4 32
-             C4 47.5 16.5 60 32 60
-             C47.5 60 60 47.5 60 32
-             C60 16.5 47.5 4 32 4Z">
-        </path>
+  <!-- Open book -->
+  <path
+    d="M5.5 10.5
+       C11 9 16.5 10 21.5 13
+       V39
+       C16.5 36 11 35 5.5 36.5
+       Z"
+    fill="none"
+    stroke="url(#bookGradient)"
+    stroke-width="2.2"
+    stroke-linejoin="round"
+  />
 
-        <!-- Medical cross -->
-        <path
-          class="logo-cross"
-          d="M32 17V47M17 32H47">
-        </path>
+  <path
+    d="M42.5 10.5
+       C37 9 31.5 10 26.5 13
+       V39
+       C31.5 36 37 35 42.5 36.5
+       Z"
+    fill="none"
+    stroke="url(#bookGradient)"
+    stroke-width="2.2"
+    stroke-linejoin="round"
+  />
 
-        <!-- ECG -->
-        <path
-          class="logo-ecg"
-          d="M10 35
-             H20
-             L24 28
-             L28 39
-             L33 20
-             L38 35
-             H54">
-        </path>
+  <!-- ECG -->
+  <path
+    class="logo-ecg"
+    d="M8 24
+       H14
+       L17 24
+       L19 18
+       L22 30
+       L25 21
+       L27 24
+       H32
+       L34 24
+       L36 20
+       L38 24
+       H41"
+    fill="none"
+    stroke="#0F4CFF"
+    stroke-width="2.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 
-      </svg>
+  <!-- Book center -->
+  <path
+    d="M24 13 V39"
+    stroke="#06B6D4"
+    stroke-width="1.4"
+    stroke-linecap="round"
+    opacity="0.75"
+  />
+</svg>
     </div>
 
     <div class="bimar-brand-text">
