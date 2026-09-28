@@ -3488,6 +3488,75 @@ html[dir="ltr"] .bimar-nav-actions {
   }
 
 }  
+    /* =========================================
+   BIMAR — PERFECT AR / EN NAVBAR BALANCE
+   ========================================= */
+
+@media (min-width: 851px) {
+
+  /* Same visual spacing in both languages */
+  .bimar-navbar {
+    height: 76px !important;
+  }
+
+  .bimar-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    margin: 0 auto !important;
+  }
+
+  .bimar-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    height: 40px !important;
+  }
+
+  .bimar-nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .bimar-login,
+  .bimar-start {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    height: 42px !important;
+  }
+
+
+  /* 🇬🇧 English */
+  html[dir="ltr"] .bimar-brand {
+    left: 5% !important;
+    right: auto !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-actions {
+    right: 5% !important;
+    left: auto !important;
+  }
+
+
+  /* 🇯🇴 Arabic */
+  html[dir="rtl"] .bimar-brand {
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    left: 5% !important;
+    right: auto !important;
+  }
+
+}
+    
 </style>
 </head>
 
