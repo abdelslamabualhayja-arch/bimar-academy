@@ -456,76 +456,54 @@
 
   <!-- NAVBAR -->
 
-  <nav class="navbar">
-    <div class="nav-container">
+  <header class="bimar-navbar">
 
-      <a href="index.html" class="logo">
-        Bimar<span>Academy</span>
-      </a>
-
-      <div class="nav-links">
-
-        <a href="index.html" data-en="Home" data-ar="الرئيسية">
-          Home
-        </a>
-
-        <a href="subjects.html"
-           class="active"
-           data-en="Subjects"
-           data-ar="المواد">
-          Subjects
-        </a>
-
-        <a href="questions.html"
-           data-en="Question Bank"
-           data-ar="بنك الأسئلة">
-          Question Bank
-        </a>
-
-        <a href="clinical.html"
-           data-en="Clinical"
-           data-ar="الحالات السريرية">
-          Clinical
-        </a>
-
-        <a href="osce.html"
-           data-en="OSCE"
-           data-ar="OSCE">
-          OSCE
-        </a>
-
-      </div>
-
-      <div class="nav-actions">
-
-        <div class="language-switch">
-          <button id="enBtn" onclick="setLanguage('en')">
-            EN
-          </button>
-
-          <button id="arBtn" onclick="setLanguage('ar')">
-            AR
-          </button>
-        </div>
-
-        <a href="login.html"
-           class="login"
-           data-en="Log in"
-           data-ar="تسجيل الدخول">
-          Log in
-        </a>
-
-        <a href="login.html"
-           class="signup"
-           data-en="Get Started"
-           data-ar="ابدأ الآن">
-          Get Started
-        </a>
-
-      </div>
-
+  <a href="index.html" class="bimar-brand">
+    <div class="bimar-logo-mark">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="bookGradientSubjects" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2563EB"/>
+            <stop offset="100%" stop-color="#06B6D4"/>
+          </linearGradient>
+        </defs>
+        <path d="M5.5 10.5 C11 9 16.5 10 21.5 13 V39 C16.5 36 11 35 5.5 36.5 Z" fill="none" stroke="url(#bookGradientSubjects)" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M42.5 10.5 C37 9 31.5 10 26.5 13 V39 C31.5 36 37 35 42.5 36.5 Z" fill="none" stroke="url(#bookGradientSubjects)" stroke-width="2.2" stroke-linejoin="round"/>
+        <path class="logo-ecg" d="M8 24 H14 L17 24 L19 18 L22 30 L25 21 L27 24 H32 L34 24 L36 20 L38 24 H41" fill="none" stroke="#0F4CFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 13 V39" stroke="#06B6D4" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+      </svg>
     </div>
+
+    <div class="bimar-brand-text">
+      <span class="bimar-brand-name" data-en="BIMAR" data-ar="منصة بيمار الطبية">BIMAR</span>
+      <span class="bimar-brand-sub" data-en="ACADEMY" data-ar="">ACADEMY</span>
+    </div>
+  </a>
+
+  <nav class="bimar-nav-links">
+    <a href="index.html" class="bimar-nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+    <a href="subjects.html" class="bimar-nav-link active" data-en="Subjects" data-ar="المواد">Subjects</a>
+    <a href="questions.html" class="bimar-nav-link" data-en="Question Bank" data-ar="بنك الأسئلة">Question Bank</a>
+    <a href="clinical.html" class="bimar-nav-link" data-en="Clinical" data-ar="السريري">Clinical</a>
+    <a href="osce.html" class="bimar-nav-link" data-en="OSCE" data-ar="الأوسكي">OSCE</a>
   </nav>
+
+  <div class="bimar-nav-actions">
+    <div class="bimar-language">
+      <button id="bimarEnBtn" class="active" onclick="setBimarLanguage('en')">EN</button>
+      <span></span>
+      <button id="bimarArBtn" onclick="setBimarLanguage('ar')">AR</button>
+    </div>
+
+    <a href="login.html" class="bimar-login" data-en="Log in" data-ar="تسجيل الدخول">Log in</a>
+    <a href="login.html" class="bimar-start" data-en="Get Started" data-ar="ابدأ الآن">Get Started</a>
+  </div>
+
+  <button class="bimar-menu-btn" id="bimarMenuBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+</header>
 
 
   <!-- PAGE HEADER -->
