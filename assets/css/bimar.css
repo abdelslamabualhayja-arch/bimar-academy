@@ -2169,3 +2169,36 @@ html[dir="rtl"] .bimar-search-trigger:hover {
     left:auto !important;
   }
 }
+
+
+/* Keep the complete navbar on one line without overlap. */
+.bimar-nav-links {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  gap: 22px !important;
+  z-index: 2;
+}
+.bimar-nav-link {
+  white-space: nowrap !important;
+  flex: 0 0 auto;
+}
+.bimar-nav-actions {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+  z-index: 3;
+}
+.bimar-search-trigger,
+.bimar-login,
+.bimar-start {
+  white-space: nowrap !important;
+  flex: 0 0 auto;
+}
+
+@media (min-width:851px) and (max-width:1100px) {
+  .bimar-nav-links {
+    gap: 14px !important;
+  }
+  .bimar-nav-link {
+    font-size: 13px !important;
+  }
+}
