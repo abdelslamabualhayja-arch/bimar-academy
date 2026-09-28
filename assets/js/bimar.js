@@ -346,6 +346,35 @@ function bimarToast(message, type) {
   }, 3000);
 }
 
+/* =========================================================
+   🔎 SHARED SEARCH ARCHITECTURE
+   Global search behavior only.
+   Content/data indexing will live outside this file.
+   ========================================================= */
+
+function bimarNormalizeSearchText(value) {
+  return String(value || "")
+    .toLocaleLowerCase()
+    .normalize("NFKD")
+    .replace(/[\\u0300-\\u036f]/g, "")
+    .trim();
+}
+
+function bimarSearchItems(query, items) {
+  const normalizedQuery = bimarNormalizeSearchText(query);
+  const terms = normalizedQuery.split(/\\s+/).filter(Boolean);
+
+  return Array.from(items).filter(function (item) {
+    const text = bimarNormalizeSearchText(
+      item.getAttribute("data-search-text") || item.textContent
+    );
+
+    return !terms.length || terms.every(function (term) {
+      return text.includes(term);
+    });
+  });
+}
+
 function initBimarSearch() {
   document.querySelectorAll("[data-bimar-search]").forEach(function (input) {
     const selector = input.getAttribute("data-target");
@@ -355,18 +384,52 @@ function initBimarSearch() {
     if (!target) return;
 
     const items = target.querySelectorAll("[data-search-text]");
+    const countTarget = input.getAttribute("data-search-count")
+      ? document.querySelector(input.getAttribute("data-search-count"))
+      : null;
 
-    input.addEventListener("input", function () {
-      const query = input.value.trim().toLocaleLowerCase();
+    function render() {
+      const matches = bimarSearchItems(input.value, items);
 
       items.forEach(function (item) {
-        const text = (item.getAttribute("data-search-text") || item.textContent)
-          .toLocaleLowerCase();
-        item.hidden = query && !text.includes(query);
+        item.hidden = !matches.includes(item);
       });
-    });
+
+      if (countTarget) {
+        countTarget.textContent = String(matches.length);
+      }
+    }
+
+    input.addEventListener("input", render);
+    render();
   });
 }
+
+/*
+  Future global search contract:
+
+  Each searchable record should expose:
+  data-search-type="lesson|question|clinical|osce"
+  data-search-title="..."
+  data-search-text="..."
+  data-search-url="..."
+
+  Example:
+  <article
+    data-search-type="lesson"
+    data-search-title="Heart Failure"
+    data-search-text="Heart Failure Cardiology">
+  </article>
+
+  The future search index/API can return:
+  Lessons
+  Questions
+  Clinical Cases
+  OSCE
+
+  bimar.js stays responsible for search behavior/UI,
+  while page/data files stay responsible for their own content.
+*/
 
 function initBimarProgress() {
   document.querySelectorAll("[data-bimar-progress]").forEach(function (bar) {
