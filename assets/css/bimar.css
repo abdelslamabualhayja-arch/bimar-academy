@@ -708,20 +708,32 @@ html[dir="rtl"] h3 {
     height: 42px !important;
   }
 
-  /* Brand + platform name stay on the left in both languages.
-     Login/actions stay on the right in both languages. */
-  html[dir="ltr"] .bimar-brand,
-  html[dir="rtl"] .bimar-brand {
+  /* Brand and actions follow the page language:
+     English → brand left, actions right.
+     Arabic  → brand right, actions left.
+     Navigation links remain independently centered. */
+  html[dir="ltr"] .bimar-brand {
     position: absolute !important;
     left: 5% !important;
     right: auto !important;
   }
 
-  html[dir="ltr"] .bimar-nav-actions,
-  html[dir="rtl"] .bimar-nav-actions {
+  html[dir="ltr"] .bimar-nav-actions {
     position: absolute !important;
     right: 5% !important;
     left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-brand {
+    position: absolute !important;
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-actions {
+    position: absolute !important;
+    left: 5% !important;
+    right: auto !important;
   }
 }
 
