@@ -96,25 +96,29 @@
 
 .logo-text {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1;
 }
 
 .logo-text strong {
-  font-size: 23px;
-  font-weight: 850;
-  letter-spacing: 1.2px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
   color: var(--navy);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .logo-text small {
-  margin-top: 5px;
-  font-size: 9px;
+  display: none;
+}
+
+/* Arabic logo */
+html[dir="rtl"] .logo-text strong {
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: 3.5px;
-  color: var(--muted);
-  line-height: 1;
+  letter-spacing: 0;
+  font-family: "Tahoma", "Arial", sans-serif;
 }
 
     .logo-icon .pulse {
@@ -636,21 +640,21 @@
 
   </div>
 
-  <div class="logo-text">
+<div class="logo-text">
 
-    <strong
-      data-en="BIMAR"
-      data-ar="منصة بيمار">
-      BIMAR
-    </strong>
+  <strong
+    data-en="BIMAR"
+    data-ar="منصة بيمار الطبية">
+    BIMAR
+  </strong>
 
-    <small
-      data-en="ACADEMY"
-      data-ar="الطبية">
-      ACADEMY
-    </small>
+  <small
+    data-en="ACADEMY"
+    data-ar="">
+    ACADEMY
+  </small>
 
-  </div>
+</div>
 
 </a>
 
