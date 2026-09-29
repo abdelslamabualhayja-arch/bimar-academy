@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in to Bimar Academy">
+  <title>Log in — Bimar Academy</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/bimar.css">
+</head>
+
+<body>
+
+  <header class="bimar-navbar">
+    <a href="index.html" class="bimar-brand">
+      <span class="bimar-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M9 10.5C9 8.57 10.57 7 12.5 7H24v34H12.5A3.5 3.5 0 0 1 9 37.5v-27Z" fill="url(#bookLoginA)"/>
+          <path d="M39 10.5C39 8.57 37.43 7 35.5 7H24v34h11.5a3.5 3.5 0 0 0 3.5-3.5v-27Z" fill="url(#bookLoginB)"/>
+          <path d="M12 17h9M12 22h9M27 17h9M27 22h9" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+          <path d="M25.5 28.5h3l1.7-4.5 2.2 8 2-5H37" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="bookLoginA" x1="9" y1="7" x2="24" y2="41" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2563EB"/><stop offset="1" stop-color="#1E40AF"/>
+            </linearGradient>
+            <linearGradient id="bookLoginB" x1="24" y1="7" x2="39" y2="41" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#06B6D4"/><stop offset="1" stop-color="#0891B2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="bimar-brand-text">
+        <span class="bimar-brand-name">BIMAR</span>
+        <span class="bimar-brand-sub" data-en="ACADEMY" data-ar="الأكاديمية">ACADEMY</span>
+      </span>
+    </a>
+
+    <nav class="bimar-nav-links" aria-label="Main navigation">
+      <a href="index.html" class="bimar-nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+      <a href="subjects.html" class="bimar-nav-link" data-en="Subjects" data-ar="المواد">Subjects</a>
+      <a href="questions.html" class="bimar-nav-link" data-en="Question Bank" data-ar="بنك الأسئلة">Question Bank</a>
+      <a href="clinical.html" class="bimar-nav-link" data-en="Clinical" data-ar="السريري">Clinical</a>
+      <a href="osce.html" class="bimar-nav-link" data-en="OSCE" data-ar="الأوسكي">OSCE</a>
+    </nav>
+
+    <div class="bimar-nav-actions">
+      <div class="bimar-language">
+        <button id="bimarEnBtn" class="active" onclick="setBimarLanguage('en')">EN</button>
+        <span></span>
+        <button id="bimarArBtn" onclick="setBimarLanguage('ar')">AR</button>
+      </div>
+      <a href="login.html" class="bimar-login" data-en="Log in" data-ar="تسجيل الدخول">Log in</a>
+      <a href="login.html" class="bimar-start" data-en="Sign up" data-ar="الاشتراك">Sign up</a>
+    </div>
+
+    <button class="bimar-menu-btn" id="bimarMenuBtn" aria-label="Open menu" data-aria-en="Open menu" data-aria-ar="فتح القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="bimar-auth-page">
+    <section class="bimar-auth-shell" aria-labelledby="loginTitle">
+      <div class="bimar-auth-card">
+
+        <div class="bimar-auth-brand" aria-hidden="true">
+          <div class="bimar-auth-mark">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M9 10.5C9 8.57 10.57 7 12.5 7H24v34H12.5A3.5 3.5 0 0 1 9 37.5v-27Z" fill="white" opacity=".95"/>
+              <path d="M39 10.5C39 8.57 37.43 7 35.5 7H24v34h11.5a3.5 3.5 0 0 0 3.5-3.5v-27Z" fill="white" opacity=".72"/>
+              <path d="M25.5 28.5h3l1.7-4.5 2.2 8 2-5H37" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <h1 id="loginTitle" class="bimar-auth-heading" data-en="Welcome back" data-ar="أهلًا بعودتك">Welcome back</h1>
+        <p class="bimar-auth-subtitle" data-en="Log in to continue your learning journey." data-ar="سجّل الدخول لمتابعة رحلتك التعليمية.">Log in to continue your learning journey.</p>
+
+        <form class="bimar-auth-form" id="bimarLoginForm">
+          <div class="bimar-auth-field">
+            <label class="bimar-auth-label" for="loginEmail" data-en="Email address" data-ar="البريد الإلكتروني">Email address</label>
+            <input class="bimar-auth-input" id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="bimar-auth-field">
+            <label class="bimar-auth-label" for="loginPassword" data-en="Password" data-ar="كلمة المرور">Password</label>
+            <input class="bimar-auth-input" id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+          </div>
+
+          <div class="bimar-auth-row">
+            <label class="bimar-auth-check">
+              <input type="checkbox" name="remember">
+              <span data-en="Remember me" data-ar="تذكرني">Remember me</span>
+            </label>
+            <a href="#" class="bimar-auth-link" data-en="Forgot password?" data-ar="نسيت كلمة المرور؟">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="bimar-auth-submit" data-en="Log in" data-ar="تسجيل الدخول">Log in</button>
+        </form>
+
+        <p class="bimar-auth-note">
+          <span data-en="Don't have an account?" data-ar="ليس لديك حساب؟">Don't have an account?</span>
+          <a href="#" data-en="Sign up" data-ar="إنشاء حساب">Sign up</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/bimar.js"></script>
+  <script>
+    document.getElementById("bimarLoginForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      alert(document.documentElement.dir === "rtl"
+        ? "تسجيل الدخول سيُفعّل عند ربط نظام الحسابات."
+        : "Login will be enabled when the account system is connected.");
+    });
+  </script>
+</body>
+</html>
