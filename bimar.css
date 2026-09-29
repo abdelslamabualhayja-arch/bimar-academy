@@ -509,6 +509,252 @@ ol {
 }
 
 /* =========================================================
+   10.2 UNIVERSITIES SECTION
+   ========================================================= */
+
+.bimar-universities {
+    width: 100%;
+
+    padding-block:
+        var(--bimar-space-24)
+        var(--bimar-space-32);
+
+    background-color: var(--bimar-white);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.bimar-section-header {
+    max-width: 760px;
+
+    margin-inline: auto;
+    margin-bottom: var(--bimar-space-12);
+
+    text-align: center;
+}
+
+.bimar-section-eyebrow {
+    margin-bottom: var(--bimar-space-4);
+
+    color: var(--bimar-primary);
+
+    font-size: var(--bimar-font-size-sm);
+    font-weight: var(--bimar-font-semibold);
+
+    letter-spacing: 0.04em;
+}
+
+.bimar-section-title {
+    color: var(--bimar-black);
+
+    font-size: var(--bimar-font-size-3xl);
+    font-weight: var(--bimar-font-bold);
+
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+.bimar-section-description {
+    max-width: 640px;
+
+    margin:
+        var(--bimar-space-5)
+        auto
+        0;
+
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-md);
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   UNIVERSITIES GRID
+   ========================================================= */
+
+.bimar-universities-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: var(--bimar-space-5);
+}
+
+
+/* =========================================================
+   UNIVERSITY CARD
+   ========================================================= */
+
+.bimar-university-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 190px;
+
+    padding: var(--bimar-space-8);
+
+    background-color: var(--bimar-white);
+
+    border: 1px solid var(--bimar-border);
+
+    border-radius: var(--bimar-radius-xl);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        transform var(--bimar-transition-normal),
+        border-color var(--bimar-transition-normal),
+        box-shadow var(--bimar-transition-normal);
+}
+
+.bimar-university-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--bimar-border-dark);
+
+    box-shadow: var(--bimar-shadow-md);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.bimar-university-card-content {
+    min-width: 0;
+}
+
+.bimar-university-card-country {
+    display: inline-block;
+
+    margin-bottom: var(--bimar-space-3);
+
+    color: var(--bimar-primary);
+
+    font-size: var(--bimar-font-size-xs);
+    font-weight: var(--bimar-font-semibold);
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.bimar-university-card h3 {
+    margin: 0;
+
+    color: var(--bimar-black);
+
+    font-size: var(--bimar-font-size-xl);
+    font-weight: var(--bimar-font-semibold);
+
+    line-height: 1.35;
+}
+
+.bimar-university-card p {
+    margin-top: var(--bimar-space-2);
+
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-sm);
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CARD ARROW
+   ========================================================= */
+
+.bimar-university-card-arrow {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin-inline-start: var(--bimar-space-4);
+
+    border: 1px solid var(--bimar-border);
+
+    border-radius: var(--bimar-radius-full);
+
+    color: var(--bimar-primary);
+
+    font-size: var(--bimar-font-size-lg);
+
+    transition:
+        transform var(--bimar-transition-normal),
+        background-color var(--bimar-transition-normal),
+        border-color var(--bimar-transition-normal);
+}
+
+.bimar-university-card:hover
+.bimar-university-card-arrow {
+    transform: translateX(4px);
+
+    background-color: var(--bimar-primary-light);
+
+    border-color: var(--bimar-primary);
+}
+
+
+/* =========================================================
+   UNIVERSITIES RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .bimar-universities-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .bimar-universities {
+        padding-block:
+            var(--bimar-space-20)
+            var(--bimar-space-24);
+    }
+
+    .bimar-section-header {
+        margin-bottom: var(--bimar-space-8);
+    }
+
+    .bimar-section-title {
+        font-size: var(--bimar-font-size-2xl);
+    }
+
+    .bimar-section-description {
+        font-size: var(--bimar-font-size-sm);
+    }
+
+    .bimar-universities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bimar-university-card {
+        min-height: 160px;
+
+        padding: var(--bimar-space-6);
+    }
+
+}
+
+/* =========================================================
    11. ANIMATION SYSTEM
    ========================================================= */
 
