@@ -363,6 +363,152 @@ ol {
 }
 
 /* =========================================================
+   10.1 HERO SECTION
+   ========================================================= */
+
+.bimar-hero {
+    width: 100%;
+
+    padding-block:
+        var(--bimar-space-32)
+        var(--bimar-space-24);
+
+    background-color: var(--bimar-bg);
+}
+
+
+.bimar-hero-content {
+    max-width: 820px;
+
+    margin-inline: auto;
+
+    text-align: center;
+
+    animation:
+        bimar-fade-up 0.7s ease both;
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+   ========================================================= */
+
+.bimar-hero-eyebrow {
+    margin-bottom: var(--bimar-space-5);
+
+    color: var(--bimar-primary);
+
+    font-size: var(--bimar-font-size-sm);
+    font-weight: var(--bimar-font-semibold);
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.bimar-hero-title {
+    color: var(--bimar-black);
+
+    font-size: var(--bimar-font-size-5xl);
+    font-weight: var(--bimar-font-bold);
+
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+
+.bimar-hero-title span {
+    display: block;
+
+    color: var(--bimar-primary);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.bimar-hero-description {
+    max-width: 680px;
+
+    margin:
+        var(--bimar-space-6)
+        auto
+        0;
+
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-lg);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+   ========================================================= */
+
+.bimar-hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--bimar-space-3);
+
+    margin-top: var(--bimar-space-8);
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .bimar-hero {
+        padding-block:
+            var(--bimar-space-24)
+            var(--bimar-space-16);
+    }
+
+    .bimar-hero-title {
+        font-size: var(--bimar-font-size-4xl);
+    }
+
+    .bimar-hero-description {
+        font-size: var(--bimar-font-size-md);
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .bimar-hero {
+        padding-block:
+            var(--bimar-space-20)
+            var(--bimar-space-16);
+    }
+
+    .bimar-hero-title {
+        font-size: var(--bimar-font-size-3xl);
+    }
+
+    .bimar-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bimar-hero-actions .bimar-btn {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
    11. ANIMATION SYSTEM
    ========================================================= */
 
