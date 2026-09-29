@@ -86,7 +86,7 @@ title:
     "Learn Medicine,",
 
 titleHighlight:
-    "Simply Organized.",,
+    "Simply Organized.",
 
     description:
         "A medical education platform that brings courses and medical learning content together in one organized place.",
