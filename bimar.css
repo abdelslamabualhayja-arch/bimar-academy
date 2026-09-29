@@ -854,6 +854,9 @@ html[dir="ltr"] .bimar-navbar-container {
     box-shadow: var(--bimar-shadow-md);
 }
 
+.bimar-mobile-menu.is-open {
+    display: block;
+}
 
 /* Mobile menu links */
 .bimar-mobile-menu-links {
@@ -904,10 +907,6 @@ html[dir="ltr"] .bimar-navbar-container {
 
     .bimar-navbar-login,
     .bimar-navbar-signup {
-        display: none;
-    }
-
-    .bimar-mobile-menu {
         display: none;
     }
 
