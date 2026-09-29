@@ -2589,3 +2589,122 @@ html[data-theme="dark"] .bimar-auth-card {
     align-items: flex-start;
   }
 }
+
+
+/* =========================================================
+   BIMAR NAVBAR — MOBILE
+   ========================================================= */
+@media (max-width: 850px) {
+  .bimar-navbar {
+    height: 72px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    overflow: visible !important;
+  }
+
+  .bimar-brand {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    gap: 9px !important;
+  }
+
+  .bimar-logo-mark {
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    border-radius: 12px !important;
+  }
+
+  .bimar-logo-mark svg {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  .bimar-brand-name {
+    font-size: 20px !important;
+  }
+
+  .bimar-brand-sub {
+    font-size: 7px !important;
+    letter-spacing: 2.5px !important;
+  }
+
+  .bimar-nav-links {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    inset-inline: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    background: rgba(255,255,255,.98) !important;
+    border: 1px solid var(--bimar-border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 18px 45px rgba(15,23,42,.14) !important;
+    z-index: 10000 !important;
+  }
+
+  .bimar-nav-links.open {
+    display: flex !important;
+  }
+
+  .bimar-nav-link {
+    width: 100% !important;
+    height: 44px !important;
+    justify-content: flex-start !important;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-link {
+    justify-content: flex-end !important;
+  }
+
+  .bimar-nav-link::after {
+    display: none !important;
+  }
+
+  .bimar-nav-actions {
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+  }
+
+  .bimar-login,
+  .bimar-start {
+    display: none !important;
+  }
+
+  .bimar-language button {
+    padding: 6px 8px !important;
+  }
+
+  .bimar-menu-btn {
+    display: flex !important;
+    flex: 0 0 42px !important;
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .bimar-brand-text {
+    display: none !important;
+  }
+
+  .bimar-nav-actions {
+    margin-inline-start: auto !important;
+  }
+}
+
+html[data-theme="dark"] .bimar-nav-links {
+  background: rgba(15,27,45,.98) !important;
+}
