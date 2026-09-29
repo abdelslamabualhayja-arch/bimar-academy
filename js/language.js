@@ -30,6 +30,24 @@
                 signup: "إنشاء حساب"
             },
 
+           hero: {
+    eyebrow: "التعليم الطبي، بشكل منظم.",
+
+    title:
+        "تعلّم الطب،",
+
+    titleHighlight:
+        "بشكل منظم وبسيط.",
+
+    description:
+        "منصة تعليمية طبية تجمع الدورات والشروحات الطبية في مكان واحد، بشكل منظم وسهل الوصول.",
+
+    primaryButton:
+        "استكشف الجامعات",
+
+    secondaryButton:
+        "استكشف المحتوى الطبي"
+},
             footer: {
                 description:
                     "منصة تعليمية طبية عربية تهدف إلى توفير محتوى طبي تعليمي منظم وموثوق، يجمع الدورات والشروحات الطبية من مختلف الجامعات والأنظمة التعليمية، إلى جانب محتوى طبي شامل.",
@@ -60,6 +78,25 @@
                 login: "Log in",
                 signup: "Sign up"
             },
+
+           hero: {
+    eyebrow: "Medical Education, Organized.",
+
+    title:
+        "Learn Medicine,",
+
+    titleHighlight:
+        "Simply Organized.",
+
+    description:
+        "A medical education platform that brings courses and medical learning content together in one organized place.",
+
+    primaryButton:
+        "Explore Universities",
+
+    secondaryButton:
+        "Explore Medical Content"
+},
 
             footer: {
                 description:
