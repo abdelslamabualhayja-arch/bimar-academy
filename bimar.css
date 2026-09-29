@@ -621,3 +621,127 @@ html[dir="rtl"] .bimar-navbar-container {
 html[dir="ltr"] .bimar-navbar-container {
     direction: ltr;
 }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.bimar-footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    background-color: var(--bimar-white);
+
+    border-top: 1px solid var(--bimar-border);
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+.bimar-footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: var(--bimar-space-12);
+
+    padding-block: var(--bimar-space-12);
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   ========================================================= */
+
+.bimar-footer-brand {
+    max-width: 560px;
+}
+
+.bimar-footer-brand-name {
+    margin-bottom: var(--bimar-space-3);
+
+    color: var(--bimar-black);
+
+    font-size: var(--bimar-font-size-xl);
+    font-weight: var(--bimar-font-bold);
+}
+
+.bimar-footer-description {
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-sm);
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+   ========================================================= */
+
+.bimar-footer-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--bimar-space-3);
+
+    min-width: 180px;
+}
+
+.bimar-footer-links a {
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-sm);
+    font-weight: var(--bimar-font-medium);
+
+    transition:
+        color var(--bimar-transition-normal);
+}
+
+.bimar-footer-links a:hover {
+    color: var(--bimar-primary);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.bimar-footer-bottom {
+    padding-block: var(--bimar-space-5);
+
+    border-top: 1px solid var(--bimar-border);
+
+    text-align: center;
+}
+
+.bimar-footer-bottom p {
+    color: var(--bimar-text-light);
+
+    font-size: var(--bimar-font-size-xs);
+}
+
+
+/* =========================================================
+   FOOTER RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .bimar-footer-content {
+        flex-direction: column;
+
+        gap: var(--bimar-space-8);
+    }
+
+    .bimar-footer-brand {
+        max-width: none;
+    }
+
+    .bimar-footer-links {
+        width: 100%;
+    }
+
+}
