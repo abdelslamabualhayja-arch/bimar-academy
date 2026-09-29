@@ -8,9 +8,15 @@
     const DEFAULT_LANGUAGE = "ar";
     const STORAGE_KEY = "bimar-language";
 
+
+    /* =====================================================
+       TRANSLATIONS
+       ===================================================== */
+
     const translations = {
 
         ar: {
+
             direction: "rtl",
 
             navbar: {
@@ -22,10 +28,26 @@
                 language: "EN",
                 login: "تسجيل الدخول",
                 signup: "إنشاء حساب"
+            },
+
+            footer: {
+                description:
+                    "منصة تعليمية طبية عربية تهدف إلى توفير محتوى طبي تعليمي منظم وموثوق، يجمع الدورات والشروحات الطبية من مختلف الجامعات والأنظمة التعليمية، إلى جانب محتوى طبي شامل.",
+
+                about: "عن BIMAR",
+                contact: "تواصل معنا",
+                privacy: "سياسة الخصوصية",
+                terms: "شروط الاستخدام",
+
+                copyright:
+                    "© 2026 BIMAR Academy — جميع الحقوق محفوظة."
             }
+
         },
 
+
         en: {
+
             direction: "ltr",
 
             navbar: {
@@ -37,7 +59,21 @@
                 language: "AR",
                 login: "Log in",
                 signup: "Sign up"
+            },
+
+            footer: {
+                description:
+                    "An Arabic medical educational platform dedicated to providing organized and reliable medical learning content, bringing together courses and educational resources from different universities and educational systems, alongside comprehensive medical content.",
+
+                about: "About BIMAR",
+                contact: "Contact Us",
+                privacy: "Privacy Policy",
+                terms: "Terms of Use",
+
+                copyright:
+                    "© 2026 BIMAR Academy — All rights reserved."
             }
+
         }
 
     };
@@ -52,7 +88,10 @@
         const savedLanguage =
             localStorage.getItem(STORAGE_KEY);
 
-        if (savedLanguage === "ar" || savedLanguage === "en") {
+        if (
+            savedLanguage === "ar" ||
+            savedLanguage === "en"
+        ) {
             return savedLanguage;
         }
 
@@ -89,7 +128,7 @@
 
 
         /* -------------------------------------------------
-           HTML DIRECTION
+           HTML LANGUAGE & DIRECTION
            ------------------------------------------------- */
 
         document.documentElement.lang =
@@ -100,90 +139,68 @@
 
 
         /* -------------------------------------------------
-           NAVBAR
+           ALL TRANSLATABLE ELEMENTS
            ------------------------------------------------- */
 
-        const homeLink =
-            document.querySelector(
-                '[data-i18n="navbar.home"]'
+        const elements =
+            document.querySelectorAll(
+                "[data-i18n]"
             );
 
-        const universitiesLink =
-            document.querySelector(
-                '[data-i18n="navbar.universities"]'
-            );
 
-        const comprehensiveLink =
-            document.querySelector(
-                '[data-i18n="navbar.comprehensive"]'
-            );
+        elements.forEach(function (element) {
 
-        const otherCoursesLink =
-            document.querySelector(
-                '[data-i18n="navbar.otherCourses"]'
-            );
+            const key =
+                element.dataset.i18n;
 
-        const languageButton =
-            document.querySelector(
-                '[data-language-toggle]'
-            );
+            const value =
+                getTranslation(
+                    translation,
+                    key
+                );
 
-        const loginLink =
-            document.querySelector(
-                '[data-i18n="navbar.login"]'
-            );
+            if (value !== null) {
+                element.textContent = value;
+            }
 
-        const signupLink =
-            document.querySelector(
-                '[data-i18n="navbar.signup"]'
-            );
+        });
 
 
         /* -------------------------------------------------
-           UPDATE TEXT
-           ------------------------------------------------- */
-
-        if (homeLink) {
-            homeLink.textContent =
-                translation.navbar.home;
-        }
-
-        if (universitiesLink) {
-            universitiesLink.textContent =
-                translation.navbar.universities;
-        }
-
-        if (comprehensiveLink) {
-            comprehensiveLink.textContent =
-                translation.navbar.comprehensive;
-        }
-
-        if (otherCoursesLink) {
-            otherCoursesLink.textContent =
-                translation.navbar.otherCourses;
-        }
-
-        if (languageButton) {
-            languageButton.textContent =
-                translation.navbar.language;
-        }
-
-        if (loginLink) {
-            loginLink.textContent =
-                translation.navbar.login;
-        }
-
-        if (signupLink) {
-            signupLink.textContent =
-                translation.navbar.signup;
-        }
-
-
-        /* -------------------------------------------------
-           SAVE
+           SAVE LANGUAGE
            ------------------------------------------------- */
 
         saveLanguage(selectedLanguage);
+    }
+
+
+    /* =====================================================
+       GET TRANSLATION
+       ===================================================== */
+
+    function getTranslation(object, path) {
+
+        const keys =
+            path.split(".");
+
+        let value = object;
+
+        for (const key of keys) {
+
+            if (
+                value === undefined ||
+                value === null ||
+                !(key in value)
+            ) {
+                return null;
+            }
+
+            value = value[key];
+        }
+
+        return typeof value === "string"
+            ? value
+            : null;
     }
 
 
@@ -213,8 +230,9 @@
 
         const languageButton =
             document.querySelector(
-                '[data-language-toggle]'
+                "[data-language-toggle]"
             );
+
 
         if (languageButton) {
 
@@ -224,6 +242,7 @@
             );
 
         }
+
 
         applyLanguage(
             getSavedLanguage()
