@@ -48,6 +48,16 @@ titleHighlight:
     secondaryButton:
         "استكشف المحتوى الطبي"
 },
+           universities: {
+
+    eyebrow: "الجامعات",
+
+    title: "تعلّم حسب جامعتك",
+
+    description:
+        "اختر الجامعة للوصول إلى الدورات والشروحات التعليمية المرتبطة بنظامها الدراسي."
+
+},
             footer: {
                 description:
                     "منصة تعليمية طبية عربية تهدف إلى توفير محتوى طبي تعليمي منظم وموثوق، يجمع الدورات والشروحات الطبية من مختلف الجامعات والأنظمة التعليمية، إلى جانب محتوى طبي شامل.",
@@ -96,6 +106,16 @@ titleHighlight:
 
     secondaryButton:
         "Explore Medical Content"
+},
+           universities: {
+
+    eyebrow: "Universities",
+
+    title: "Learn by Your University",
+
+    description:
+        "Choose a university to explore courses and educational content organized around its curriculum."
+
 },
 
             footer: {
