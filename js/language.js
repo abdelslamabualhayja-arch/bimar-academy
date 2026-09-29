@@ -33,12 +33,12 @@
            hero: {
     eyebrow: "التعليم الطبي، بشكل منظم.",
 
-    title:
-        "تعلّم الطب،",
+title:
+    "تعلّم الطب،",
 
-    titleHighlight:
-        "بشكل منظم وبسيط.",
-
+titleHighlight:
+    "بشكل منظم وبسيط.",
+              
     description:
         "منصة تعليمية طبية تجمع الدورات والشروحات الطبية في مكان واحد، بشكل منظم وسهل الوصول.",
 
@@ -82,11 +82,11 @@
            hero: {
     eyebrow: "Medical Education, Organized.",
 
-    title:
-        "Learn Medicine,",
+title:
+    "Learn Medicine,",
 
-    titleHighlight:
-        "Simply Organized.",
+titleHighlight:
+    "Simply Organized.",,
 
     description:
         "A medical education platform that brings courses and medical learning content together in one organized place.",
