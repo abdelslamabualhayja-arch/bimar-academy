@@ -381,14 +381,22 @@ function initBimarLanguageButtons() {
 
   if (!enButton || !arButton) return;
 
-  enButton.addEventListener("click", function (event) {
+  // Language controls are never form submissions.
+  enButton.type = "button";
+  arButton.type = "button";
+
+  function handleLanguageClick(event, language) {
     event.preventDefault();
-    setBimarLanguage("en");
+    event.stopPropagation();
+    setBimarLanguage(language);
+  }
+
+  enButton.addEventListener("click", function (event) {
+    handleLanguageClick(event, "en");
   });
 
   arButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    setBimarLanguage("ar");
+    handleLanguageClick(event, "ar");
   });
 }
 
