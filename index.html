@@ -22,12 +22,15 @@
 
 <body>
 
-    <header class="bimar-navbar">
+<header class="bimar-navbar">
 
     <div class="bimar-navbar-container">
 
         <!-- Brand -->
-        <a href="index.html" class="bimar-navbar-brand">
+        <a
+            href="index.html"
+            class="bimar-navbar-brand"
+        >
 
             <span class="bimar-navbar-brand-mark">
                 B
@@ -81,9 +84,10 @@
         </nav>
 
 
-        <!-- Actions -->
+        <!-- Navbar Actions -->
         <div class="bimar-navbar-actions">
 
+            <!-- Language -->
             <button
                 type="button"
                 class="bimar-navbar-action"
@@ -94,6 +98,25 @@
                 EN
             </button>
 
+
+            <!-- Mobile Menu Toggle -->
+            <button
+                type="button"
+                class="bimar-navbar-menu-toggle"
+                id="bimar-mobile-menu-toggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="bimar-mobile-menu"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <!-- Login -->
             <a
                 href="#"
                 class="bimar-navbar-action bimar-navbar-login"
@@ -102,6 +125,8 @@
                 تسجيل الدخول
             </a>
 
+
+            <!-- Sign Up -->
             <a
                 href="#"
                 class="bimar-navbar-action bimar-navbar-signup"
@@ -114,7 +139,56 @@
 
     </div>
 
+
+    <!-- Mobile Menu -->
+    <div
+        class="bimar-mobile-menu"
+        id="bimar-mobile-menu"
+    >
+
+        <nav
+            class="bimar-mobile-menu-links"
+            aria-label="Mobile navigation"
+        >
+
+            <a
+                href="index.html"
+                class="bimar-mobile-menu-link"
+                data-i18n="navbar.home"
+            >
+                الرئيسية
+            </a>
+
+            <a
+                href="#"
+                class="bimar-mobile-menu-link"
+                data-i18n="navbar.universities"
+            >
+                الجامعات
+            </a>
+
+            <a
+                href="#"
+                class="bimar-mobile-menu-link"
+                data-i18n="navbar.comprehensive"
+            >
+                المحتوى الطبي الشامل
+            </a>
+
+            <a
+                href="#"
+                class="bimar-mobile-menu-link"
+                data-i18n="navbar.otherCourses"
+            >
+                دورات أخرى
+            </a>
+
+        </nav>
+
+    </div>
+
 </header>
+    
     <!-- =====================================================
      FOOTER
      ===================================================== -->
