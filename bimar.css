@@ -1,1 +1,584 @@
+/* =========================================================
+   BIMAR ACADEMY
+   Global Design System
+   ========================================================= */
 
+
+/* =========================================================
+   1. CSS VARIABLES
+   ========================================================= */
+
+:root {
+    /* Brand Colors */
+    --bimar-primary: #2563eb;
+    --bimar-primary-dark: #1d4ed8;
+    --bimar-primary-light: #eff6ff;
+
+    /* Neutral Colors */
+    --bimar-white: #ffffff;
+    --bimar-black: #111827;
+    --bimar-text: #1f2937;
+    --bimar-text-light: #6b7280;
+
+    /* Backgrounds */
+    --bimar-bg: #f8fafc;
+    --bimar-bg-secondary: #f1f5f9;
+
+    /* Borders */
+    --bimar-border: #e5e7eb;
+    --bimar-border-dark: #d1d5db;
+
+    /* Status */
+    --bimar-success: #16a34a;
+    --bimar-warning: #d97706;
+    --bimar-danger: #dc2626;
+
+    /* Typography */
+    --bimar-font-family:
+        "Inter",
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    --bimar-font-size-xs: 0.75rem;
+    --bimar-font-size-sm: 0.875rem;
+    --bimar-font-size-md: 1rem;
+    --bimar-font-size-lg: 1.125rem;
+    --bimar-font-size-xl: 1.25rem;
+    --bimar-font-size-2xl: 1.5rem;
+    --bimar-font-size-3xl: 2rem;
+
+    /* Font Weight */
+    --bimar-font-normal: 400;
+    --bimar-font-medium: 500;
+    --bimar-font-semibold: 600;
+    --bimar-font-bold: 700;
+
+    /* Spacing */
+    --bimar-space-1: 0.25rem;
+    --bimar-space-2: 0.5rem;
+    --bimar-space-3: 0.75rem;
+    --bimar-space-4: 1rem;
+    --bimar-space-5: 1.25rem;
+    --bimar-space-6: 1.5rem;
+    --bimar-space-8: 2rem;
+    --bimar-space-10: 2.5rem;
+    --bimar-space-12: 3rem;
+    --bimar-space-16: 4rem;
+
+    /* Radius */
+    --bimar-radius-sm: 6px;
+    --bimar-radius-md: 10px;
+    --bimar-radius-lg: 14px;
+    --bimar-radius-xl: 20px;
+    --bimar-radius-full: 9999px;
+
+    /* Shadows */
+    --bimar-shadow-sm:
+        0 1px 2px rgba(0, 0, 0, 0.05);
+
+    --bimar-shadow-md:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    --bimar-shadow-lg:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+    /* Layout */
+    --bimar-container-width: 1200px;
+
+    /* Transitions */
+    --bimar-transition-fast: 0.15s ease;
+    --bimar-transition-normal: 0.25s ease;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--bimar-font-family);
+    font-size: var(--bimar-font-size-md);
+    font-weight: var(--bimar-font-normal);
+    line-height: 1.6;
+    color: var(--bimar-text);
+    background-color: var(--bimar-bg);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   3. GLOBAL ELEMENTS
+   ========================================================= */
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* =========================================================
+   4. CONTAINER
+   ========================================================= */
+
+.bimar-container {
+    width: 100%;
+    max-width: var(--bimar-container-width);
+    margin-inline: auto;
+    padding-inline: var(--bimar-space-6);
+}
+
+
+/* =========================================================
+   5. TYPOGRAPHY
+   ========================================================= */
+
+.bimar-title {
+    color: var(--bimar-black);
+    font-size: var(--bimar-font-size-3xl);
+    font-weight: var(--bimar-font-bold);
+    line-height: 1.25;
+}
+
+.bimar-subtitle {
+    color: var(--bimar-text);
+    font-size: var(--bimar-font-size-xl);
+    font-weight: var(--bimar-font-semibold);
+    line-height: 1.4;
+}
+
+.bimar-text {
+    color: var(--bimar-text);
+}
+
+.bimar-muted {
+    color: var(--bimar-text-light);
+}
+
+
+/* =========================================================
+   6. BUTTONS
+   ========================================================= */
+
+.bimar-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--bimar-space-2);
+
+    min-height: 42px;
+    padding: 0 var(--bimar-space-5);
+
+    border: 1px solid transparent;
+    border-radius: var(--bimar-radius-md);
+
+    font-size: var(--bimar-font-size-md);
+    font-weight: var(--bimar-font-medium);
+
+    transition:
+        background-color var(--bimar-transition-normal),
+        border-color var(--bimar-transition-normal),
+        color var(--bimar-transition-normal),
+        box-shadow var(--bimar-transition-normal),
+        transform var(--bimar-transition-normal);
+}
+
+.bimar-btn:hover {
+    transform: translateY(-1px);
+}
+
+.bimar-btn-primary {
+    color: var(--bimar-white);
+    background-color: var(--bimar-primary);
+}
+
+.bimar-btn-primary:hover {
+    background-color: var(--bimar-primary-dark);
+}
+
+.bimar-btn-secondary {
+    color: var(--bimar-text);
+    background-color: var(--bimar-white);
+    border-color: var(--bimar-border-dark);
+}
+
+.bimar-btn-secondary:hover {
+    background-color: var(--bimar-bg-secondary);
+}
+
+
+/* =========================================================
+   7. CARDS
+   ========================================================= */
+
+.bimar-card {
+    background-color: var(--bimar-white);
+    border: 1px solid var(--bimar-border);
+    border-radius: var(--bimar-radius-lg);
+    box-shadow: var(--bimar-shadow-sm);
+}
+
+.bimar-card:hover {
+    box-shadow: var(--bimar-shadow-md);
+}
+
+
+/* =========================================================
+   8. FORMS
+   ========================================================= */
+
+.bimar-input,
+.bimar-select,
+.bimar-textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+
+    color: var(--bimar-text);
+    background-color: var(--bimar-white);
+
+    border: 1px solid var(--bimar-border-dark);
+    border-radius: var(--bimar-radius-md);
+
+    outline: none;
+
+    transition:
+        border-color var(--bimar-transition-normal),
+        box-shadow var(--bimar-transition-normal);
+}
+
+.bimar-input:focus,
+.bimar-select:focus,
+.bimar-textarea:focus {
+    border-color: var(--bimar-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.bimar-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   9. SECTIONS
+   ========================================================= */
+
+.bimar-section {
+    width: 100%;
+    padding-block: var(--bimar-space-16);
+}
+
+.bimar-section-header {
+    margin-bottom: var(--bimar-space-8);
+}
+
+
+/* =========================================================
+   10. RTL / LTR
+   ========================================================= */
+
+html[dir="rtl"] {
+    direction: rtl;
+}
+
+html[dir="ltr"] {
+    direction: ltr;
+}
+
+
+/* =========================================================
+   11. ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .bimar-container {
+        padding-inline: var(--bimar-space-4);
+    }
+
+    .bimar-title {
+        font-size: var(--bimar-font-size-2xl);
+    }
+
+    .bimar-section {
+        padding-block: var(--bimar-space-12);
+    }
+}
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    .bimar-container {
+        padding-inline: var(--bimar-space-3);
+    }
+}
+/* =========================================================
+   NAVBAR VARIABLES
+   ========================================================= */
+
+:root {
+    --bimar-navbar-height: 72px;
+
+    --bimar-navbar-bg: #ffffff;
+    --bimar-navbar-border: #e5e7eb;
+
+    --bimar-navbar-text: #374151;
+    --bimar-navbar-text-hover: #2563eb;
+
+    --bimar-navbar-logo-size: 42px;
+
+    --bimar-navbar-gap: 1.5rem;
+  
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.bimar-navbar {
+    width: 100%;
+    height: var(--bimar-navbar-height);
+
+    background-color: var(--bimar-navbar-bg);
+    border-bottom: 1px solid var(--bimar-navbar-border);
+
+    position: relative;
+    z-index: 1000;
+}
+
+.bimar-navbar-container {
+    width: 100%;
+    max-width: var(--bimar-container-width);
+    height: 100%;
+
+    margin-inline: auto;
+    padding-inline: var(--bimar-space-6);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--bimar-navbar-gap);
+}
+
+
+/* =========================================================
+   NAVBAR BRAND
+   ========================================================= */
+
+.bimar-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    flex-shrink: 0;
+
+    color: var(--bimar-black);
+    font-weight: var(--bimar-font-bold);
+    white-space: nowrap;
+}
+
+.bimar-navbar-logo {
+    width: var(--bimar-navbar-logo-size);
+    height: var(--bimar-navbar-logo-size);
+
+    object-fit: contain;
+}
+
+.bimar-navbar-brand-name {
+    font-size: var(--bimar-font-size-lg);
+    line-height: 1;
+}
+
+
+/* =========================================================
+   NAVBAR MENU
+   ========================================================= */
+
+.bimar-navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5rem;
+
+    flex: 1;
+}
+
+.bimar-navbar-link {
+    position: relative;
+
+    padding: 0.5rem 0.25rem;
+
+    color: var(--bimar-navbar-text);
+
+    font-size: var(--bimar-font-size-sm);
+    font-weight: var(--bimar-font-medium);
+
+    white-space: nowrap;
+
+    transition:
+        color var(--bimar-transition-normal);
+}
+
+.bimar-navbar-link:hover {
+    color: var(--bimar-navbar-text-hover);
+}
+
+
+/* =========================================================
+   NAVBAR ACTIONS
+   ========================================================= */
+
+.bimar-navbar-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    flex-shrink: 0;
+}
+
+.bimar-navbar-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0.5rem 0.75rem;
+
+    border-radius: var(--bimar-radius-md);
+
+    color: var(--bimar-navbar-text);
+
+    font-size: var(--bimar-font-size-sm);
+    font-weight: var(--bimar-font-medium);
+
+    white-space: nowrap;
+
+    transition:
+        background-color var(--bimar-transition-normal),
+        color var(--bimar-transition-normal);
+}
+
+.bimar-navbar-action:hover {
+    color: var(--bimar-navbar-text-hover);
+    background-color: var(--bimar-primary-light);
+}
+
+
+/* =========================================================
+   LOGIN / SIGN UP
+   ========================================================= */
+
+.bimar-navbar-login {
+    border: 1px solid var(--bimar-border-dark);
+    background-color: var(--bimar-white);
+}
+
+.bimar-navbar-login:hover {
+    background-color: var(--bimar-bg-secondary);
+}
+
+.bimar-navbar-signup {
+    color: var(--bimar-white);
+    background-color: var(--bimar-primary);
+}
+
+.bimar-navbar-signup:hover {
+    color: var(--bimar-white);
+    background-color: var(--bimar-primary-dark);
+}
+
+
+/* =========================================================
+   NAVBAR RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .bimar-navbar-menu {
+        gap: 0.75rem;
+    }
+
+    .bimar-navbar-link {
+        font-size: var(--bimar-font-size-xs);
+    }
+
+    .bimar-navbar-brand-name {
+        display: none;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .bimar-navbar-container {
+        padding-inline: var(--bimar-space-4);
+    }
+
+    .bimar-navbar-menu {
+        display: none;
+    }
+
+    .bimar-navbar-actions {
+        margin-inline-start: auto;
+    }
+}
