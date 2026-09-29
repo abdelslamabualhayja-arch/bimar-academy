@@ -392,9 +392,19 @@ function initBimarLanguageButtons() {
   });
 }
 
+function initBimarActiveNav() {
+  const current = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".bimar-nav-link").forEach(function (link) {
+    const href = (link.getAttribute("href") || "").split("#")[0];
+    const target = href.split("/").pop();
+    link.classList.toggle("active", target === current);
+  });
+}
+
 function initBimar() {
   initBimarFooter();
   initBimarLanguageButtons();
+  initBimarActiveNav();
   loadBimarLanguage();
   initBimarNavbarScroll();
   initBimarMobileMenu();
