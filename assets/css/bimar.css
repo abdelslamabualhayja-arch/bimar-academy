@@ -800,6 +800,17 @@ html[dir="rtl"] h3 {
   }
 }
 
+/* Desktop brand text stays one isolated, non-wrapping zone. */
+.bimar-brand-text {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.bimar-brand-name,
+.bimar-brand-sub {
+  white-space: nowrap;
+}
+
 /* =========================================================
    📱 MOBILE
    ========================================================= */
@@ -1011,82 +1022,6 @@ html[dir="rtl"] h3 {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-
-/* =========================================================
-   🖥️ DESKTOP NAVBAR BALANCE
-   ========================================================= */
-
-@media (min-width: 851px) {
-
-  .bimar-navbar {
-    height: 76px !important;
-  }
-
-  .bimar-nav-links {
-    display: flex !important;
-    position: absolute !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 30px !important;
-    margin: 0 !important;
-  }
-
-  .bimar-nav-link {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    height: 40px !important;
-  }
-
-  .bimar-nav-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    white-space: nowrap !important;
-  }
-
-  .bimar-login,
-  .bimar-start {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    height: 42px !important;
-  }
-
-  /* Brand and actions follow the page language:
-     English → brand left, actions right.
-     Arabic  → brand right, actions left.
-     Navigation links remain independently centered. */
-  html[dir="ltr"] .bimar-brand {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
-  }
-
-  html[dir="ltr"] .bimar-nav-actions {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-brand {
-    position: absolute !important;
-    right: 5% !important;
-    left: auto !important;
-  }
-
-  html[dir="rtl"] .bimar-nav-actions {
-    position: absolute !important;
-    left: 5% !important;
-    right: auto !important;
   }
 }
 
