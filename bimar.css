@@ -617,32 +617,7 @@ html[dir="rtl"] .bimar-navbar-container {
     direction: rtl;
 }
 
-html[dir="rtl"] .bimar-navbar-brand {
-    order: 1;
-}
-
-html[dir="rtl"] .bimar-navbar-menu {
-    order: 2;
-}
-
-html[dir="rtl"] .bimar-navbar-actions {
-    order: 3;
-}
-
-
 /* English */
 html[dir="ltr"] .bimar-navbar-container {
     direction: ltr;
-}
-
-html[dir="ltr"] .bimar-navbar-brand {
-    order: 1;
-}
-
-html[dir="ltr"] .bimar-navbar-menu {
-    order: 2;
-}
-
-html[dir="ltr"] .bimar-navbar-actions {
-    order: 3;
 }
