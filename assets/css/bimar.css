@@ -724,8 +724,18 @@ html[dir="rtl"] h3 {
     margin: 0 !important;
     white-space: nowrap !important;
 
-    /* Keep each label's own writing direction isolated. */
+    /* Keep each label's writing direction isolated. */
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+  }
+
+  html[dir="rtl"] .bimar-nav-links .bimar-nav-link {
     direction: rtl !important;
+    unicode-bidi: isolate !important;
+  }
+
+  html[dir="ltr"] .bimar-nav-links .bimar-nav-link {
+    direction: ltr !important;
     unicode-bidi: isolate !important;
   }
 
