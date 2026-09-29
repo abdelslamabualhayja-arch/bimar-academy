@@ -582,3 +582,28 @@ html[dir="ltr"] {
         margin-inline-start: auto;
     }
 }
+
+/* =========================================================
+   NAVBAR BRAND MARK
+   ========================================================= */
+
+.bimar-navbar-brand-mark {
+    width: var(--bimar-navbar-logo-size);
+    height: var(--bimar-navbar-logo-size);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--bimar-white);
+    background-color: var(--bimar-primary);
+
+    border-radius: var(--bimar-radius-md);
+
+    font-size: var(--bimar-font-size-lg);
+    font-weight: var(--bimar-font-bold);
+
+    line-height: 1;
+}
