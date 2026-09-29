@@ -304,9 +304,20 @@
   <script>
     document.getElementById("bimarLoginForm").addEventListener("submit", function (event) {
       event.preventDefault();
-      alert(document.documentElement.dir === "rtl"
-        ? "تسجيل الدخول سيُفعّل عند ربط نظام الحسابات."
-        : "Login will be enabled when the account system is connected.");
+
+      const email = document.getElementById("loginEmail");
+      const password = document.getElementById("loginPassword");
+
+      if (!email.checkValidity() || !password.value.trim()) {
+        this.reportValidity();
+        return;
+      }
+
+      // Frontend-only demo flow until a real authentication provider is connected.
+      localStorage.setItem("bimarLoggedIn", "true");
+      localStorage.setItem("bimarUserEmail", email.value.trim());
+
+      window.location.href = "/dashboard.html";
     });
   </script>
 </body>
